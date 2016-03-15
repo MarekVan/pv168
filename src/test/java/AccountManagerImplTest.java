@@ -1,16 +1,17 @@
-
-
-import static bankingsystem.Account.newAccount;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-//import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
 import pv168.Account;
+import pv168.AccountManagerImpl;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 import static pv168.Account.newAccount;
+
+//import static org.hamcrest.CoreMatchers.*;
 
 /**
  *
@@ -145,7 +146,7 @@ public class AccountManagerImplTest {
         Account account = newAccount("Percy", new BigDecimal(999));
 
         manager.createAccount(account);
-        account.setBalance(new BigDecimal(50_000));
+        account.setBalance(new BigDecimal(50000));
         account.setOwner("Carol");
 
         manager.updateAccount(account);
@@ -155,7 +156,7 @@ public class AccountManagerImplTest {
 //    assertThat("Updated record in database should match with modified Account object!", result, is(equalTo(account)));
         assertEquals(result, account);
 
-        assertEquals(new BigDecimal(50_000), result.getBalance());
+        assertEquals(new BigDecimal(50000), result.getBalance());
         assertEquals("Carol", result.getOwner());
 
 //        Account acc1 = newAccount("Eve", new BigDecimal(450));
@@ -269,7 +270,7 @@ public class AccountManagerImplTest {
         Account acc3 = newAccount("George", new BigDecimal(0));
         Account acc4 = newAccount("Jacob", new BigDecimal(355));
 
-        List<Account> initialAccounts = new ArrayList<>();
+        List<Account> initialAccounts = new ArrayList<Account>();
         initialAccounts.add(acc1);
         initialAccounts.add(acc2);
         initialAccounts.add(acc3);

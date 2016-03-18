@@ -1,8 +1,15 @@
+import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.junit.After;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 import pv168.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.*;
 
 import static org.junit.Assert.*;
@@ -14,17 +21,48 @@ import static org.hamcrest.CoreMatchers.*;
 public class PaymentManagerImplTest {
 
     private PaymentManagerImpl manager;
+    private DataSource dataSource;
+    private static Long count = 0L;
+
+    @Rule
+    // attribute annotated with @Rule annotation must be public :-(
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Before
-    public void setUp() throws Exception {
-        manager = new PaymentManagerImpl();
+    public void setUp() throws SQLException {
+        dataSource = prepareDataSource();
+        try (Connection connection = dataSource.getConnection()) {
+            connection.prepareStatement("CREATE TABLE PAYMENT ("
+                    + "id bigint primary key generated always as identity,"
+                    + "amount INTEGER ,"
+                    + "fromAcc INTEGER ,"
+                    + "toAcc INTEGER ,"
+                    + "dateSent DATE )").executeUpdate();
+        }
+        manager = new PaymentManagerImpl(dataSource);
     }
 
+    @After
+    public void tearDown() throws SQLException {
+        try (Connection connection = dataSource.getConnection()) {
+            connection.prepareStatement("DROP TABLE PAYMENT").executeUpdate();
+        }
+    }
+
+    private static DataSource prepareDataSource() throws SQLException {
+        EmbeddedDataSource ds = new EmbeddedDataSource();
+        //we will use in memory database
+        ds.setDatabaseName("memory:paymentmgr-test");
+        ds.setCreateDatabase("create");
+        return ds;
+    }
     @Test
     public void testCreatePayment() throws Exception {
-
+        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Payment payment = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
         manager.createPayment(payment);
         Long paymentId = payment.getId();
 
@@ -41,56 +79,70 @@ public class PaymentManagerImplTest {
     }
 
     @Test
-    public void createPaymentWithWrongValues() {
+    public void createPaymentWithExistingId() {
+        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Payment payment = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
         payment.setId(1L);
-        try {
-            manager.createPayment(payment);
-            fail("should refuse assigned id");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+        expectedException.expect(IllegalArgumentException.class);
+        manager.createPayment(payment);
+    }
 
-        payment = newPayment(new BigDecimal(-2000), new Account(), new Account(), cal.getTime());
-        try {
-            manager.createPayment(payment);
-            fail("negative balance not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void createPaymentWithNegativeAmount() {
+        BigDecimal amount = new BigDecimal(-2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        expectedException.expect(IllegalArgumentException.class);
+        manager.createPayment(payment);
+    }
 
-        payment = newPayment(new BigDecimal(2000), null, new Account(), cal.getTime());
-        try {
-            manager.createPayment(payment);
-            fail("null account from not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void createPaymentWithNullFromAccount() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, null, to1, cal.getTime());
+        expectedException.expect(IllegalArgumentException.class);
+        manager.createPayment(payment);
+    }
 
-        payment = newPayment(new BigDecimal(2000), new Account(), null, cal.getTime());
-        try {
-            manager.createPayment(payment);
-            fail("null account to not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void createPaymentWithNullToAccount() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Payment payment = newPayment(amount, from1, null, cal.getTime());
+        expectedException.expect(IllegalArgumentException.class);
+        manager.createPayment(payment);
+    }
 
-        payment = newPayment(new BigDecimal(2000), new Account(), new Account(), null);
-        try {
-            manager.createPayment(payment);
-            fail("null date not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
+    @Test
+    public void createPaymentWithNullDate() {
+        BigDecimal amount = new BigDecimal(2000);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, null);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.createPayment(payment);
     }
 
     @Test
     public void testDeletePayment() throws Exception {
+        BigDecimal amount = new BigDecimal(2000);
+        BigDecimal amount2 = new BigDecimal(20000);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Account from2 = newAccount("robo", amount);
+        Account to2 = newAccount("laco", amount);
         Calendar cal = newCalendar(2016, 3, 12);
-        Payment p1 = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
-        Payment p2 = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
+        Calendar ca2 = newCalendar(2015, 3, 12);
+        Payment p1 = newPayment(amount, from1, to1, cal.getTime());
+        Payment p2 = newPayment(amount2, from2, to2, ca2.getTime());
         manager.createPayment(p1);
         manager.createPayment(p2);
 
@@ -104,61 +156,63 @@ public class PaymentManagerImplTest {
     }
 
     @Test
-    public void deletePaymentWithWrongAttributes() {
+    public void deleteNullPayment() {
+        expectedException.expect(IllegalArgumentException.class);
+        manager.deletePayment(null);
+    }
+
+    @Test
+    public void deletePaymentWithNullId() {
+        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Payment payment = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        payment.setId(null);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.deletePayment(payment);
+    }
 
-        try {
-            manager.deletePayment(null);
-            fail("null payment not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
-        try {
-            payment.setId(null);
-            manager.deletePayment(payment);
-            fail("null id not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
-        try {
-            payment.setId(1L);
-            manager.deletePayment(payment);
-            fail("non-existing payment not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
+    @Test
+    public void deletePaymentThatDoesNotExist() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        payment.setId(12L);
+        expectedException.expect(EntityNotFoundException.class);
+        manager.deletePayment(payment);
     }
 
     @Test
     public void testUpdatePayment() throws Exception {
         Calendar cal = newCalendar(2016, 3, 12);
         Calendar ca2 = newCalendar(2015, 4, 1);
-        Account from1 = newAccount("jano", new BigDecimal(2000));
-        Account to1 = newAccount("marian", new BigDecimal(3000));
-        Account from2 = newAccount("robo", new BigDecimal(4000));
-        Account to2 = newAccount("laco", new BigDecimal(5000));
-        Payment p1 = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
-        Payment p2 = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
+        BigDecimal amount = new BigDecimal(2000);
+        BigDecimal amount2 = new BigDecimal(20000);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Account from2 = newAccount("robo", amount);
+        Account to2 = newAccount("laco", amount);
+        Payment p1 = newPayment(amount, from1, to1, cal.getTime());
+        Payment p2 = newPayment(amount, from1, to1, cal.getTime());
         manager.createPayment(p1);
         manager.createPayment(p2);
         Long paymentId = p1.getId();
 
-        p1.setAmount(new BigDecimal(555));
+        p1.setAmount(amount2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was not changed", p1.getAmount(), is(equalTo(new BigDecimal(555))));
-        assertThat("account from was changed when changing amount", p1.getFrom(), is(equalTo(from1)));
-        assertThat("account to was changed when changing amount", p1.getTo(), is(equalTo(to1)));
-        assertThat("date was changed when changing amount", p1.getSent(), is(equalTo(cal.getTime())));
+        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getFrom(), is(equalTo(from1)));
+        assertThat(p1.getTo(), is(equalTo(to1)));
+        assertThat(p1.getSent(), is(equalTo(cal.getTime())));
 
         p1.setFrom(from2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was changed when changing from account", p1.getAmount(), is(equalTo(new BigDecimal(555))));
+        assertThat("amount was changed when changing from account", p1.getAmount(), is(equalTo(amount2)));
         assertThat("account from was not changed", p1.getFrom(), is(equalTo(from2)));
         assertThat("account to was changed when changing from account", p1.getTo(), is(equalTo(to1)));
         assertThat("date was changed when changing from account", p1.getSent(), is(equalTo(cal.getTime())));
@@ -166,7 +220,7 @@ public class PaymentManagerImplTest {
         p1.setTo(to2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was changed when changing to accoun", p1.getAmount(), is(equalTo(new BigDecimal(555))));
+        assertThat("amount was changed when changing to accoun", p1.getAmount(), is(equalTo(amount2)));
         assertThat("account from was changed when changing to accoun", p1.getFrom(), is(equalTo(from2)));
         assertThat("account to was not changed", p1.getTo(), is(equalTo(to2)));
         assertThat("date was changed when changing to accoun", p1.getSent(), is(equalTo(cal.getTime())));
@@ -174,7 +228,7 @@ public class PaymentManagerImplTest {
         p1.setSent(ca2.getTime());
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was changed when changing date", p1.getAmount(), is(equalTo(new BigDecimal(555))));
+        assertThat("amount was changed when changing date", p1.getAmount(), is(equalTo(amount2)));
         assertThat("account from was changed when changing date", p1.getFrom(), is(equalTo(from2)));
         assertThat("account to was changed when changing date", p1.getTo(), is(equalTo(to2)));
         assertThat("date was not changed", p1.getSent(), is(equalTo(ca2.getTime())));
@@ -184,92 +238,104 @@ public class PaymentManagerImplTest {
     }
 
     @Test
-    public void updatePaymentWithWrongAttributes() {
+    public void updatePaymentWithNull() {
+        expectedException.expect(IllegalArgumentException.class);
+        manager.createPayment(null);
+    }
 
+    @Test
+    public void updatePaymentThatDoesNotExist() {
+        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Payment payment = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
         manager.createPayment(payment);
-        Long paymentId = payment.getId();
+        payment.setId(payment.getId() + 1000);
+        expectedException.expect(EntityNotFoundException.class);
+        manager.updatePayment(payment);
+    }
 
-        try {
-            manager.updatePayment(null);
-            fail("null payment not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void updatePaymentWithNullAmount() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager.createPayment(payment);
+        payment.setAmount(null);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.updatePayment(payment);
+    }
 
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setId(null);
-            manager.updatePayment(payment);
-            fail("null id not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void updatePaymentWithNegativeAmount() {
+        BigDecimal amount = new BigDecimal(2000);
+        BigDecimal amount2 = new BigDecimal(-2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager.createPayment(payment);
+        payment.setAmount(amount2);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.updatePayment(payment);
+    }
 
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setId(paymentId + 1);
-            manager.updatePayment(payment);
-            fail("changed id not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void updatePaymentWithNullFromAccount() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager.createPayment(payment);
+        payment.setFrom(null);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.updatePayment(payment);
+    }
 
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setAmount(null);
-            manager.updatePayment(payment);
-            fail("null amount not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void updatePaymentWithNullToAccount() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager.createPayment(payment);
+        payment.setTo(null);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.updatePayment(payment);
+    }
 
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setAmount(new BigDecimal(-520));
-            manager.updatePayment(payment);
-            fail("negative amount not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setTo(null);
-            manager.updatePayment(payment);
-            fail("null account to not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setFrom(null);
-            manager.updatePayment(payment);
-            fail("null account from not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-
-        try {
-            payment = manager.findPaymentById(paymentId);
-            payment.setSent(null);
-            manager.updatePayment(payment);
-            fail("null date not detected");
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
+    @Test
+    public void updatePaymentWithNullDate() {
+        BigDecimal amount = new BigDecimal(2000);
+        Calendar cal = newCalendar(2016, 3, 12);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager.createPayment(payment);
+        payment.setSent(null);
+        expectedException.expect(IllegalArgumentException.class);
+        manager.updatePayment(payment);
     }
 
     @Test
     public void testFindAllPayments() throws Exception {
-        Calendar cal = newCalendar(2016, 3, 12);
         assertTrue(manager.findAllPayments().isEmpty());
 
-        Payment p1 = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
-        Payment p2 = newPayment(new BigDecimal(2000), new Account(), new Account(), cal.getTime());
-
+        Calendar cal = newCalendar(2016, 3, 12);
+        Calendar ca2 = newCalendar(2015, 4, 1);
+        BigDecimal amount = new BigDecimal(2000);
+        BigDecimal amount2 = new BigDecimal(20000);
+        Account from1 = newAccount("jano", amount);
+        Account to1 = newAccount("marian", amount);
+        Account from2 = newAccount("robo", amount);
+        Account to2 = newAccount("laco", amount);
+        Payment p1 = newPayment(amount, from1, to1, cal.getTime());
+        Payment p2 = newPayment(amount2, from2, to2, ca2.getTime());
         manager.createPayment(p1);
         manager.createPayment(p2);
 
@@ -286,7 +352,8 @@ public class PaymentManagerImplTest {
 
     public static Payment newPayment(BigDecimal amount,  Account from, Account to, Date sent){
         Payment payment = new Payment();
-        payment.setAmount(amount);
+        BigDecimal amount2 = new BigDecimal(amount.toString());
+        payment.setAmount(amount2);
         payment.setFrom(from);
         payment.setTo(to);
         payment.setSent(sent);
@@ -297,6 +364,7 @@ public class PaymentManagerImplTest {
         Account account = new Account();
         account.setOwner(owner);
         account.setBalance(balance);
+        account.setId(count++);
         return account;
     }
 

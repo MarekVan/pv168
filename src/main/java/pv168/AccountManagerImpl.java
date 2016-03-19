@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by xvancik on 3/8/16.
  */
-public class AccountManagerImpl implements AccountManager
+public class AccountManagerImpl implements AccountManager{
 
     public AccountManagerImpl(){}
 

@@ -20,6 +20,8 @@ import static org.hamcrest.CoreMatchers.*;
  */
 public class PaymentManagerImplTest {
 
+    // koment git pull test
+
     private PaymentManagerImpl manager;
     private DataSource dataSource;
     private static Long count = 0L;

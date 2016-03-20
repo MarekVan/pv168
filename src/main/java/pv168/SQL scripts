@@ -5,9 +5,9 @@ balance DECIMAL
 )
 
 CREATE TABLE payment (
-id bigint primary key generated always as identity,
+id bigint not null primary key generated always as identity,
 amount DECIMAL,
-fromAcc INTEGER,
-toAcc INTEGER,
+fromAcc BIGINT,
+toAcc BIGINT,
 dateSent DATE 
 )

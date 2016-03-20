@@ -45,17 +45,22 @@ public class PaymentManagerImplTest {
                      + "CONSTRAINT fromAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
                      + "CONSTRAINT toAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
                      + "dateSent DATE )")) */ {
+            
+            
             connection.prepareStatement("CREATE TABLE account ("
                     + "accountId BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
                     + "owner VARCHAR(200) ,"
                     + "balance DECIMAL)").executeUpdate();
 
-            connection.prepareStatement("CREATE TABLE payment ("
-                    + "id BIGINT NOT NULL primary key generated always as identity,"
-                    + "amount DECIMAL ,"
-                    + "CONSTRAINT fromAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
-                    + "CONSTRAINT toAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
-                    + "dateSent DATE )");
+            connection.prepareStatement("CREATE TABLE payment (\n" +
+"id BIGINT NOT NULL primary key generated always as identity,\n" +
+"amount DECIMAL ," +
+"fromAcc BIGINT," +
+"toAcc BIGINT," +
+//"CONSTRAINT fromAcc FOREIGN KEY (\"fromAcc\") REFERENCES account (\"accountId\")," +
+//"CONSTRAINT toAcc FOREIGN KEY (\"toAcc\") REFERENCES account (\"accountId\")," +
+"dateSent DATE)").executeUpdate();
+            
 
 
             //prepStatement.executeUpdate();
@@ -68,7 +73,9 @@ public class PaymentManagerImplTest {
     public void tearDown() throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
             connection.prepareStatement("DROP TABLE PAYMENT").executeUpdate();
+            connection.prepareStatement("DROP TABLE ACCOUNT").executeUpdate();
         }
+        
     }
 
     private static DataSource prepareDataSource() throws SQLException {
@@ -375,8 +382,7 @@ public class PaymentManagerImplTest {
 
     public static Payment newPayment(BigDecimal amount, Account from, Account to, Date sent) {
         Payment payment = new Payment();
-        BigDecimal amount2 = new BigDecimal(amount.toString());
-        payment.setAmount(amount2);
+        payment.setAmount(amount);
         payment.setFrom(from);
         payment.setTo(to);
         payment.setSent(sent);

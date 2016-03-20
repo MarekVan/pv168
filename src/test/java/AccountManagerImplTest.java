@@ -1,17 +1,21 @@
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import pv168.Account;
 import pv168.AccountManagerImpl;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.DataSource;
+import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.junit.After;
 
 import static org.junit.Assert.*;
+import org.junit.Before;
 import static pv168.Account.newAccount;
 
-//import static org.hamcrest.CoreMatchers.*;
 
 /**
  *
@@ -22,20 +26,51 @@ import static pv168.Account.newAccount;
  */
 public class AccountManagerImplTest {
 
-    public static AccountManagerImpl manager;
+    
+    private AccountManagerImpl manager;
+    private DataSource dataSource;
 
     public AccountManagerImplTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-        manager = new AccountManagerImpl();
+    
+    
+    @Before
+    public void setUp() throws SQLException {
+        dataSource = prepareDataSource();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement prepStatement = connection.prepareStatement("CREATE TABLE account ("
+                    + "id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                    + "owner VARCHAR(200) ,"
+                    + "balance DECIMAL)");   
+        ) {
+        
+            prepStatement.executeUpdate();
+                
+        }
+        manager = new AccountManagerImpl(dataSource);
     }
 
-    @AfterClass
-    public static void tearDownClass() {
+    @After
+    public void tearDown() throws SQLException {
+        try (Connection connection = dataSource.getConnection()) {
+            connection.prepareStatement("DROP TABLE account").executeUpdate();
+        }
     }
-
+ 
+    private static DataSource prepareDataSource() throws SQLException {
+        EmbeddedDataSource ds = new EmbeddedDataSource();
+        ds.setDatabaseName("memory:account-test");
+        ds.setCreateDatabase("create");
+        return ds;
+    }
+    
+    
+    
+    
+    
+    
+    
     /**
      * Test of createAccount method, of class AccountManagerImpl.
      */
@@ -44,7 +79,6 @@ public class AccountManagerImplTest {
         Account account = newAccount("Pepa", new BigDecimal(1200));
 
         manager.createAccount(account);
-//    assertThat("Null id not permitted!", account.getId(), is(not(equalTo(null))));
         assertFalse("Null id not permitted!", account.getId() == null);
 
         Long accountId = account.getId();
@@ -105,11 +139,7 @@ public class AccountManagerImplTest {
 
         manager.deleteAccount(acc1);
         manager.deleteAccount(acc3);
-
-//    assertThat("Deleted record must retrieve null!", manager.findAccountById(acc1.getId()), is(equalTo(null)));
-//    assertThat("Existing record must not retrieve null!", manager.findAccountById(acc2.getId()), is(not(equalTo(null)) ) );
-//    assertThat("Deleted record must retrieve null!", manager.findAccountById(acc3.getId()), is(equalTo(null)));
-//    assertThat("Existing record must not retrieve null!", manager.findAccountById(acc4.getId()), is(not(equalTo(null)) ) );   
+ 
         assertEquals(manager.findAccountById(acc1.getId()), null);
         assertFalse("Existing record must not retrieve null", manager.findAccountById(acc2.getId()) == null);
         assertEquals(manager.findAccountById(acc1.getId()), null);
@@ -144,8 +174,9 @@ public class AccountManagerImplTest {
     @Test
     public void testUpdateAccount() {
         Account account = newAccount("Percy", new BigDecimal(999));
-
+        
         manager.createAccount(account);
+        
         account.setBalance(new BigDecimal(50000));
         account.setOwner("Carol");
 
@@ -153,29 +184,11 @@ public class AccountManagerImplTest {
 
         Account result = manager.findAccountById(account.getId());
 
-//    assertThat("Updated record in database should match with modified Account object!", result, is(equalTo(account)));
         assertEquals(result, account);
 
         assertEquals(new BigDecimal(50000), result.getBalance());
         assertEquals("Carol", result.getOwner());
 
-//        Account acc1 = newAccount("Eve", new BigDecimal(450));
-//        Account acc2 = newAccount("Ann", new BigDecimal(0));
-//        Account acc3 = newAccount("Adele", new BigDecimal(150));
-//
-//        manager.createAccount(acc1);
-//        manager.createAccount(acc2);
-//        manager.createAccount(acc3);
-//
-//        Account updater = newAccount("XXX", new BigDecimal(0));
-//
-//        manager.updateAccount(updater);
-//
-////Trying to update not existing record should not affect other records in the database
-//        assertEquals(account, manager.findAccountById(account.getId()));
-//        assertEquals(acc1, manager.findAccountById(acc1.getId()));
-//        assertEquals(acc2, manager.findAccountById(acc2.getId()));
-//        assertEquals(acc3, manager.findAccountById(acc3.getId()));
 
     }
     
@@ -238,18 +251,18 @@ public class AccountManagerImplTest {
         manager.createAccount(account);
         Account result = manager.findAccountById(account.getId());
 
-//    assertThat("Inserted and retrieved Accounts must be equal!", result, is(equalTo(account)));
         assertEquals(result, account);
         assertFalse("Inserted and retrieved Accounts should not be same instances", result == account);
 
         Account account2 = newAccount("Dick", new BigDecimal(60));
-//not inserted in the database - createAccount method is not used
+        manager.createAccount(account2);
+        manager.deleteAccount(account2);
+//account2 object has id but is not in the database
         result = manager.findAccountById(account2.getId());
         assertEquals(result, null);
-//    assertThat("Trying to get Account with id which is not used should result in retrieving null!", result, is(equalTo(null)));
 
     }
-
+    
     @Test(expected = IllegalArgumentException.class)
     public void testFindAccountByIdWithNullId() {
         Account account = newAccount("Fred", new BigDecimal(600));

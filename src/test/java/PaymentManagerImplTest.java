@@ -9,6 +9,7 @@ import org.junit.Test;
 import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -33,13 +34,32 @@ public class PaymentManagerImplTest {
     @Before
     public void setUp() throws SQLException {
         dataSource = prepareDataSource();
-        try (Connection connection = dataSource.getConnection()) {
-            connection.prepareStatement("CREATE TABLE PAYMENT ("
-                    + "id bigint primary key generated always as identity,"
-                    + "amount INTEGER ,"
-                    + "fromAcc INTEGER ,"
-                    + "toAcc INTEGER ,"
-                    + "dateSent DATE )").executeUpdate();
+        try (Connection connection = dataSource.getConnection())
+             /*PreparedStatement prepStatement = connection.prepareStatement("CREATE TABLE account ("
+                     + "accountId BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                     + "owner VARCHAR(200) ,"
+                     + "balance DECIMAL)");
+             PreparedStatement prepStatement2 = connection.prepareStatement("CREATE TABLE payment ("
+                     + "id BIGINT NOT NULL primary key generated always as identity,"
+                     + "amount DECIMAL ,"
+                     + "CONSTRAINT fromAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
+                     + "CONSTRAINT toAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
+                     + "dateSent DATE )")) */ {
+            connection.prepareStatement("CREATE TABLE account ("
+                    + "accountId BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                    + "owner VARCHAR(200) ,"
+                    + "balance DECIMAL)").executeUpdate();
+
+            connection.prepareStatement("CREATE TABLE payment ("
+                    + "id BIGINT NOT NULL primary key generated always as identity,"
+                    + "amount DECIMAL ,"
+                    + "CONSTRAINT fromAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
+                    + "CONSTRAINT toAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
+                    + "dateSent DATE )");
+
+
+            //prepStatement.executeUpdate();
+            //prepStatement2.executeUpdate();
         }
         manager = new PaymentManagerImpl(dataSource);
     }
@@ -58,6 +78,7 @@ public class PaymentManagerImplTest {
         ds.setCreateDatabase("create");
         return ds;
     }
+
     @Test
     public void testCreatePayment() throws Exception {
         BigDecimal amount = new BigDecimal(2000);
@@ -352,7 +373,7 @@ public class PaymentManagerImplTest {
 
     }
 
-    public static Payment newPayment(BigDecimal amount,  Account from, Account to, Date sent){
+    public static Payment newPayment(BigDecimal amount, Account from, Account to, Date sent) {
         Payment payment = new Payment();
         BigDecimal amount2 = new BigDecimal(amount.toString());
         payment.setAmount(amount2);
@@ -362,7 +383,7 @@ public class PaymentManagerImplTest {
         return payment;
     }
 
-    public static Account newAccount(String owner, BigDecimal balance){
+    public static Account newAccount(String owner, BigDecimal balance) {
         Account account = new Account();
         account.setOwner(owner);
         account.setBalance(balance);
@@ -371,14 +392,14 @@ public class PaymentManagerImplTest {
     }
 
     private void assertDeepEquals(Payment expected, Payment actual) {
-        assertEquals("id value is not equal",expected.getId(), actual.getId());
-        assertEquals("amount value is not equal",expected.getAmount(), actual.getAmount());
-        assertEquals("from value is not equal",expected.getFrom(), actual.getFrom());
-        assertEquals("to value is not equal",expected.getTo(), actual.getTo());
-        assertEquals("date value is not equal",expected.getSent(), actual.getSent());
+        assertEquals("id value is not equal", expected.getId(), actual.getId());
+        assertEquals("amount value is not equal", expected.getAmount(), actual.getAmount());
+        assertEquals("from value is not equal", expected.getFrom(), actual.getFrom());
+        assertEquals("to value is not equal", expected.getTo(), actual.getTo());
+        assertEquals("date value is not equal", expected.getSent(), actual.getSent());
     }
 
-    public static Calendar newCalendar(int year, int month, int day){
+    public static Calendar newCalendar(int year, int month, int day) {
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month - 1);

@@ -4,7 +4,7 @@ owner VARCHAR (200),
 balance DECIMAL
 )
 
-CREATE TABLE PAYMENT (
+CREATE TABLE payment (
 id bigint primary key generated always as identity,
 amount DECIMAL,
 fromAcc INTEGER,

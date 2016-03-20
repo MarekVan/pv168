@@ -26,7 +26,7 @@ public class PaymentManagerImpl implements PaymentManager {
 
         validate(payment);
         if (payment.getId() != null) {
-            throw new IllegalArgumentException("grave id is already set");
+            throw new IllegalArgumentException("payment id is already set");
         }
 
         try (
@@ -42,14 +42,14 @@ public class PaymentManagerImpl implements PaymentManager {
             int addedRows = st.executeUpdate();
             if (addedRows != 1) {
                 throw new ServiceFailureException("Internal Error: More rows ("
-                        + addedRows + ") inserted when trying to insert grave " + payment);
+                        + addedRows + ") inserted when trying to insert payment " + payment);
             }
 
             ResultSet keyRS = st.getGeneratedKeys();
             payment.setId(getKey(keyRS, payment));
 
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when inserting grave " + payment, ex);
+            throw new ServiceFailureException("Error when inserting payment " + payment, ex);
         }
     }
 
@@ -105,7 +105,7 @@ public class PaymentManagerImpl implements PaymentManager {
             }
         } catch (SQLException ex) {
             throw new ServiceFailureException(
-                    "Error when updating grave " + payment, ex);
+                    "Error when updating payment " + payment, ex);
         }
     }
 
@@ -187,19 +187,19 @@ public class PaymentManagerImpl implements PaymentManager {
         if (keyRS.next()) {
             if (keyRS.getMetaData().getColumnCount() != 1) {
                 throw new ServiceFailureException("Internal Error: Generated key"
-                        + "retrieving failed when trying to insert grave " + payment
+                        + "retrieving failed when trying to insert payment " + payment
                         + " - wrong key fields count: " + keyRS.getMetaData().getColumnCount());
             }
             Long result = keyRS.getLong(1);
             if (keyRS.next()) {
                 throw new ServiceFailureException("Internal Error: Generated key"
-                        + "retrieving failed when trying to insert grave " + payment
+                        + "retrieving failed when trying to insert payment " + payment
                         + " - more keys found");
             }
             return result;
         } else {
             throw new ServiceFailureException("Internal Error: Generated key"
-                    + "retrieving failed when trying to insert grave " + payment
+                    + "retrieving failed when trying to insert payment " + payment
                     + " - no key found");
         }
     }

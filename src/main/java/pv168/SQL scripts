@@ -1,0 +1,13 @@
+CREATE TABLE account (
+id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+owner VARCHAR (200),
+balance DECIMAL
+)
+
+CREATE TABLE PAYMENT (
+id bigint primary key generated always as identity,
+amount DECIMAL,
+fromAcc INTEGER,
+toAcc INTEGER,
+dateSent DATE 
+)

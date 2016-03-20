@@ -40,7 +40,7 @@ public class AccountManagerImplTest {
         dataSource = prepareDataSource();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement prepStatement = connection.prepareStatement("CREATE TABLE account ("
-                    + "id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                    + "id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
                     + "owner VARCHAR(200) ,"
                     + "balance DECIMAL)");   
         ) {

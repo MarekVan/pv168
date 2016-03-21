@@ -15,6 +15,8 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+import static pv168.Account.*;
+import static pv168.Payment.*;
 
 /**
  * Created by Marek Van��k on 12. 3. 2016.
@@ -24,6 +26,7 @@ public class PaymentManagerImplTest {
     // koment git pull test
 
     private PaymentManagerImpl manager;
+    private AccountManagerImpl manager2;
     private DataSource dataSource;
     private static Long count = 0L;
 
@@ -45,28 +48,28 @@ public class PaymentManagerImplTest {
                      + "CONSTRAINT fromAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
                      + "CONSTRAINT toAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
                      + "dateSent DATE )")) */ {
-            
-            
+
+
             connection.prepareStatement("CREATE TABLE account ("
-                    + "accountId BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                    + "id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
                     + "owner VARCHAR(200) ,"
                     + "balance DECIMAL)").executeUpdate();
 
-            connection.prepareStatement("CREATE TABLE payment (\n" +
-"id BIGINT NOT NULL primary key generated always as identity,\n" +
-"amount DECIMAL ," +
-"fromAcc BIGINT," +
-"toAcc BIGINT," +
-//"CONSTRAINT fromAcc FOREIGN KEY (\"fromAcc\") REFERENCES account (\"accountId\")," +
-//"CONSTRAINT toAcc FOREIGN KEY (\"toAcc\") REFERENCES account (\"accountId\")," +
-"dateSent DATE)").executeUpdate();
-            
+            connection.prepareStatement("CREATE TABLE payment (" +
+                    "id BIGINT NOT NULL primary key generated always as identity, " +
+                    "amount DECIMAL, " +
+                    "fromAcc BIGINT NOT NULL, " +
+                    "toAcc BIGINT NOT NULL, " +
+                    "FOREIGN KEY (fromAcc) REFERENCES account (id)," +
+                    "FOREIGN KEY (toAcc) REFERENCES account (id)," +
+                    "dateSent DATE)").executeUpdate();
 
 
             //prepStatement.executeUpdate();
             //prepStatement2.executeUpdate();
         }
         manager = new PaymentManagerImpl(dataSource);
+        manager2 = new AccountManagerImpl(dataSource);
     }
 
     @After
@@ -75,7 +78,7 @@ public class PaymentManagerImplTest {
             connection.prepareStatement("DROP TABLE PAYMENT").executeUpdate();
             connection.prepareStatement("DROP TABLE ACCOUNT").executeUpdate();
         }
-        
+
     }
 
     private static DataSource prepareDataSource() throws SQLException {
@@ -89,10 +92,13 @@ public class PaymentManagerImplTest {
     @Test
     public void testCreatePayment() throws Exception {
         BigDecimal amount = new BigDecimal(2000);
+        BigDecimal amount2 = new BigDecimal(45000);
         Calendar cal = newCalendar(2016, 3, 12);
         Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
+        Account to1 = newAccount("marian", amount2);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         Long paymentId = payment.getId();
 
@@ -378,23 +384,6 @@ public class PaymentManagerImplTest {
         assertEquals("saved and retrieved payments differ", expected, actual);
         assertDeepEquals(expected, actual);
 
-    }
-
-    public static Payment newPayment(BigDecimal amount, Account from, Account to, Date sent) {
-        Payment payment = new Payment();
-        payment.setAmount(amount);
-        payment.setFrom(from);
-        payment.setTo(to);
-        payment.setSent(sent);
-        return payment;
-    }
-
-    public static Account newAccount(String owner, BigDecimal balance) {
-        Account account = new Account();
-        account.setOwner(owner);
-        account.setBalance(balance);
-        account.setId(count++);
-        return account;
     }
 
     private void assertDeepEquals(Payment expected, Payment actual) {

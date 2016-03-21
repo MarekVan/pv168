@@ -92,5 +92,14 @@ public class Payment {
                 ", sent=" + sent +
                 '}';
     }
+
+    public static Payment newPayment(BigDecimal amount, Account from, Account to, Date sent) {
+        Payment payment = new Payment();
+        payment.setAmount(amount);
+        payment.setFrom(from);
+        payment.setTo(to);
+        payment.setSent(sent);
+        return payment;
+    }
 }
 

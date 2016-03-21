@@ -10,6 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pv168.AccountManagerImpl.*;
+
 /**
  * Created by xvancik on 3/8/16.
  */
@@ -114,13 +116,37 @@ public class PaymentManagerImpl implements PaymentManager {
         try (
                 Connection connection = dataSource.getConnection();
                 PreparedStatement st = connection.prepareStatement(
-                        "SELECT id,amount,fromAcc,toAcc,dateSent FROM payment WHERE id = ?")) {
+                        "SELECT id,amount,fromAcc,toAcc,dateSent FROM payment WHERE id = ?");
+                PreparedStatement st2 = connection.prepareStatement(""
+                        + "SELECT * FROM account WHERE id = ?")) {
 
             st.setLong(1, id);
             ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
                 Payment payment = resultSetToPayment(rs);
+                st2.setLong(1, rs.getLong("fromAcc"));
+                ResultSet rsFrom = st2.executeQuery();
+                st2.setLong(1, rs.getLong("toAcc"));
+                ResultSet rsTo = st2.executeQuery();
+
+                if (rsFrom.next()){
+                    Account from = resultSetToAccount(rsFrom);
+                    payment.setFrom(from);
+                    if (rsFrom.next()){
+                        throw new ServiceFailureException(
+                                "Internal error: More accounts with same id found");
+                    }
+                }
+
+                if (rsTo.next()){
+                    Account to = resultSetToAccount(rsTo);
+                    payment.setFrom(to);
+                    if (rsTo.next()){
+                        throw new ServiceFailureException(
+                                "Internal error: More accounts with same id found");
+                    }
+                }
 
                 if (rs.next()) {
                     throw new ServiceFailureException(
@@ -208,8 +234,6 @@ public class PaymentManagerImpl implements PaymentManager {
         Payment payment = new Payment();
         payment.setId(rs.getLong("id"));
         payment.setAmount(rs.getBigDecimal("amount"));
-        //payment.setFrom(rs.getLong("fromAcc"));
-        //payment.setTo(rs.getLong("toAcc"));
         payment.setSent(rs.getDate("dateSent"));
         return payment;
     }

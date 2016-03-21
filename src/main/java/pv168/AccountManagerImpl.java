@@ -222,7 +222,7 @@ public class AccountManagerImpl implements AccountManager{
     
     }
     
-    private Account resultSetToAccount(ResultSet rs) throws SQLException{
+    public static Account resultSetToAccount(ResultSet rs) throws SQLException{
         Account result = new Account();
         
         result.setId(rs.getLong("id"));

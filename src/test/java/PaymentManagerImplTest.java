@@ -60,9 +60,9 @@ public class PaymentManagerImplTest {
                     "amount DECIMAL, " +
                     "fromAcc BIGINT NOT NULL, " +
                     "toAcc BIGINT NOT NULL, " +
-                    "FOREIGN KEY (fromAcc) REFERENCES account (id)," +
-                    "FOREIGN KEY (toAcc) REFERENCES account (id)," +
-                    "dateSent DATE)").executeUpdate();
+                 //   "FOREIGN KEY (fromAcc) REFERENCES account (id)," +
+                //    "FOREIGN KEY (toAcc) REFERENCES account (id)," +
+                    "dateSent TIMESTAMP )").executeUpdate();
 
 
             //prepStatement.executeUpdate();
@@ -179,6 +179,10 @@ public class PaymentManagerImplTest {
         Calendar ca2 = newCalendar(2015, 3, 12);
         Payment p1 = newPayment(amount, from1, to1, cal.getTime());
         Payment p2 = newPayment(amount2, from2, to2, ca2.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
+        manager2.createAccount(from2);
+        manager2.createAccount(to2);
         manager.createPayment(p1);
         manager.createPayment(p2);
 
@@ -233,6 +237,10 @@ public class PaymentManagerImplTest {
         Account to2 = newAccount("laco", amount);
         Payment p1 = newPayment(amount, from1, to1, cal.getTime());
         Payment p2 = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
+        manager2.createAccount(from2);
+        manager2.createAccount(to2);
         manager.createPayment(p1);
         manager.createPayment(p2);
         Long paymentId = p1.getId();
@@ -286,6 +294,8 @@ public class PaymentManagerImplTest {
         Account from1 = newAccount("jano", amount);
         Account to1 = newAccount("marian", amount);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         payment.setId(payment.getId() + 1000);
         expectedException.expect(EntityNotFoundException.class);
@@ -299,6 +309,8 @@ public class PaymentManagerImplTest {
         Account from1 = newAccount("jano", amount);
         Account to1 = newAccount("marian", amount);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         payment.setAmount(null);
         expectedException.expect(IllegalArgumentException.class);
@@ -313,6 +325,8 @@ public class PaymentManagerImplTest {
         Account from1 = newAccount("jano", amount);
         Account to1 = newAccount("marian", amount);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         payment.setAmount(amount2);
         expectedException.expect(IllegalArgumentException.class);
@@ -326,6 +340,8 @@ public class PaymentManagerImplTest {
         Account from1 = newAccount("jano", amount);
         Account to1 = newAccount("marian", amount);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         payment.setFrom(null);
         expectedException.expect(IllegalArgumentException.class);
@@ -339,6 +355,8 @@ public class PaymentManagerImplTest {
         Account from1 = newAccount("jano", amount);
         Account to1 = newAccount("marian", amount);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         payment.setTo(null);
         expectedException.expect(IllegalArgumentException.class);
@@ -352,6 +370,8 @@ public class PaymentManagerImplTest {
         Account from1 = newAccount("jano", amount);
         Account to1 = newAccount("marian", amount);
         Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
         manager.createPayment(payment);
         payment.setSent(null);
         expectedException.expect(IllegalArgumentException.class);
@@ -372,6 +392,10 @@ public class PaymentManagerImplTest {
         Account to2 = newAccount("laco", amount);
         Payment p1 = newPayment(amount, from1, to1, cal.getTime());
         Payment p2 = newPayment(amount2, from2, to2, ca2.getTime());
+        manager2.createAccount(from1);
+        manager2.createAccount(to1);
+        manager2.createAccount(from2);
+        manager2.createAccount(to2);
         manager.createPayment(p1);
         manager.createPayment(p2);
 

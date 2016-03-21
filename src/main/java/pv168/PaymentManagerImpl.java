@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static pv168.AccountManagerImpl.*;
@@ -40,7 +41,7 @@ public class PaymentManagerImpl implements PaymentManager {
             st.setBigDecimal(1, payment.getAmount());
             st.setLong(2, payment.getFrom().getId());
             st.setLong(3, payment.getTo().getId());
-            st.setDate(4, new java.sql.Date(payment.getSent().getTime()));
+            st.setTimestamp(4, new java.sql.Timestamp(payment.getSent().getTime()));
             int addedRows = st.executeUpdate();
             if (addedRows != 1) {
                 throw new ServiceFailureException("Internal Error: More rows ("
@@ -96,7 +97,7 @@ public class PaymentManagerImpl implements PaymentManager {
             st.setBigDecimal(1, payment.getAmount());
             st.setLong(2, payment.getFrom().getId());
             st.setLong(3, payment.getTo().getId());
-            st.setDate(4, new java.sql.Date(payment.getSent().getTime()));
+            st.setTimestamp(4, new java.sql.Timestamp(payment.getSent().getTime()));
             st.setLong(5, payment.getId());
 
             int count = st.executeUpdate();
@@ -117,53 +118,31 @@ public class PaymentManagerImpl implements PaymentManager {
                 Connection connection = dataSource.getConnection();
                 PreparedStatement st = connection.prepareStatement(
                         "SELECT id,amount,fromAcc,toAcc,dateSent FROM payment WHERE id = ?");
-                PreparedStatement st2 = connection.prepareStatement(""
-                        + "SELECT * FROM account WHERE id = ?")) {
+                PreparedStatement stFrom = connection.prepareStatement(""
+                        + "SELECT * FROM account WHERE id = ?");
+                PreparedStatement stTo = connection.prepareStatement(""
+                        + "SELECT * FROM account WHERE id = ?")
+        ) {
 
             st.setLong(1, id);
             ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
                 Payment payment = resultSetToPayment(rs);
-                st2.setLong(1, rs.getLong("fromAcc"));
-                ResultSet rsFrom = st2.executeQuery();
-                st2.setLong(1, rs.getLong("toAcc"));
-                ResultSet rsTo = st2.executeQuery();
-
-                if (rsFrom.next()){
-                    Account from = resultSetToAccount(rsFrom);
-                    payment.setFrom(from);
-                    if (rsFrom.next()){
-                        throw new ServiceFailureException(
-                                "Internal error: More accounts with same id found");
-                    }
-                }
-
-                if (rsTo.next()){
-                    Account to = resultSetToAccount(rsTo);
-                    payment.setFrom(to);
-                    if (rsTo.next()){
-                        throw new ServiceFailureException(
-                                "Internal error: More accounts with same id found");
-                    }
-                }
-
+                findAccountsToPayment(payment, connection, rs.getLong("fromAcc"), rs.getLong("toAcc"));
                 if (rs.next()) {
                     throw new ServiceFailureException(
                             "Internal error: More entities with the same id found "
                                     + "(source id: " + id + ", found " + payment + " and " + resultSetToPayment(rs));
                 }
-
                 return payment;
             } else {
                 return null;
             }
-
         } catch (SQLException ex) {
             throw new ServiceFailureException(
                     "Error when retrieving payment with id " + id, ex);
         }
-
     }
 
     @Override
@@ -177,7 +156,9 @@ public class PaymentManagerImpl implements PaymentManager {
 
             List<Payment> result = new ArrayList<>();
             while (rs.next()) {
-                result.add(resultSetToPayment(rs));
+                Payment current = resultSetToPayment(rs);
+                findAccountsToPayment(current, connection, rs.getLong("fromAcc"), rs.getLong("toAcc"));
+                result.add(current);
             }
             return result;
 
@@ -232,9 +213,45 @@ public class PaymentManagerImpl implements PaymentManager {
 
     private Payment resultSetToPayment(ResultSet rs) throws SQLException {
         Payment payment = new Payment();
+        Date date = new Date(rs.getTimestamp("dateSent").getTime());         //new Date(rs.getDate("dateSent").getTime());
         payment.setId(rs.getLong("id"));
         payment.setAmount(rs.getBigDecimal("amount"));
-        payment.setSent(rs.getDate("dateSent"));
+        payment.setSent(date);
         return payment;
+    }
+
+    private void findAccountsToPayment(Payment payment, Connection connection, Long fromAcc, Long toAcc) {
+
+        try (PreparedStatement stFrom = connection.prepareStatement(""
+                + "SELECT * FROM account WHERE id = ?");
+             PreparedStatement stTo = connection.prepareStatement(""
+                     + "SELECT * FROM account WHERE id = ?")
+        ) {
+            stFrom.setLong(1, fromAcc);
+            ResultSet rsFrom = stFrom.executeQuery();
+            stTo.setLong(1, toAcc);
+            ResultSet rsTo = stTo.executeQuery();
+
+            if (rsFrom.next()) {
+                Account from = resultSetToAccount(rsFrom);
+                payment.setFrom(from);
+                if (rsFrom.next()) {
+                    throw new ServiceFailureException(
+                            "Internal error: More accounts with same id found");
+                }
+            }
+            if (rsTo.next()) {
+                Account to = resultSetToAccount(rsTo);
+                payment.setTo(to);
+                if (rsTo.next()) {
+                    throw new ServiceFailureException(
+                            "Internal error: More accounts with same id found");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new ServiceFailureException(
+                    "Error when retrieving payment with id " + payment.getId(), ex);
+        }
+
     }
 }

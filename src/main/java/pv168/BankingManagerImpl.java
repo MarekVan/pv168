@@ -8,13 +8,17 @@ import java.util.List;
  */
 public class BankingManagerImpl implements BankingManager {
 
-    public BankingManagerImpl(){}
+    public BankingManagerImpl(){
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
 
-    public void executePayment(Payment paayment){}
+    public void executePayment(Payment payment){
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
     public List<Payment> findAllIncomingPaymentsToAccount(Account account){
-        return new ArrayList<Payment>();
+        throw new UnsupportedOperationException("Not implemented yet");
     }
     public List<Payment> findOutgoingPaymentsToAccount(Account account){
-        return new ArrayList<Payment>();
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 }

@@ -209,7 +209,7 @@ public class PaymentManagerImpl implements PaymentManager {
 
     private Payment resultSetToPayment(ResultSet rs) throws SQLException {
         Payment payment = new Payment();
-        Date date = new Date(rs.getTimestamp("dateSent").getTime());         //new Date(rs.getDate("dateSent").getTime());
+        Date date = new Date(rs.getTimestamp("dateSent").getTime());
         payment.setId(rs.getLong("id"));
         payment.setAmount(rs.getBigDecimal("amount"));
         payment.setSent(date);

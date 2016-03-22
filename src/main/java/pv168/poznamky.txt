@@ -1,0 +1,1 @@
+odstranit komentare z testov .. zmenit na assert that .. cudzie kluce <=> rychlejsia databazaS

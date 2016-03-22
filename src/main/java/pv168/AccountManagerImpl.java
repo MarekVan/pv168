@@ -56,10 +56,12 @@ public class AccountManagerImpl implements AccountManager {
     @Override
     public void deleteAccount(Account account) {
 
-        if (account == null)
+        if (account == null) {
             throw new IllegalArgumentException("Passed account is null!");
+        }
         if (account.getId() == null)
             throw new IllegalArgumentException("Id of account to be deleted must be set!");
+
 
 
         try (Connection connection = dataSource.getConnection();
@@ -221,6 +223,4 @@ public class AccountManagerImpl implements AccountManager {
 
         return result;
     }
-
-
 }

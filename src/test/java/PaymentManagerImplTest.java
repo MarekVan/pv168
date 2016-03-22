@@ -23,50 +23,36 @@ import static pv168.Payment.*;
  */
 public class PaymentManagerImplTest {
 
-    // koment git pull test
-
     private PaymentManagerImpl manager;
     private AccountManagerImpl manager2;
     private DataSource dataSource;
-    private static Long count = 0L;
 
     @Rule
-    // attribute annotated with @Rule annotation must be public :-(
     public ExpectedException expectedException = ExpectedException.none();
 
     @Before
     public void setUp() throws SQLException {
         dataSource = prepareDataSource();
-        try (Connection connection = dataSource.getConnection())
-             /*PreparedStatement prepStatement = connection.prepareStatement("CREATE TABLE account ("
-                     + "accountId BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement prepStatement = connection.prepareStatement("CREATE TABLE account ("
+                     + "id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
                      + "owner VARCHAR(200) ,"
-                     + "balance DECIMAL)");
-             PreparedStatement prepStatement2 = connection.prepareStatement("CREATE TABLE payment ("
-                     + "id BIGINT NOT NULL primary key generated always as identity,"
-                     + "amount DECIMAL ,"
-                     + "CONSTRAINT fromAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
-                     + "CONSTRAINT toAcc FOREIGN KEY (accountId) REFERENCES account (accountId),"
-                     + "dateSent DATE )")) */ {
+                     + "balance DECIMAL)")) {
 
+            prepStatement.executeUpdate();
 
-            connection.prepareStatement("CREATE TABLE account ("
-                    + "id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
-                    + "owner VARCHAR(200) ,"
-                    + "balance DECIMAL)").executeUpdate();
-
-            connection.prepareStatement("CREATE TABLE payment (" +
+            try (PreparedStatement prepStatement2 = connection.prepareStatement("CREATE TABLE payment (" +
                     "id BIGINT NOT NULL primary key generated always as identity, " +
                     "amount DECIMAL, " +
                     "fromAcc BIGINT NOT NULL, " +
                     "toAcc BIGINT NOT NULL, " +
-                 //   "FOREIGN KEY (fromAcc) REFERENCES account (id)," +
-                //    "FOREIGN KEY (toAcc) REFERENCES account (id)," +
-                    "dateSent TIMESTAMP )").executeUpdate();
+                    "FOREIGN KEY (fromAcc) REFERENCES account (id)," +
+                    "FOREIGN KEY (toAcc) REFERENCES account (id)," +
+                    "dateSent TIMESTAMP )")) {
 
+                prepStatement2.executeUpdate();
 
-            //prepStatement.executeUpdate();
-            //prepStatement2.executeUpdate();
+            }
         }
         manager = new PaymentManagerImpl(dataSource);
         manager2 = new AccountManagerImpl(dataSource);

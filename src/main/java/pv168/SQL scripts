@@ -7,7 +7,9 @@ balance DECIMAL
 CREATE TABLE payment (
 id bigint not null primary key generated always as identity,
 amount DECIMAL,
-fromAcc BIGINT,
-toAcc BIGINT,
-dateSent DATE 
+fromAcc BIGINT NOT NULL,
+toAcc BIGINT NOT NULL,
+dateSent TIMESTAMP
+FOREIGN KEY (fromAcc) REFERENCES account (id),
+FOREIGN KEY (toAcc) REFERENCES account (id)
 )

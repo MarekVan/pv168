@@ -117,11 +117,7 @@ public class PaymentManagerImpl implements PaymentManager {
         try (
                 Connection connection = dataSource.getConnection();
                 PreparedStatement st = connection.prepareStatement(
-                        "SELECT id,amount,fromAcc,toAcc,dateSent FROM payment WHERE id = ?");
-                PreparedStatement stFrom = connection.prepareStatement(""
-                        + "SELECT * FROM account WHERE id = ?");
-                PreparedStatement stTo = connection.prepareStatement(""
-                        + "SELECT * FROM account WHERE id = ?")
+                        "SELECT * FROM payment WHERE id = ?")
         ) {
 
             st.setLong(1, id);
@@ -150,7 +146,7 @@ public class PaymentManagerImpl implements PaymentManager {
         try (
                 Connection connection = dataSource.getConnection();
                 PreparedStatement st = connection.prepareStatement(
-                        "SELECT id,amount,fromAcc,toAcc,dateSent FROM payment")) {
+                        "SELECT * FROM payment")) {
 
             ResultSet rs = st.executeQuery();
 
@@ -250,7 +246,7 @@ public class PaymentManagerImpl implements PaymentManager {
             }
         } catch (SQLException ex) {
             throw new ServiceFailureException(
-                    "Error when retrieving payment with id " + payment.getId(), ex);
+                    "Error when retrieving accounts to payment with id " + payment.getId(), ex);
         }
 
     }

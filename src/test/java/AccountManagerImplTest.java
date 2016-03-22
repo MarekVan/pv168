@@ -33,8 +33,6 @@ public class AccountManagerImplTest {
     public AccountManagerImplTest() {
     }
 
-    
-    
     @Before
     public void setUp() throws SQLException {
         dataSource = prepareDataSource();
@@ -64,12 +62,6 @@ public class AccountManagerImplTest {
         ds.setCreateDatabase("create");
         return ds;
     }
-    
-    
-    
-    
-    
-    
     
     /**
      * Test of createAccount method, of class AccountManagerImpl.

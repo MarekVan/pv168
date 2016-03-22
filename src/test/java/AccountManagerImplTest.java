@@ -47,6 +47,7 @@ public class AccountManagerImplTest {
                 
         }
         manager = new AccountManagerImpl(dataSource);
+        
     }
 
     @After

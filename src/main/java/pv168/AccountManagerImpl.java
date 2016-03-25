@@ -149,7 +149,7 @@ public class AccountManagerImpl implements AccountManager {
 
 
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Failed to retrieve account with id " + id + " from the database!");
+            throw new ServiceFailureException("Failed to retrieve account with id " + id + " from the database!", ex);
         }
 
     }
@@ -188,7 +188,7 @@ public class AccountManagerImpl implements AccountManager {
 
     }
 
-    private Long getKey(ResultSet keyRs, Account account) throws SQLException {
+    public static Long getKey(ResultSet keyRs, Account account) throws SQLException {
 
         if (keyRs.next()) {
             if (keyRs.getMetaData().getColumnCount() != 1) {

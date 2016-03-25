@@ -186,7 +186,7 @@ public class PaymentManagerImpl implements PaymentManager {
         }
     }
 
-    private Long getKey(ResultSet keyRS, Payment payment) throws ServiceFailureException, SQLException {
+    public static Long getKey(ResultSet keyRS, Payment payment) throws ServiceFailureException, SQLException {
         if (keyRS.next()) {
             if (keyRS.getMetaData().getColumnCount() != 1) {
                 throw new ServiceFailureException("Internal Error: Generated key"

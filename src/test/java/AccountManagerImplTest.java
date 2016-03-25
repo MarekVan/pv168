@@ -15,6 +15,10 @@ import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import static pv168.Account.newAccount;
+import static org.assertj.core.api.Assertions.*;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
+import pv168.EntityNotFoundException;
 
 
 /**
@@ -29,6 +33,9 @@ public class AccountManagerImplTest {
     
     private AccountManagerImpl manager;
     private DataSource dataSource;
+   
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     public AccountManagerImplTest() {
     }
@@ -72,47 +79,53 @@ public class AccountManagerImplTest {
         Account account = newAccount("Pepa", new BigDecimal(1200));
 
         manager.createAccount(account);
-        assertFalse("Null id not permitted!", account.getId() == null);
+        assertNotNull(account.getId());
 
         Long accountId = account.getId();
         Account result = manager.findAccountById(accountId);
 
-        assertTrue("Retrieved object must be equal to the inserted one!", account.equals(result));
-        assertFalse("Retrieved object must not be the same instance!", account == result);
+        assertEquals(account, result); 
+//isNotTheSame - jestli je to stejna reference
+        assertThat(account).isNotSameAs(result);
     }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testCreateAccountWithNull() throws Exception {
+    @Test
+    public void testCreateAccountWithNull(){
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Passed account is null!");
         manager.createAccount(null);
-        fail("Should throw IllegalArgumentException if null is passed!");
     }
-
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCreateAccountWithoutOwner() {
         Account account = new Account();
         account.setBalance(new BigDecimal(500));
 
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Owner must be set!");
         manager.createAccount(account);
-        fail("Should throw IllegalArgumentException if owner is not initialized!");
+
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    
+    @Test
     public void testCreateAccountWithoutBalance() {
         Account account = new Account();
         account.setOwner("Pepa");
-
+        
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Balance must be set!");
         manager.createAccount(account);
-        fail("Should throw IllegalArgumentException if balance is not initialized!");
-    }
 
-    @Test(expected = IllegalArgumentException.class)
+    }
+    @Test
     public void testCreateAccountWithAssignedId() {
         Account account = newAccount("Pepa", new BigDecimal(500));
 
         account.setId(1L);
 
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Passed account.id must not be set!");
         manager.createAccount(account);
-        fail("Should throw IllegalArgumentException if id is assigned!");
+
     }
 
     /**
@@ -133,23 +146,24 @@ public class AccountManagerImplTest {
         manager.deleteAccount(acc1);
         manager.deleteAccount(acc3);
  
-        assertEquals(manager.findAccountById(acc1.getId()), null);
-        assertFalse("Existing record must not retrieve null", manager.findAccountById(acc2.getId()) == null);
-        assertEquals(manager.findAccountById(acc1.getId()), null);
-        assertFalse("Existing record must not retrieve null", manager.findAccountById(acc4.getId()) == null);
+        assertThat(manager.findAccountById(acc1.getId())).isNull();
+        assertThat(manager.findAccountById(acc2.getId())).isNotNull();
+        assertThat(manager.findAccountById(acc3.getId())).isNull();
+        assertThat(manager.findAccountById(acc4.getId())).isNotNull();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testDeleteAccountWithNull() {
         Account account = newAccount("Lennie", new BigDecimal(0));
 
         manager.createAccount(account);
 
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Passed account is null!");
         manager.deleteAccount(null);
-        fail("Null must not be passed to deleteAccount method but passed!");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void TestDeleteAccountWithNullId() {
         Account account = newAccount("Trevor", new BigDecimal(45));
 
@@ -157,8 +171,9 @@ public class AccountManagerImplTest {
 
         account.setId(null);
 
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Id of account to be deleted must be set!");
         manager.deleteAccount(account);
-        fail("Passing account without assigned id is not permitted but passed!");
     }
 
     /**
@@ -177,61 +192,66 @@ public class AccountManagerImplTest {
 
         Account result = manager.findAccountById(account.getId());
 
-        assertEquals(result, account);
-
-        assertEquals(new BigDecimal(50000), result.getBalance());
-        assertEquals("Carol", result.getOwner());
-
-
+        assertThat(result).isEqualToComparingFieldByField(account);
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testUpdateNonExistingAccount(){
         Account account = newAccount("Susan", new BigDecimal(650));
+        account.setId(1L);
         
+        exception.expect(EntityNotFoundException.class);
+        exception.expectMessage("was not found in the database!");
         manager.updateAccount(account);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testUpdateAccountWithNull() {
         Account account = newAccount("Lisa", new BigDecimal(600));
 
         manager.createAccount(account);
+        
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Passed account is null!");
         manager.updateAccount(null);
-        fail("Passing null instead of Account instance should cause IllegalArgumentException!");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testUpdateAccountWithoutId() {
         Account account = newAccount("Jane", new BigDecimal(600));
 
         manager.createAccount(account);
         account.setId(null);
+        
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Id of account to be updated must be set!");
         manager.updateAccount(account);
 
-        fail("Null id should not pass! InvalidArgumentException should be thrown!");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testUpdateAccountWithoutOwner() {
         Account account = newAccount("Mike", new BigDecimal(700));
 
         manager.createAccount(account);
         account.setOwner(null);
+        
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Owner must be set!");
         manager.updateAccount(account);
 
-        fail("Account used for update should not pass without all inicialized fields!");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testUpdateAccountWithoutBalance() {
         Account account = newAccount("Bruce", new BigDecimal(125));
 
         manager.createAccount(account);
         account.setBalance(null);
 
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Balance must be set!");
         manager.updateAccount(account);
-        fail("Account used for update should not pass without all inicialized fields!");
     }
 
     /**
@@ -244,26 +264,39 @@ public class AccountManagerImplTest {
         manager.createAccount(account);
         Account result = manager.findAccountById(account.getId());
 
-        assertEquals(result, account);
-        assertFalse("Inserted and retrieved Accounts should not be same instances", result == account);
+        assertThat(result).isEqualTo(account);
+        assertThat(result).isNotSameAs(account);
 
         Account account2 = newAccount("Dick", new BigDecimal(60));
         manager.createAccount(account2);
         manager.deleteAccount(account2);
 //account2 object has id but is not in the database
         result = manager.findAccountById(account2.getId());
-        assertEquals(result, null);
+        assertThat(result).isNull();
 
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testFindAccountByIdWithNullId() {
         Account account = newAccount("Fred", new BigDecimal(600));
 
         manager.createAccount(account);
+        
+        account.setId(null);
 
-        manager.findAccountById(null);
-        fail("Passing null id should result in IllegalArgumentException!");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Passed id is null, cannot find account without id!");
+        manager.findAccountById(account.getId());
+    }
+    
+    @Test
+    public void testFindNonExistingAccountById(){
+        Account account = newAccount("Maggie", new BigDecimal(3000));
+        account.setId(1L);
+        
+        Account result = manager.findAccountById(account.getId());
+    
+        assertThat(result).isNull();
     }
 
     /**
@@ -276,7 +309,7 @@ public class AccountManagerImplTest {
         Account acc3 = newAccount("George", new BigDecimal(0));
         Account acc4 = newAccount("Jacob", new BigDecimal(355));
 
-        List<Account> initialAccounts = new ArrayList<Account>();
+        List<Account> initialAccounts = new ArrayList<>();
         initialAccounts.add(acc1);
         initialAccounts.add(acc2);
         initialAccounts.add(acc3);
@@ -289,11 +322,9 @@ public class AccountManagerImplTest {
 
         List<Account> result = manager.findAllAccounts();
 
-        assertTrue("List of inserted and list of retrieved Accounts must not differ in length!", initialAccounts.size() == result.size());
-
-        for (int i = 0; i < result.size(); i++) {
-            assertTrue("List of retrieved Accounts must contain all inserted Accounts!", result.contains(initialAccounts.get(i)));
-        }
+//porovna dve kolekce, jestli obsahujou stejny prvky
+        assertThat(initialAccounts).containsAll(result);
+        
 
     }
 

@@ -19,6 +19,13 @@
 	<artifactId>derby</artifactId>
 	<version>10.12.1.1</version>
         </dependency>
+        <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-guava</artifactId>
+        <!-- Use 2.x version if you rely on Java 7 / AssertJ Core 2.x -->
+        <version>3.0.0</version>
+        <scope>test</scope>
+        </dependency>
 
     </dependencies>
     <properties>

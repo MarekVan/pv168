@@ -130,10 +130,43 @@ public class BankingManagerImpl implements BankingManager {
     
     @Override
     public List<Payment> findAllIncomingPaymentsToAccount(Account account){
-        throw new UnsupportedOperationException("Not implemented yet");
+        
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement incomingPayments = connection.prepareStatement("SELECT * FROM payment WHERE toAcc = ?");
+        ){
+            
+            return processStatementToList(incomingPayments, account);   
+               
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to retrieve incoming payments to account " + account, ex);
+        }
+        
     }
     @Override
     public List<Payment> findOutgoingPaymentsToAccount(Account account){
-        throw new UnsupportedOperationException("Not implemented yet");
+        
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement incomingPayments = connection.prepareStatement("SELECT * FROM payment WHERE fromAcc = ?");
+        ){
+            
+           return processStatementToList(incomingPayments, account);
+               
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to retrieve outgoing payments from account " + account, ex);
+        }
+    }
+    
+    private static List<Payment> processStatementToList(PreparedStatement stmt, Account account) throws SQLException{
+            stmt.setLong(1, account.getId());
+            
+            ResultSet result = stmt.executeQuery();
+            
+            List<Payment> resultList = new ArrayList<>();
+            
+            while(result.next()){
+            resultList.add(PaymentManagerImpl.resultSetToPayment(result));
+            }
+            
+            return resultList;    
     }
 }

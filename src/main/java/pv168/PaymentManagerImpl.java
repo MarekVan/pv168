@@ -207,7 +207,7 @@ public class PaymentManagerImpl implements PaymentManager {
         }
     }
 
-    private Payment resultSetToPayment(ResultSet rs) throws SQLException {
+    public static Payment resultSetToPayment(ResultSet rs) throws SQLException {
         Payment payment = new Payment();
         Date date = new Date(rs.getTimestamp("dateSent").getTime());
         payment.setId(rs.getLong("id"));

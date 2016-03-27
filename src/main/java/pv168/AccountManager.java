@@ -2,6 +2,7 @@ package pv168;
 
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public interface AccountManager {
      * autocommit should be set to false.
      */
     
-    public void createAccount(Account account, Connection con);
+    public void createAccount(Account account, Connection con) throws SQLException;
     
     /**
      * Deletes record of specified Account object in database if such object exists.

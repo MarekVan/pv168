@@ -26,180 +26,99 @@ public class AccountManagerImpl implements AccountManager {
 
         checkAccountForCreateAccount(account);
 
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement prepStatement = connection.prepareStatement
-             ("INSERT INTO account (owner, balance) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS)
+        try (Connection connection = dataSource.getConnection()
         ) {
-
-        createAccountInnerProcess(prepStatement, account);
-
+            createAccountInnerProcess(connection, account);
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to create database record of an account: " + account, ex);
         }
-
     }
-    
+
     @Override
-    public void createAccount (Account account, Connection con)throws ServiceFailureException {
-        
+    public void createAccount(Account account, Connection con) throws ServiceFailureException {
         checkAccountForCreateAccount(account);
-
-        try (
-             PreparedStatement prepStatement = con.prepareStatement
-             ("INSERT INTO account (owner, balance) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS)
-        ) {
-
-        createAccountInnerProcess(prepStatement, account);
-
-        } catch (SQLException ex) {
-            throw new ServiceFailureException("Failed to create database record of an account: " + account, ex);
-        }      
+        createAccountInnerProcess(con, account);
     }
 
     @Override
     public void deleteAccount(Account account) throws ServiceFailureException {
-    
+
         checkAccountForDeleteAccount(account);
 
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement prepStatement = connection.prepareStatement(""
-                     + "DELETE FROM account WHERE id = ?")
+        try (Connection connection = dataSource.getConnection()
+
         ) {
-
-        deleteAccountInnerProcess(prepStatement, account);
-
+            deleteAccountInnerProcess(connection, account);
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to delete database record"
                     + " of account " + account, ex);
         }
-
     }
-    
+
     @Override
-    public void deleteAccount(Account account, Connection con)throws ServiceFailureException {
-        
+    public void deleteAccount(Account account, Connection con) throws ServiceFailureException {
         checkAccountForDeleteAccount(account);
-
-        try (PreparedStatement prepStatement = con.prepareStatement(""
-             + "DELETE FROM account WHERE id = ?")
-        ) {
-
-            deleteAccountInnerProcess(prepStatement, account);
-
-        } catch (SQLException ex) {
-            throw new ServiceFailureException("Failed to delete database record"
-                    + " of account " + account, ex);
-        }   
-    
-    
-    
+        deleteAccountInnerProcess(con, account);
     }
 
     @Override
     public void updateAccount(Account account) throws ServiceFailureException {
-        
+
         checkAccountForUpdateAccount(account);
 
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement prepStatement = connection.prepareStatement(""
-                     + "UPDATE account SET owner = ?, balance = ? WHERE id = ?")
         ) {
-
-        updateAccountInnerProcess(prepStatement, account);
-
+            updateAccountInnerProcess(connection, account);
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to update database record of "
                     + "account" + account + "!", ex);
         }
-
-
     }
-    
+
     @Override
-    public void updateAccount(Account account, Connection con)throws ServiceFailureException {
-        
+    public void updateAccount(Account account, Connection con) throws ServiceFailureException {
         checkAccountForUpdateAccount(account);
-
-        try (PreparedStatement prepStatement = con.prepareStatement(""
-           + "UPDATE account SET owner = ?, balance = ? WHERE id = ?")
-        ) {
-
-        updateAccountInnerProcess(prepStatement, account);
-
-        } catch (SQLException ex) {
-            throw new ServiceFailureException("Failed to update database record of "
-                    + "account" + account + "!", ex);
-        }    
-    
-    
+        updateAccountInnerProcess(con, account);
     }
 
     @Override
     public Account findAccountById(Long id) throws ServiceFailureException {
-        
-        checkIdNotNull(id);
-            
-        try (Connection connection = dataSource.getConnection();
-            PreparedStatement prepStatement = connection.prepareStatement(""
-            + "SELECT * FROM account WHERE id = ?")
-        ) {
-            
-            return findAccountByIdInnerProcess(prepStatement, id);
 
+        checkIdNotNull(id);
+
+        try (Connection connection = dataSource.getConnection();
+        ) {
+            return findAccountByIdInnerProcess(connection, id);
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to retrieve account with id " + id + " from the database!", ex);
         }
 
     }
-    
-    @Override
-    public Account findAccountById(Long id, Connection con)throws ServiceFailureException {
-    
-        checkIdNotNull(id);
-            
-        try (PreparedStatement prepStatement = con.prepareStatement(""
-            + "SELECT * FROM account WHERE id = ?")
-        ) {
-            
-            return findAccountByIdInnerProcess(prepStatement, id);
 
-        } catch (SQLException ex) {
-            throw new ServiceFailureException("Failed to retrieve account with id " + id + " from the database!", ex);
-        }    
-    
+    @Override
+    public Account findAccountById(Long id, Connection con) throws ServiceFailureException {
+        checkIdNotNull(id);
+        return findAccountByIdInnerProcess(con, id);
     }
 
     @Override
     public List<Account> findAllAccounts() throws ServiceFailureException {
 
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement prepStatement = connection.prepareStatement("SELECT * FROM account")
         ) {
-            
-            return findAllAccountsInnerProcess(prepStatement);
-
+            return findAllAccountsInnerProcess(connection);
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to retrieve all acount record!", ex);
         }
-
-
     }
-    
+
     @Override
     public List<Account> findAllAccounts(Connection con) throws ServiceFailureException {
-
-        try (PreparedStatement prepStatement = con.prepareStatement("SELECT * FROM account")
-        ) {
-            
-            return findAllAccountsInnerProcess(prepStatement);
-
-        } catch (SQLException ex) {
-            throw new ServiceFailureException("Failed to retrieve all acount record!", ex);
-        }        
+        return findAllAccountsInnerProcess(con);
     }
 
 //------------------------------------------------------------------------------
-    
+
     public static Long getKey(ResultSet keyRs, Account account) throws SQLException {
 
         if (keyRs.next()) {
@@ -225,7 +144,7 @@ public class AccountManagerImpl implements AccountManager {
         }
 
     }
-    
+
     public static Account resultSetToAccount(ResultSet rs) throws SQLException {
         Account result = new Account();
 
@@ -235,7 +154,7 @@ public class AccountManagerImpl implements AccountManager {
 
         return result;
     }
-    
+
 //------------------------------------------------------------------------------
 
     private void validate(Account account) {
@@ -247,15 +166,19 @@ public class AccountManagerImpl implements AccountManager {
             throw new IllegalArgumentException("Balance must be set!");
 
     }
-    
-    private void checkAccountForCreateAccount(Account account){
+
+    private void checkAccountForCreateAccount(Account account) {
         validate(account);
-        if (account.getId() != null){
-            throw new IllegalArgumentException("Passed account.id must not be set!");    
+        if (account.getId() != null) {
+            throw new IllegalArgumentException("Passed account.id must not be set!");
         }
     }
-    
-    private void createAccountInnerProcess(PreparedStatement prepStatement, Account account) throws SQLException{
+
+    private void createAccountInnerProcess(Connection con, Account account) {
+        try (
+                PreparedStatement prepStatement = con.prepareStatement
+                        ("INSERT INTO account (owner, balance) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS)
+        ) {
             prepStatement.setString(1, account.getOwner());
             prepStatement.setBigDecimal(2, account.getBalance());
 
@@ -266,20 +189,28 @@ public class AccountManagerImpl implements AccountManager {
             }
 
             ResultSet keyRs = prepStatement.getGeneratedKeys();
-            account.setId(getKey(keyRs, account));    
+            account.setId(getKey(keyRs, account));
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to create database record of an account: " + account, ex);
+        }
     }
- 
-    private void checkAccountForDeleteAccount(Account account){
+
+    private void checkAccountForDeleteAccount(Account account) {
         if (account == null) {
             throw new IllegalArgumentException("Passed account is null!");
         }
-        if (account.getId() == null){
-            throw new IllegalArgumentException("Id of account to be deleted must be set!");   
+        if (account.getId() == null) {
+            throw new IllegalArgumentException("Id of account to be deleted must be set!");
         }
     }
-    
-    private void deleteAccountInnerProcess(PreparedStatement prepStatement, Account account) throws SQLException{
-           prepStatement.setLong(1, account.getId());
+
+    private void deleteAccountInnerProcess(Connection con, Account account) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(""
+                + "DELETE FROM account WHERE id = ?")
+        ) {
+            prepStatement.setLong(1, account.getId());
 
             int updated = prepStatement.executeUpdate();
 
@@ -288,77 +219,98 @@ public class AccountManagerImpl implements AccountManager {
             }
             if (updated != 1) {
                 throw new ServiceFailureException("Only one row should be affected, but update affected " + updated + "!");
-            }    
-    }
-    
-    private void checkAccountForUpdateAccount(Account account){
-        validate(account);
-        if (account.getId() == null){
-            throw new IllegalArgumentException("Id of account to be updated must be set!");
-        }      
-    }
-    
-    private void updateAccountInnerProcess(PreparedStatement prepStatement, Account account) throws SQLException{
-            
-        prepStatement.setString(1, account.getOwner());
-        prepStatement.setBigDecimal(2, account.getBalance());
-        prepStatement.setLong(3, account.getId());
-
-        int updated = prepStatement.executeUpdate();
-
-        if (updated == 0){
-            throw new EntityNotFoundException("Account " + account + "was not found in the database!");
-        }
-        if (updated != 1){
-             throw new ServiceFailureException("Only one row should be affected, but update affected " + updated + "!");    
-        }
-        
-    }
-    
-    private void checkIdNotNull(Long id){
-        if (id == null){
-            throw new IllegalArgumentException("Passed id is null, cannot find account without id!");
-        }    
-    }
-    
-    private Account findAccountByIdInnerProcess(PreparedStatement prepStatement, Long id) throws SQLException{
-
-        prepStatement.setLong(1, id);
-
-        ResultSet rs = prepStatement.executeQuery();
-
-        if (rs.next()) {
-            Account result = resultSetToAccount(rs);
-
-            if (rs.next()){
-                throw new ServiceFailureException("Operation retrieved more than one row!"
-                + "More than one entity with id " + id + "found!");
             }
-            
-            return result;
-        } else {
-            return null;
-        }    
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to delete database record"
+                    + " of account " + account, ex);
+        }
     }
-    
-    private List<Account> findAllAccountsInnerProcess(PreparedStatement prepStatement) throws SQLException{
 
-        ResultSet rs = prepStatement.executeQuery();
+    private void checkAccountForUpdateAccount(Account account) {
+        validate(account);
+        if (account.getId() == null) {
+            throw new IllegalArgumentException("Id of account to be updated must be set!");
+        }
+    }
 
-        List<Account> result = new ArrayList<>();
+    private void updateAccountInnerProcess(Connection con, Account account) {
 
-        while (rs.next()) {
-            result.add(resultSetToAccount(rs));
+        try (PreparedStatement prepStatement = con.prepareStatement(""
+                + "UPDATE account SET owner = ?, balance = ? WHERE id = ?")
+        ) {
+
+            prepStatement.setString(1, account.getOwner());
+            prepStatement.setBigDecimal(2, account.getBalance());
+            prepStatement.setLong(3, account.getId());
+
+            int updated = prepStatement.executeUpdate();
+
+            if (updated == 0) {
+                throw new EntityNotFoundException("Account " + account + "was not found in the database!");
+            }
+            if (updated != 1) {
+                throw new ServiceFailureException("Only one row should be affected, but update affected " + updated + "!");
+            }
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to update database record of "
+                    + "account" + account + "!", ex);
         }
 
-        return result;        
     }
-    
-    
-    
-    
+
+    private void checkIdNotNull(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Passed id is null, cannot find account without id!");
+        }
+    }
+
+    private Account findAccountByIdInnerProcess(Connection con, Long id) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(""
+                + "SELECT * FROM account WHERE id = ?")
+        ) {
+
+            prepStatement.setLong(1, id);
+
+            ResultSet rs = prepStatement.executeQuery();
+
+            if (rs.next()) {
+                Account result = resultSetToAccount(rs);
+
+                if (rs.next()) {
+                    throw new ServiceFailureException("Operation retrieved more than one row!"
+                            + "More than one entity with id " + id + "found!");
+                }
+                return result;
+            } else {
+                return null;
+            }
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to retrieve account with id " + id + " from the database!", ex);
+        }
+
+    }
+
+    private List<Account> findAllAccountsInnerProcess(Connection con) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement("SELECT * FROM account")
+        ) {
+            ResultSet rs = prepStatement.executeQuery();
+            List<Account> result = new ArrayList<>();
+
+            while (rs.next()) {
+                result.add(resultSetToAccount(rs));
+            }
+            return result;
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Failed to retrieve all acount record!", ex);
+        }
 
 
+    }
 
 
 }

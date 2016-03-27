@@ -22,7 +22,7 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public void createAccount(Account account) {
+    public void createAccount(Account account) throws ServiceFailureException {
 
         checkAccountForCreateAccount(account);
 
@@ -40,7 +40,7 @@ public class AccountManagerImpl implements AccountManager {
     }
     
     @Override
-    public void createAccount (Account account, Connection con){
+    public void createAccount (Account account, Connection con)throws ServiceFailureException {
         
         checkAccountForCreateAccount(account);
 
@@ -57,7 +57,7 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public void deleteAccount(Account account) {
+    public void deleteAccount(Account account) throws ServiceFailureException {
     
         checkAccountForDeleteAccount(account);
 
@@ -76,7 +76,7 @@ public class AccountManagerImpl implements AccountManager {
     }
     
     @Override
-    public void deleteAccount(Account account, Connection con){
+    public void deleteAccount(Account account, Connection con)throws ServiceFailureException {
         
         checkAccountForDeleteAccount(account);
 
@@ -96,7 +96,7 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public void updateAccount(Account account) {
+    public void updateAccount(Account account) throws ServiceFailureException {
         
         checkAccountForUpdateAccount(account);
 
@@ -116,7 +116,7 @@ public class AccountManagerImpl implements AccountManager {
     }
     
     @Override
-    public void updateAccount(Account account, Connection con){
+    public void updateAccount(Account account, Connection con)throws ServiceFailureException {
         
         checkAccountForUpdateAccount(account);
 
@@ -135,7 +135,7 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public Account findAccountById(Long id) {
+    public Account findAccountById(Long id) throws ServiceFailureException {
         
         checkIdNotNull(id);
             
@@ -153,7 +153,7 @@ public class AccountManagerImpl implements AccountManager {
     }
     
     @Override
-    public Account findAccountById(Long id, Connection con){
+    public Account findAccountById(Long id, Connection con)throws ServiceFailureException {
     
         checkIdNotNull(id);
             
@@ -170,7 +170,7 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public List<Account> findAllAccounts() {
+    public List<Account> findAllAccounts() throws ServiceFailureException {
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement prepStatement = connection.prepareStatement("SELECT * FROM account")
@@ -186,7 +186,7 @@ public class AccountManagerImpl implements AccountManager {
     }
     
     @Override
-    public List<Account> findAllAccounts(Connection con){
+    public List<Account> findAllAccounts(Connection con) throws ServiceFailureException {
 
         try (PreparedStatement prepStatement = con.prepareStatement("SELECT * FROM account")
         ) {

@@ -25,7 +25,7 @@ public class PaymentManagerImpl implements PaymentManager {
     }
 
     @Override
-    public void createPayment(Payment payment) {
+    public void createPayment(Payment payment) throws ServiceFailureException{
 
         checkPaymentForCreatePayment(payment);
 
@@ -43,7 +43,7 @@ public class PaymentManagerImpl implements PaymentManager {
     }
     
     @Override
-    public void createPayment(Payment payment, Connection con){
+    public void createPayment(Payment payment, Connection con) throws ServiceFailureException{
     
         checkPaymentForCreatePayment(payment);
 

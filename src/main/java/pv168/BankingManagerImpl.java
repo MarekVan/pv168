@@ -28,6 +28,9 @@ public class BankingManagerImpl implements BankingManager {
     @Override
     public void executePayment(Payment payment) {
 
+        if (payment == null){
+            throw new IllegalArgumentException("Payment is null!");
+        }
         if (payment.getId() != null) {
             throw new IllegalArgumentException("Payment cannot have set id before execution!");
         }
@@ -43,9 +46,13 @@ public class BankingManagerImpl implements BankingManager {
         if (payment.getSent() != null) {
             throw new IllegalArgumentException("Timestamp of payment is assigned during this method!");
         }
+        if (payment.getFrom() == payment.getTo()){
+            throw new IllegalArgumentException("Sender and receiver are the same accounts!");
+        }
         if (payment.getFrom().getBalance().compareTo(payment.getAmount()) < 0) {
             throw new InsufficientBalanceException("The sending account does not have enough money for the payment!");
         }
+
 
 
         try (Connection connection = dataSource.getConnection();
@@ -69,7 +76,8 @@ public class BankingManagerImpl implements BankingManager {
 
             } catch (ServiceFailureException ex) {
                 connection.rollback();
-
+                connection.setAutoCommit(true);
+                
                 payment.setSent(null);
                 payment.setId(null);
 
@@ -156,11 +164,13 @@ public class BankingManagerImpl implements BankingManager {
     @Override
     public List<Payment> findAllIncomingPaymentsToAccount(Account account) {
 
+        validateAccount(account);
+        
         try (Connection connection = dataSource.getConnection();
              PreparedStatement incomingPayments = connection.prepareStatement("SELECT * FROM payment WHERE toAcc = ?");
         ) {
 
-            return processStatementToList(incomingPayments, account);
+            return processStatementToList(incomingPayments, account, connection);
 
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to retrieve incoming payments to account " + account, ex);
@@ -171,18 +181,24 @@ public class BankingManagerImpl implements BankingManager {
     @Override
     public List<Payment> findOutgoingPaymentsToAccount(Account account) {
 
+        validateAccount(account);
+        
         try (Connection connection = dataSource.getConnection();
              PreparedStatement incomingPayments = connection.prepareStatement("SELECT * FROM payment WHERE fromAcc = ?");
         ) {
 
-            return processStatementToList(incomingPayments, account);
+            return processStatementToList(incomingPayments, account, connection);
 
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to retrieve outgoing payments from account " + account, ex);
         }
     }
 
-    private static List<Payment> processStatementToList(PreparedStatement stmt, Account account) throws SQLException {
+    private List<Payment> processStatementToList(PreparedStatement stmt, Account account, Connection con) throws SQLException {
+        if(accManager.findAccountById(account.getId()) == null){
+        throw new EntityNotFoundException("Specified account does not exist!");
+        }
+        
         stmt.setLong(1, account.getId());
 
         ResultSet result = stmt.executeQuery();
@@ -190,9 +206,24 @@ public class BankingManagerImpl implements BankingManager {
         List<Payment> resultList = new ArrayList<>();
 
         while (result.next()) {
-            resultList.add(PaymentManagerImpl.resultSetToPayment(result));
+            resultList.add(PaymentManagerImpl.resultSetToPayment(result, con));
         }
 
         return resultList;
+    }
+    
+    private void validateAccount(Account account){
+         if(account == null){
+            throw new IllegalArgumentException("Passed account is null!");
+        }
+        if(account.getId() == null){
+            throw new IllegalArgumentException("Passed account.id is null!");
+        }
+        if(account.getOwner() == null){
+            throw new IllegalArgumentException("Passed account.owner is null!");
+        }
+        if(account.getBalance() == null){
+            throw new IllegalArgumentException("Passed account.balance is null!");
+        }   
     }
 }

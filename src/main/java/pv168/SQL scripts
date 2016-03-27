@@ -1,12 +1,12 @@
 CREATE TABLE account (
 id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 owner VARCHAR (200),
-balance DECIMAL
+balance DECIMAL (20,0)
 )
 
 CREATE TABLE payment (
 id bigint not null primary key generated always as identity,
-amount DECIMAL,
+amount DECIMAL (20,0),
 fromAcc BIGINT NOT NULL,
 toAcc BIGINT NOT NULL,
 dateSent TIMESTAMP

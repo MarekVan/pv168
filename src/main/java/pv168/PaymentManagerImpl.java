@@ -217,39 +217,21 @@ public class PaymentManagerImpl implements PaymentManager {
         }
     }
 
-    public static Payment resultSetToPayment(ResultSet rs) throws SQLException {
+    public static Payment resultSetToPayment(ResultSet rs, Connection con) throws SQLException {
         Payment payment = new Payment();
         Date date = new Date(rs.getTimestamp("dateSent").getTime());
         payment.setId(rs.getLong("id"));
         payment.setAmount(rs.getBigDecimal("amount"));
         payment.setSent(date);
+        
+        Long fromId = rs.getLong("fromAcc");
+        Long toId = rs.getLong("toAcc");
+        
+        findAccountsToPayment(payment, con, fromId, toId);
         return payment;
     }
     
-//------------------------------------------------------------------------------
-    
-    private void validate(Payment payment) throws IllegalArgumentException {
-        if (payment == null) {
-            throw new IllegalArgumentException("payment is null");
-        }
-        if (payment.getAmount() == null) {
-            throw new IllegalArgumentException("amount is null");
-        }
-        if (payment.getAmount().compareTo(new BigDecimal(0)) < 0) {
-            throw new IllegalArgumentException("amount is negative number");
-        }
-        if (payment.getFrom() == null) {
-            throw new IllegalArgumentException("account from is null");
-        }
-        if (payment.getTo() == null) {
-            throw new IllegalArgumentException("account to is null");
-        }
-        if (payment.getSent() == null) {
-            throw new IllegalArgumentException("date is null");
-        }
-    }
-    
-    private void findAccountsToPayment(Payment payment, Connection connection, Long fromAcc, Long toAcc) {
+    private static void findAccountsToPayment(Payment payment, Connection connection, Long fromAcc, Long toAcc) {
 
         try (PreparedStatement stFrom = connection.prepareStatement(""
                 + "SELECT * FROM account WHERE id = ?");
@@ -285,6 +267,31 @@ public class PaymentManagerImpl implements PaymentManager {
         }
 
     }
+    
+//------------------------------------------------------------------------------
+    
+    private void validate(Payment payment) throws IllegalArgumentException {
+        if (payment == null) {
+            throw new IllegalArgumentException("payment is null");
+        }
+        if (payment.getAmount() == null) {
+            throw new IllegalArgumentException("amount is null");
+        }
+        if (payment.getAmount().compareTo(new BigDecimal(0)) < 0) {
+            throw new IllegalArgumentException("amount is negative number");
+        }
+        if (payment.getFrom() == null) {
+            throw new IllegalArgumentException("account from is null");
+        }
+        if (payment.getTo() == null) {
+            throw new IllegalArgumentException("account to is null");
+        }
+        if (payment.getSent() == null) {
+            throw new IllegalArgumentException("date is null");
+        }
+    }
+    
+ 
     
     private void checkPaymentForCreatePayment(Payment payment){
         validate(payment);
@@ -364,12 +371,12 @@ public class PaymentManagerImpl implements PaymentManager {
             ResultSet rs = prepStatement.executeQuery();
 
             if (rs.next()) {
-                Payment payment = resultSetToPayment(rs);
+                Payment payment = resultSetToPayment(rs, con);
                 findAccountsToPayment(payment, con, rs.getLong("fromAcc"), rs.getLong("toAcc"));
                 if (rs.next()) {
                     throw new ServiceFailureException(
                             "Internal error: More entities with the same id found "
-                                    + "(source id: " + id + ", found " + payment + " and " + resultSetToPayment(rs));
+                                    + "(source id: " + id + ", found " + payment + " and " + resultSetToPayment(rs, con));
                 }
                 return payment;
             } else {
@@ -383,7 +390,7 @@ public class PaymentManagerImpl implements PaymentManager {
 
         List<Payment> result = new ArrayList<>();
         while (rs.next()) {
-            Payment current = resultSetToPayment(rs);
+            Payment current = resultSetToPayment(rs, con);
             findAccountsToPayment(current, con, rs.getLong("fromAcc"), rs.getLong("toAcc"));
             result.add(current);
         }

@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sun Mar 27 15:15:26 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-b837-0449-000003562948 
-on database directory memory:C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168\paymentmgr-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
-Loaded from file:/C:/Users/Va%c5%a1ek%20%26%20V%c3%adtek/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Sun Mar 27 16:34:05 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-b87f-0376-000002e0a9a8 
+on database directory memory:C:\JavaSeminar\pv168\bankingbmgr-test with class loader sun.misc.Launcher$AppClassLoader@15db9742 
+Loaded from file:/C:/Users/Marek%20Van%c4%8d%c3%adk/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_25-b18
-user.dir=C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168
+java.runtime.version=1.8.0_60-b27
+user.dir=C:\JavaSeminar\pv168
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1

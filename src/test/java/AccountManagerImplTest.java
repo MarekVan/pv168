@@ -88,12 +88,14 @@ public class AccountManagerImplTest {
 //isNotTheSame - jestli je to stejna reference
         assertThat(account).isNotSameAs(result);
     }
+    
     @Test
     public void testCreateAccountWithNull(){
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Passed account is null!");
         manager.createAccount(null);
     }
+    
     @Test
     public void testCreateAccountWithoutOwner() {
         Account account = new Account();
@@ -104,7 +106,6 @@ public class AccountManagerImplTest {
         manager.createAccount(account);
 
     }
-
     
     @Test
     public void testCreateAccountWithoutBalance() {
@@ -116,6 +117,7 @@ public class AccountManagerImplTest {
         manager.createAccount(account);
 
     }
+    
     @Test
     public void testCreateAccountWithAssignedId() {
         Account account = newAccount("Pepa", new BigDecimal(500));
@@ -128,9 +130,6 @@ public class AccountManagerImplTest {
 
     }
 
-    /**
-     * Test of deleteAccount method, of class AccountManagerImpl.
-     */
     @Test
     public void testDeleteAccount() {
         Account acc1 = newAccount("John", new BigDecimal(50));
@@ -176,9 +175,6 @@ public class AccountManagerImplTest {
         manager.deleteAccount(account);
     }
 
-    /**
-     * Test of updateAccount method, of class AccountManagerImpl.
-     */
     @Test
     public void testUpdateAccount() {
         Account account = newAccount("Percy", new BigDecimal(999));
@@ -254,9 +250,6 @@ public class AccountManagerImplTest {
         manager.updateAccount(account);
     }
 
-    /**
-     * Test of findAccountById method, of class AccountManagerImpl.
-     */
     @Test
     public void testFindAccountById() {
         Account account = newAccount("Leo", new BigDecimal(750));
@@ -299,9 +292,6 @@ public class AccountManagerImplTest {
         assertThat(result).isNull();
     }
 
-    /**
-     * Test of findAllAccounts method, of class AccountManagerImpl.
-     */
     @Test
     public void testFindAllAccounts() {
         Account acc1 = newAccount("John", new BigDecimal(50));

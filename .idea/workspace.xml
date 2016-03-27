@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4edf5bcb-1f05-41dc-a085-ddc6ddc2451e" name="Default" comment="formatovanie a ine detaily">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_assertj_assertj_core_3_3_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pv168/BankingManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/pv168/BankingManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/BankingManagerImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/BankingManagerImplTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.iml" afterPath="$PROJECT_DIR$/project.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project.iws" />
@@ -37,22 +35,22 @@
     <leaf>
       <file leaf-file-name="SQL scripts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pv168/SQL scripts">
-          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountManagerImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AccountManagerImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pv168/AccountManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+            <state vertical-scroll-proportion="1.0749414">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <marker date="1459088035621" expanded="true" signature="787:836" placeholder="INSERT INTO ..." />
                 <marker date="1459088035621" expanded="true" signature="1380:1429" placeholder="INSERT INTO ..." />
@@ -79,17 +77,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankingManagerImplTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BankingManagerImplTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/BankingManagerImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="9.119205">
-              <caret line="324" column="5" selection-start-line="324" selection-start-column="5" selection-end-line="324" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1459088269082" expanded="true" signature="1311:1508" placeholder="CREATE TABLE..account..." />
-                <marker date="1459088269082" expanded="true" signature="1640:2072" placeholder="CREATE TABLE..payment..." />
-                <marker date="1459088269082" expanded="true" signature="2510:2528" placeholder="DROP TABLE P..." />
-                <marker date="1459088269082" expanded="true" signature="2589:2607" placeholder="DROP TABLE A..." />
+                <marker date="1459090669339" expanded="true" signature="1311:1508" placeholder="CREATE TABLE..account..." />
+                <marker date="1459090669339" expanded="true" signature="1640:2072" placeholder="CREATE TABLE..payment..." />
+                <marker date="1459090669339" expanded="true" signature="2510:2528" placeholder="DROP TABLE P..." />
+                <marker date="1459090669339" expanded="true" signature="2589:2607" placeholder="DROP TABLE A..." />
               </folding>
             </state>
           </provider>
@@ -100,7 +98,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#17202#17203#0" expanded="false" />
+                <element signature="e#17265#17266#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,24 +137,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Payment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pv168/Payment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BankingManagerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pv168/BankingManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+              <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
               <folding>
-                <marker date="1459089242038" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
-                <marker date="1459089242038" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
+                <marker date="1459090614122" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
+                <marker date="1459090614122" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountManagerImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/AccountManagerImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+              <folding>
+                <marker date="1459088035631" expanded="true" signature="1242:1436" placeholder="CREATE TABLE..account..." />
+                <marker date="1459088035631" expanded="true" signature="1772:1790" placeholder="DROP TABLE a..." />
               </folding>
             </state>
           </provider>
@@ -259,9 +264,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -352,6 +354,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -708,8 +713,8 @@
     <recent_temporary>
       <list size="3">
         <item index="0" class="java.lang.String" itemvalue="JUnit.BankingManagerImplTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AccountManagerImplTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.PaymentManagerImplTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PaymentManagerImplTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AccountManagerImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -741,6 +746,7 @@
       <workItem from="1458640508925" duration="2130000" />
       <workItem from="1458658493683" duration="2905000" />
       <workItem from="1459088044249" duration="1254000" />
+      <workItem from="1459089445337" duration="1100000" />
     </task>
     <task id="LOCAL-00001" summary="formatovanie a ine detaily">
       <created>1458642549812</created>
@@ -752,7 +758,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39503000" />
+    <option name="totallyTimeSpent" value="40603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="748" extended-state="6" />
@@ -810,6 +816,113 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/SQL scripts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/AccountManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+          <folding>
+            <marker date="1459088035621" expanded="true" signature="787:836" placeholder="INSERT INTO ..." />
+            <marker date="1459088035621" expanded="true" signature="1380:1429" placeholder="INSERT INTO ..." />
+            <marker date="1459088035621" expanded="true" signature="1998:2056" placeholder="DELETE FROM ..." />
+            <marker date="1459088035621" expanded="true" signature="2559:2609" placeholder="DELETE FROM ..." />
+            <marker date="1459088035621" expanded="true" signature="3186:3266" placeholder="UPDATE accou..." />
+            <marker date="1459088035621" expanded="true" signature="3775:3845" placeholder="UPDATE accou..." />
+            <marker date="1459088035621" expanded="true" signature="4408:4459" placeholder="SELECT * FRO..account..." />
+            <marker date="1459088035621" expanded="true" signature="4953:5004" placeholder="SELECT * FRO..account..." />
+            <marker date="1459088035621" expanded="true" signature="5513:5534" placeholder="SELECT * FRO..account..." />
+            <marker date="1459088035621" expanded="true" signature="5951:5972" placeholder="SELECT * FRO..account..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BankingManagerImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1459090669339" expanded="true" signature="1311:1508" placeholder="CREATE TABLE..account..." />
+            <marker date="1459090669339" expanded="true" signature="1640:2072" placeholder="CREATE TABLE..payment..." />
+            <marker date="1459090669339" expanded="true" signature="2510:2528" placeholder="DROP TABLE P..." />
+            <marker date="1459090669339" expanded="true" signature="2589:2607" placeholder="DROP TABLE A..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/PaymentManagerImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#17202#17203#0" expanded="false" />
+            <element signature="e#17265#17266#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/poznamky.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="94" selection-start-line="0" selection-start-column="94" selection-end-line="0" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/BankingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/PaymentManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="250" column="0" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/BankingManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding>
+            <marker date="1459090614122" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
+            <marker date="1459090614122" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pv168/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -858,8 +971,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <marker date="1459089242038" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
-            <marker date="1459089242038" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
+            <marker date="1459090614122" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
+            <marker date="1459090614122" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
           </folding>
         </state>
       </provider>
@@ -1061,14 +1174,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pv168/SQL scripts">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pv168/poznamky.txt">
@@ -1079,30 +1192,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/AccountManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
-          <folding>
-            <marker date="1459088035621" expanded="true" signature="787:836" placeholder="INSERT INTO ..." />
-            <marker date="1459088035621" expanded="true" signature="1380:1429" placeholder="INSERT INTO ..." />
-            <marker date="1459088035621" expanded="true" signature="1998:2056" placeholder="DELETE FROM ..." />
-            <marker date="1459088035621" expanded="true" signature="2559:2609" placeholder="DELETE FROM ..." />
-            <marker date="1459088035621" expanded="true" signature="3186:3266" placeholder="UPDATE accou..." />
-            <marker date="1459088035621" expanded="true" signature="3775:3845" placeholder="UPDATE accou..." />
-            <marker date="1459088035621" expanded="true" signature="4408:4459" placeholder="SELECT * FRO..account..." />
-            <marker date="1459088035621" expanded="true" signature="4953:5004" placeholder="SELECT * FRO..account..." />
-            <marker date="1459088035621" expanded="true" signature="5513:5534" placeholder="SELECT * FRO..account..." />
-            <marker date="1459088035621" expanded="true" signature="5951:5972" placeholder="SELECT * FRO..account..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/PaymentManagerImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#17202#17203#0" expanded="false" />
+            <element signature="e#17265#17266#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1117,24 +1215,54 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/pv168/BankingManagerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
           <folding>
-            <marker date="1459089242038" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
-            <marker date="1459089242038" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
+            <marker date="1459090614122" expanded="true" signature="6375:6412" placeholder="SELECT * FRO..payment..." />
+            <marker date="1459090614122" expanded="true" signature="6900:6939" placeholder="SELECT * FRO..payment..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/AccountManagerImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <marker date="1459088035631" expanded="true" signature="1242:1436" placeholder="CREATE TABLE..account..." />
+            <marker date="1459088035631" expanded="true" signature="1772:1790" placeholder="DROP TABLE a..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/BankingManagerImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.119205">
-          <caret line="324" column="5" selection-start-line="324" selection-start-column="5" selection-end-line="324" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1459088269082" expanded="true" signature="1311:1508" placeholder="CREATE TABLE..account..." />
-            <marker date="1459088269082" expanded="true" signature="1640:2072" placeholder="CREATE TABLE..payment..." />
-            <marker date="1459088269082" expanded="true" signature="2510:2528" placeholder="DROP TABLE P..." />
-            <marker date="1459088269082" expanded="true" signature="2589:2607" placeholder="DROP TABLE A..." />
+            <marker date="1459090669339" expanded="true" signature="1311:1508" placeholder="CREATE TABLE..account..." />
+            <marker date="1459090669339" expanded="true" signature="1640:2072" placeholder="CREATE TABLE..payment..." />
+            <marker date="1459090669339" expanded="true" signature="2510:2528" placeholder="DROP TABLE P..." />
+            <marker date="1459090669339" expanded="true" signature="2589:2607" placeholder="DROP TABLE A..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pv168/AccountManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0749414">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <marker date="1459088035621" expanded="true" signature="787:836" placeholder="INSERT INTO ..." />
+            <marker date="1459088035621" expanded="true" signature="1380:1429" placeholder="INSERT INTO ..." />
+            <marker date="1459088035621" expanded="true" signature="1998:2056" placeholder="DELETE FROM ..." />
+            <marker date="1459088035621" expanded="true" signature="2559:2609" placeholder="DELETE FROM ..." />
+            <marker date="1459088035621" expanded="true" signature="3186:3266" placeholder="UPDATE accou..." />
+            <marker date="1459088035621" expanded="true" signature="3775:3845" placeholder="UPDATE accou..." />
+            <marker date="1459088035621" expanded="true" signature="4408:4459" placeholder="SELECT * FRO..account..." />
+            <marker date="1459088035621" expanded="true" signature="4953:5004" placeholder="SELECT * FRO..account..." />
+            <marker date="1459088035621" expanded="true" signature="5513:5534" placeholder="SELECT * FRO..account..." />
+            <marker date="1459088035621" expanded="true" signature="5951:5972" placeholder="SELECT * FRO..account..." />
           </folding>
         </state>
       </provider>

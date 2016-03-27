@@ -205,6 +205,10 @@ public class BankingManagerImplTest {
         Payment payment3 = newPayment(new BigDecimal(1300), from, to, null);
         Payment payment4 = newPayment(new BigDecimal(1400), from, to2, null);
 
+        accountManager.createAccount(from);
+        accountManager.createAccount(to);
+        accountManager.createAccount(to2);
+
         List<Payment> payments = new ArrayList<>();
         List<Payment> result = bankingManager.findAllIncomingPaymentsToAccount(to);
 
@@ -269,6 +273,10 @@ public class BankingManagerImplTest {
         Payment payment2 = newPayment(new BigDecimal(1200), from, to, null);
         Payment payment3 = newPayment(new BigDecimal(1300), from, to, null);
         Payment payment4 = newPayment(new BigDecimal(1400), from2, to, null);
+
+        accountManager.createAccount(from);
+        accountManager.createAccount(from2);
+        accountManager.createAccount(to);
 
         List<Payment> payments = new ArrayList<>();
         List<Payment> result = bankingManager.findOutgoingPaymentsToAccount(from);

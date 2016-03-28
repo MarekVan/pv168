@@ -25,175 +25,99 @@ public class PaymentManagerImpl implements PaymentManager {
     }
 
     @Override
-    public void createPayment(Payment payment) throws ServiceFailureException{
+    public void createPayment(Payment payment) throws ServiceFailureException {
 
         checkPaymentForCreatePayment(payment);
 
         try (Connection connection = dataSource.getConnection();
-            PreparedStatement st = connection.prepareStatement(
-            "INSERT INTO PAYMENT (amount, fromAcc, toAcc, dateSent) VALUES (?,?,?,?)",
-            Statement.RETURN_GENERATED_KEYS)
         ) {
-
-        createPaymentInnerProcess(st, payment);
-        
+            createPaymentInnerProcess(connection, payment);
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when inserting payment " + payment, ex);
         }
     }
-    
+
     @Override
-    public void createPayment(Payment payment, Connection con) throws ServiceFailureException{
-    
+    public void createPayment(Payment payment, Connection con) throws ServiceFailureException {
         checkPaymentForCreatePayment(payment);
-
-        try (PreparedStatement st = con.prepareStatement(
-             "INSERT INTO PAYMENT (amount, fromAcc, toAcc, dateSent) VALUES (?,?,?,?)",
-             Statement.RETURN_GENERATED_KEYS)
-        ) {
-
-        createPaymentInnerProcess(st, payment);
-
-        } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when inserting payment " + payment, ex);
-        }   
-    
+        createPaymentInnerProcess(con, payment);
     }
 
     @Override
     public void deletePayment(Payment payment) throws ServiceFailureException {
-        
-        checkPaymentForDeletePayment(payment);
-        
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement st = connection.prepareStatement(
-             "DELETE FROM payment WHERE id = ?")
-        ) {
 
-        deletePaymentInnerProcess(st, payment);
-        
+        checkPaymentForDeletePayment(payment);
+
+        try (Connection connection = dataSource.getConnection();
+        ) {
+            deletePaymentInnerProcess(connection, payment);
         } catch (SQLException ex) {
             throw new ServiceFailureException(
                     "Error when updating payment " + payment, ex);
         }
     }
-    
+
     @Override
     public void deletePayment(Payment payment, Connection con) throws ServiceFailureException {
-        
         checkPaymentForDeletePayment(payment);
-        
-        try (PreparedStatement st = con.prepareStatement(
-             "DELETE FROM payment WHERE id = ?")
-        ) {
-
-        deletePaymentInnerProcess(st, payment);
-        
-        } catch (SQLException ex) {
-            throw new ServiceFailureException(
-                    "Error when updating payment " + payment, ex);
-        }
-    }    
+        deletePaymentInnerProcess(con, payment);
+    }
 
     @Override
     public void updatePayment(Payment payment) throws ServiceFailureException {
 
         checkPaymentForUpdatePayment(payment);
-        
-        try (Connection connection = dataSource.getConnection();
-            PreparedStatement st = connection.prepareStatement(
-            "UPDATE Payment SET amount = ?, fromAcc = ?, toAcc = ?, dateSent = ? WHERE id = ?")
-        ) {
 
-        updatePaymentInnerProcess(st, payment);
-        
+        try (Connection connection = dataSource.getConnection();
+        ) {
+            updatePaymentInnerProcess(connection, payment);
         } catch (SQLException ex) {
             throw new ServiceFailureException(
                     "Error when updating payment " + payment, ex);
         }
     }
-    
+
     @Override
     public void updatePayment(Payment payment, Connection con) throws ServiceFailureException {
-
         checkPaymentForUpdatePayment(payment);
-        
-        try (PreparedStatement st = con.prepareStatement(
-            "UPDATE Payment SET amount = ?, fromAcc = ?, toAcc = ?, dateSent = ? WHERE id = ?")
-        ) {
-
-        updatePaymentInnerProcess(st, payment);
-        
-        } catch (SQLException ex) {
-            throw new ServiceFailureException(
-                    "Error when updating payment " + payment, ex);
-        }
-    }    
+        updatePaymentInnerProcess(con, payment);
+    }
 
     @Override
     public Payment findPaymentById(Long id) throws ServiceFailureException {
-        
-        checkIdForFindPaymentById(id);
-        
-        try (Connection connection = dataSource.getConnection();
-            PreparedStatement st = connection.prepareStatement(
-            "SELECT * FROM payment WHERE id = ?")
-        ) {
 
-        return findPaymentByIdInnerProcess(st, id, connection);
-        
+        checkIdForFindPaymentById(id);
+
+        try (Connection connection = dataSource.getConnection();
+        ) {
+            return findPaymentByIdInnerProcess(id, connection);
         } catch (SQLException ex) {
             throw new ServiceFailureException(
                     "Error when retrieving payment with id " + id, ex);
         }
     }
-    
+
     @Override
     public Payment findPaymentById(Long id, Connection con) throws ServiceFailureException {
-        
         checkIdForFindPaymentById(id);
-        
-        try (PreparedStatement st = con.prepareStatement(
-            "SELECT * FROM payment WHERE id = ?")
-        ) {
-
-        return findPaymentByIdInnerProcess(st, id, con);
-        
-        } catch (SQLException ex) {
-            throw new ServiceFailureException(
-                    "Error when retrieving payment with id " + id, ex);
-        }
-    }    
+        return findPaymentByIdInnerProcess(id, con);
+    }
 
     @Override
     public List<Payment> findAllPayments() throws ServiceFailureException {
-        try (Connection connection = dataSource.getConnection();
-            PreparedStatement st = connection.prepareStatement(
-            "SELECT * FROM payment")) {
-
-        return findAllPaymentsInnerProcess(st, connection);
-
+        try (Connection connection = dataSource.getConnection()) {
+            return findAllPaymentsInnerProcess(connection);
         } catch (SQLException ex) {
             throw new ServiceFailureException(
                     "Error when retrieving all payments", ex);
         }
-
     }
-    
+
     @Override
     public List<Payment> findAllPayments(Connection con) throws ServiceFailureException {
-        try (PreparedStatement st = con.prepareStatement(
-            "SELECT * FROM payment")) {
+        return findAllPaymentsInnerProcess(con);
+    }
 
-        return findAllPaymentsInnerProcess(st, con);
-
-        } catch (SQLException ex) {
-            throw new ServiceFailureException(
-                    "Error when retrieving all payments", ex);
-        }
-
-    }    
-    
 //------------------------------------------------------------------------------
 
     public static Long getKey(ResultSet keyRS, Payment payment) throws ServiceFailureException, SQLException {
@@ -223,21 +147,21 @@ public class PaymentManagerImpl implements PaymentManager {
         payment.setId(rs.getLong("id"));
         payment.setAmount(rs.getBigDecimal("amount"));
         payment.setSent(date);
-        
+
         Long fromId = rs.getLong("fromAcc");
         Long toId = rs.getLong("toAcc");
-        
+
         findAccountsToPayment(payment, con, fromId, toId);
         return payment;
     }
-    
+
     private static void findAccountsToPayment(Payment payment, Connection connection, Long fromAcc, Long toAcc) {
 
         try (PreparedStatement stFrom = connection.prepareStatement(""
                 + "SELECT * FROM account WHERE id = ?");
              PreparedStatement stTo = connection.prepareStatement(""
                      + "SELECT * FROM account WHERE id = ?");
-                
+
 
         ) {
             stFrom.setLong(1, fromAcc);
@@ -267,9 +191,9 @@ public class PaymentManagerImpl implements PaymentManager {
         }
 
     }
-    
+
 //------------------------------------------------------------------------------
-    
+
     private void validate(Payment payment) throws IllegalArgumentException {
         if (payment == null) {
             throw new IllegalArgumentException("payment is null");
@@ -290,18 +214,22 @@ public class PaymentManagerImpl implements PaymentManager {
             throw new IllegalArgumentException("date is null");
         }
     }
-    
- 
-    
-    private void checkPaymentForCreatePayment(Payment payment){
+
+
+    private void checkPaymentForCreatePayment(Payment payment) {
         validate(payment);
         if (payment.getId() != null) {
             throw new IllegalArgumentException("payment id is already set");
-        }   
+        }
     }
-    
-    private void createPaymentInnerProcess(PreparedStatement prepStatement, Payment payment) throws SQLException{
-            
+
+    private void createPaymentInnerProcess(Connection con, Payment payment) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(
+                "INSERT INTO PAYMENT (amount, fromAcc, toAcc, dateSent) VALUES (?,?,?,?)",
+                Statement.RETURN_GENERATED_KEYS)
+        ) {
+
             prepStatement.setBigDecimal(1, payment.getAmount());
             prepStatement.setLong(2, payment.getFrom().getId());
             prepStatement.setLong(3, payment.getTo().getId());
@@ -313,11 +241,16 @@ public class PaymentManagerImpl implements PaymentManager {
             }
 
             ResultSet keyRS = prepStatement.getGeneratedKeys();
-            payment.setId(getKey(keyRS, payment));    
-    
+            payment.setId(getKey(keyRS, payment));
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Error when inserting payment " + payment, ex);
+        }
+
+
     }
 
-    private void checkPaymentForDeletePayment(Payment payment){
+    private void checkPaymentForDeletePayment(Payment payment) {
 
         if (payment == null) {
             throw new IllegalArgumentException("payment is null");
@@ -327,7 +260,12 @@ public class PaymentManagerImpl implements PaymentManager {
         }
     }
 
-    private void deletePaymentInnerProcess(PreparedStatement prepStatement, Payment payment) throws SQLException{
+    private void deletePaymentInnerProcess(Connection con, Payment payment) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(
+                "DELETE FROM payment WHERE id = ?")
+        ) {
+
             prepStatement.setLong(1, payment.getId());
 
             int count = prepStatement.executeUpdate();
@@ -335,17 +273,26 @@ public class PaymentManagerImpl implements PaymentManager {
                 throw new EntityNotFoundException("Payment " + payment + " was not found in database!");
             } else if (count != 1) {
                 throw new ServiceFailureException("Invalid deleted rows count detected (one row should be updated): " + count);
-            }    
+            }
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException(
+                    "Error when updating payment " + payment, ex);
+        }
     }
-    
-    private void checkPaymentForUpdatePayment(Payment payment){
+
+    private void checkPaymentForUpdatePayment(Payment payment) {
         validate(payment);
         if (payment.getId() == null) {
             throw new IllegalArgumentException("payment id is null");
-        }    
+        }
     }
-    
-    private void updatePaymentInnerProcess(PreparedStatement prepStatement, Payment payment) throws SQLException{
+
+    private void updatePaymentInnerProcess(Connection con, Payment payment) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(
+                "UPDATE Payment SET amount = ?, fromAcc = ?, toAcc = ?, dateSent = ? WHERE id = ?")
+        ) {
             prepStatement.setBigDecimal(1, payment.getAmount());
             prepStatement.setLong(2, payment.getFrom().getId());
             prepStatement.setLong(3, payment.getTo().getId());
@@ -357,16 +304,25 @@ public class PaymentManagerImpl implements PaymentManager {
                 throw new EntityNotFoundException("Payment " + payment + " was not found in database!");
             } else if (count != 1) {
                 throw new ServiceFailureException("Invalid updated rows count detected (one row should be updated): " + count);
-            }    
+            }
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException(
+                    "Error when updating payment " + payment, ex);
+        }
     }
-    
-    private void checkIdForFindPaymentById(Long id){
-        if(id == null){
+
+    private void checkIdForFindPaymentById(Long id) {
+        if (id == null) {
             throw new IllegalArgumentException("Id must not be null!");
         }
     }
-    
-    private Payment findPaymentByIdInnerProcess(PreparedStatement prepStatement, Long id, Connection con) throws SQLException{
+
+    private Payment findPaymentByIdInnerProcess(Long id, Connection con) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(
+                "SELECT * FROM payment WHERE id = ?")
+        ) {
             prepStatement.setLong(1, id);
             ResultSet rs = prepStatement.executeQuery();
 
@@ -381,19 +337,31 @@ public class PaymentManagerImpl implements PaymentManager {
                 return payment;
             } else {
                 return null;
-            }    
-    }
-    
-    private List<Payment> findAllPaymentsInnerProcess(PreparedStatement prepStatement, Connection con) throws SQLException{
-            
-        ResultSet rs = prepStatement.executeQuery();
-
-        List<Payment> result = new ArrayList<>();
-        while (rs.next()) {
-            Payment current = resultSetToPayment(rs, con);
-            findAccountsToPayment(current, con, rs.getLong("fromAcc"), rs.getLong("toAcc"));
-            result.add(current);
+            }
+        } catch (SQLException ex) {
+            throw new ServiceFailureException(
+                    "Error when retrieving payment with id " + id, ex);
         }
-            return result;    
+    }
+
+    private List<Payment> findAllPaymentsInnerProcess(Connection con) {
+
+        try (PreparedStatement prepStatement = con.prepareStatement(
+                "SELECT * FROM payment")) {
+
+            ResultSet rs = prepStatement.executeQuery();
+
+            List<Payment> result = new ArrayList<>();
+            while (rs.next()) {
+                Payment current = resultSetToPayment(rs, con);
+                findAccountsToPayment(current, con, rs.getLong("fromAcc"), rs.getLong("toAcc"));
+                result.add(current);
+            }
+            return result;
+
+        } catch (SQLException ex) {
+            throw new ServiceFailureException(
+                    "Error when retrieving all payments", ex);
+        }
     }
 }

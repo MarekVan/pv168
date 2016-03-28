@@ -88,10 +88,10 @@ public class PaymentManagerImplTest {
         manager.createPayment(payment);
         Long paymentId = payment.getId();
 
-        assertThat("saved payment has null id", payment.getId(), is(not(equalTo(null))));
+        assertThat(payment.getId(), is(not(equalTo(null))));
         Payment result = manager.findPaymentById(paymentId);
-        assertThat("loaded payment differs from the saved one", result, is(equalTo(payment)));
-        assertThat("loaded payment is the same instance", result, is(not(sameInstance(payment))));
+        assertThat(result, is(equalTo(payment)));
+        assertThat(result, is(not(sameInstance(payment))));
         assertDeepEquals(payment, result);
     }
 
@@ -242,26 +242,26 @@ public class PaymentManagerImplTest {
         p1.setFrom(from2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was changed when changing from account", p1.getAmount(), is(equalTo(amount2)));
-        assertThat("account from was not changed", p1.getFrom(), is(equalTo(from2)));
-        assertThat("account to was changed when changing from account", p1.getTo(), is(equalTo(to1)));
-        assertThat("date was changed when changing from account", p1.getSent(), is(equalTo(cal.getTime())));
+        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getFrom(), is(equalTo(from2)));
+        assertThat(p1.getTo(), is(equalTo(to1)));
+        assertThat(p1.getSent(), is(equalTo(cal.getTime())));
 
         p1.setTo(to2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was changed when changing to accoun", p1.getAmount(), is(equalTo(amount2)));
-        assertThat("account from was changed when changing to accoun", p1.getFrom(), is(equalTo(from2)));
-        assertThat("account to was not changed", p1.getTo(), is(equalTo(to2)));
-        assertThat("date was changed when changing to accoun", p1.getSent(), is(equalTo(cal.getTime())));
+        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getFrom(), is(equalTo(from2)));
+        assertThat(p1.getTo(), is(equalTo(to2)));
+        assertThat(p1.getSent(), is(equalTo(cal.getTime())));
 
         p1.setSent(ca2.getTime());
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat("amount was changed when changing date", p1.getAmount(), is(equalTo(amount2)));
-        assertThat("account from was changed when changing date", p1.getFrom(), is(equalTo(from2)));
-        assertThat("account to was changed when changing date", p1.getTo(), is(equalTo(to2)));
-        assertThat("date was not changed", p1.getSent(), is(equalTo(ca2.getTime())));
+        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getFrom(), is(equalTo(from2)));
+        assertThat(p1.getTo(), is(equalTo(to2)));
+        assertThat(p1.getSent(), is(equalTo(ca2.getTime())));
 
         // Check if updates didn't affected other records
         assertDeepEquals(p2, manager.findPaymentById(p2.getId()));
@@ -391,17 +391,17 @@ public class PaymentManagerImplTest {
         Collections.sort(actual, idComparator);
         Collections.sort(expected, idComparator);
 
-        assertEquals("saved and retrieved payments differ", expected, actual);
+        assertEquals(expected, actual);
         assertDeepEquals(expected, actual);
 
     }
 
     private void assertDeepEquals(Payment expected, Payment actual) {
-        assertEquals("id value is not equal", expected.getId(), actual.getId());
-        assertEquals("amount value is not equal", expected.getAmount(), actual.getAmount());
-        assertEquals("from value is not equal", expected.getFrom(), actual.getFrom());
-        assertEquals("to value is not equal", expected.getTo(), actual.getTo());
-        assertEquals("date value is not equal", expected.getSent(), actual.getSent());
+        assertEquals(expected.getId(), actual.getId());
+        assertEquals(expected.getAmount(), actual.getAmount());
+        assertEquals(expected.getFrom(), actual.getFrom());
+        assertEquals(expected.getTo(), actual.getTo());
+        assertEquals(expected.getSent(), actual.getSent());
     }
 
     public static Calendar newCalendar(int year, int month, int day) {

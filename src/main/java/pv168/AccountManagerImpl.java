@@ -158,12 +158,15 @@ public class AccountManagerImpl implements AccountManager {
 //------------------------------------------------------------------------------
 
     private void validate(Account account) {
-        if (account == null)
+        if (account == null) {
             throw new IllegalArgumentException("Passed account is null!");
-        if (account.getOwner() == null)
+        }
+        if (account.getOwner() == null) {
             throw new IllegalArgumentException("Owner must be set!");
-        if (account.getBalance() == null)
+        }
+        if (account.getBalance() == null) {
             throw new IllegalArgumentException("Balance must be set!");
+        }
 
     }
 
@@ -207,8 +210,8 @@ public class AccountManagerImpl implements AccountManager {
 
     private void deleteAccountInnerProcess(Connection con, Account account) {
 
-        try (PreparedStatement prepStatement = con.prepareStatement(""
-                + "DELETE FROM account WHERE id = ?")
+        try (PreparedStatement prepStatement = con.prepareStatement(
+                "DELETE FROM account WHERE id = ?")
         ) {
             prepStatement.setLong(1, account.getId());
 

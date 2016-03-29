@@ -308,9 +308,5 @@ public class AccountManagerImpl implements AccountManager {
         } catch (SQLException ex) {
             throw new ServiceFailureException("Failed to retrieve all acount record!", ex);
         }
-
-
     }
-
-
 }

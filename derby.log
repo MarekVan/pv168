@@ -1,8 +1,15 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Sun Mar 27 23:43:19 CEST 2016:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-ba07-ff4b-00000355f2e0 
 on database directory memory:C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168\paymentmgr-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
 Loaded from file:/C:/Users/Va%c5%a1ek%20%26%20V%c3%adtek/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+=======
+Mon Mar 28 09:15:28 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-bc13-cf3b-000002e1d4a8 
+on database directory memory:C:\JavaSeminar\pv168\account-test with class loader sun.misc.Launcher$AppClassLoader@15db9742 
+Loaded from file:/C:/Users/Marek%20Van%c4%8d%c3%adk/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+>>>>>>> 545549032c36e0093e64bed8015b1ce9a5834f52
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_25-b18
 user.dir=C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168

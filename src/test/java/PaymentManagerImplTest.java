@@ -77,12 +77,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void testCreatePayment() throws Exception {
-        BigDecimal amount = new BigDecimal(2000);
-        BigDecimal amount2 = new BigDecimal(45000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount2);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(45000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager.createPayment(payment);
@@ -102,11 +100,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void createPaymentWithExistingId() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         payment.setId(1L);
         expectedException.expect(IllegalArgumentException.class);
         manager.createPayment(payment);
@@ -114,57 +111,51 @@ public class PaymentManagerImplTest {
 
     @Test
     public void createPaymentWithNegativeAmount() {
-        BigDecimal amount = new BigDecimal(-2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(-2000), from1, to1, cal.getTime());
         expectedException.expect(IllegalArgumentException.class);
         manager.createPayment(payment);
     }
 
     @Test
     public void createPaymentWithNullFromAccount() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, null, to1, cal.getTime());
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), null, to1, cal.getTime());
         expectedException.expect(IllegalArgumentException.class);
         manager.createPayment(payment);
     }
 
     @Test
-    public void createPaymentWithNullToAccount() {
-        BigDecimal amount = new BigDecimal(2000);
+    public void createPaymentWithNullToAccount() {;
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Payment payment = newPayment(amount, from1, null, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, null, cal.getTime());
         expectedException.expect(IllegalArgumentException.class);
         manager.createPayment(payment);
     }
 
     @Test
     public void createPaymentWithNullDate() {
-        BigDecimal amount = new BigDecimal(2000);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, null);
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, null);
         expectedException.expect(IllegalArgumentException.class);
         manager.createPayment(payment);
     }
 
     @Test
     public void testDeletePayment() throws Exception {
-        BigDecimal amount = new BigDecimal(2000);
-        BigDecimal amount2 = new BigDecimal(20000);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Account from2 = newAccount("robo", amount);
-        Account to2 = newAccount("laco", amount);
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(3000));
+        Account from2 = newAccount("robo", new BigDecimal(4000));
+        Account to2 = newAccount("laco", new BigDecimal(5000));
         Calendar cal = newCalendar(2016, 3, 12);
         Calendar ca2 = newCalendar(2015, 3, 12);
-        Payment p1 = newPayment(amount, from1, to1, cal.getTime());
-        Payment p2 = newPayment(amount2, from2, to2, ca2.getTime());
+        Payment p1 = newPayment(new BigDecimal(6000), from1, to1, cal.getTime());
+        Payment p2 = newPayment(new BigDecimal(70000), from2, to2, ca2.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager2.createAccount(from2);
@@ -189,11 +180,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void deletePaymentWithNullId() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         payment.setId(null);
         expectedException.expect(IllegalArgumentException.class);
         manager.deletePayment(payment);
@@ -201,11 +191,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void deletePaymentThatDoesNotExist() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         payment.setId(12L);
         expectedException.expect(EntityNotFoundException.class);
         manager.deletePayment(payment);
@@ -215,14 +204,12 @@ public class PaymentManagerImplTest {
     public void testUpdatePayment() throws Exception {
         Calendar cal = newCalendar(2016, 3, 12);
         Calendar ca2 = newCalendar(2015, 4, 1);
-        BigDecimal amount = new BigDecimal(2000);
-        BigDecimal amount2 = new BigDecimal(20000);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Account from2 = newAccount("robo", amount);
-        Account to2 = newAccount("laco", amount);
-        Payment p1 = newPayment(amount, from1, to1, cal.getTime());
-        Payment p2 = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Account from2 = newAccount("robo", new BigDecimal(2000));
+        Account to2 = newAccount("laco", new BigDecimal(2000));
+        Payment p1 = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
+        Payment p2 = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager2.createAccount(from2);
@@ -231,10 +218,10 @@ public class PaymentManagerImplTest {
         manager.createPayment(p2);
         Long paymentId = p1.getId();
 
-        p1.setAmount(amount2);
+        p1.setAmount(new BigDecimal(3000));
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getAmount(), is(equalTo(new BigDecimal(3000))));
         assertThat(p1.getFrom(), is(equalTo(from1)));
         assertThat(p1.getTo(), is(equalTo(to1)));
         assertThat(p1.getSent(), is(equalTo(cal.getTime())));
@@ -242,7 +229,7 @@ public class PaymentManagerImplTest {
         p1.setFrom(from2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getAmount(), is(equalTo(new BigDecimal(3000))));
         assertThat(p1.getFrom(), is(equalTo(from2)));
         assertThat(p1.getTo(), is(equalTo(to1)));
         assertThat(p1.getSent(), is(equalTo(cal.getTime())));
@@ -250,7 +237,7 @@ public class PaymentManagerImplTest {
         p1.setTo(to2);
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getAmount(), is(equalTo(new BigDecimal(3000))));
         assertThat(p1.getFrom(), is(equalTo(from2)));
         assertThat(p1.getTo(), is(equalTo(to2)));
         assertThat(p1.getSent(), is(equalTo(cal.getTime())));
@@ -258,7 +245,7 @@ public class PaymentManagerImplTest {
         p1.setSent(ca2.getTime());
         manager.updatePayment(p1);
         p1 = manager.findPaymentById(paymentId);
-        assertThat(p1.getAmount(), is(equalTo(amount2)));
+        assertThat(p1.getAmount(), is(equalTo(new BigDecimal(3000))));
         assertThat(p1.getFrom(), is(equalTo(from2)));
         assertThat(p1.getTo(), is(equalTo(to2)));
         assertThat(p1.getSent(), is(equalTo(ca2.getTime())));
@@ -290,11 +277,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void updatePaymentWithNullAmount() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager.createPayment(payment);
@@ -305,27 +291,24 @@ public class PaymentManagerImplTest {
 
     @Test
     public void updatePaymentWithNegativeAmount() {
-        BigDecimal amount = new BigDecimal(2000);
-        BigDecimal amount2 = new BigDecimal(-2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager.createPayment(payment);
-        payment.setAmount(amount2);
+        payment.setAmount(new BigDecimal(-2000));
         expectedException.expect(IllegalArgumentException.class);
         manager.updatePayment(payment);
     }
 
     @Test
     public void updatePaymentWithNullFromAccount() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager.createPayment(payment);
@@ -336,11 +319,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void updatePaymentWithNullToAccount() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager.createPayment(payment);
@@ -351,11 +333,10 @@ public class PaymentManagerImplTest {
 
     @Test
     public void updatePaymentWithNullDate() {
-        BigDecimal amount = new BigDecimal(2000);
         Calendar cal = newCalendar(2016, 3, 12);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Payment payment = newPayment(amount, from1, to1, cal.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Payment payment = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager.createPayment(payment);
@@ -370,14 +351,13 @@ public class PaymentManagerImplTest {
 
         Calendar cal = newCalendar(2016, 3, 12);
         Calendar ca2 = newCalendar(2015, 4, 1);
-        BigDecimal amount = new BigDecimal(2000);
-        BigDecimal amount2 = new BigDecimal(20000);
-        Account from1 = newAccount("jano", amount);
-        Account to1 = newAccount("marian", amount);
-        Account from2 = newAccount("robo", amount);
-        Account to2 = newAccount("laco", amount);
-        Payment p1 = newPayment(amount, from1, to1, cal.getTime());
-        Payment p2 = newPayment(amount2, from2, to2, ca2.getTime());
+        Account from1 = newAccount("jano", new BigDecimal(2000));
+        Account to1 = newAccount("marian", new BigDecimal(2000));
+        Account from2 = newAccount("robo", new BigDecimal(2000));
+        Account to2 = newAccount("laco", new BigDecimal(2000));
+        Payment p1 = newPayment(new BigDecimal(2000), from1, to1, cal.getTime());
+        Payment p2 = newPayment(new BigDecimal(30000), from2, to2, ca2.getTime());
+
         manager2.createAccount(from1);
         manager2.createAccount(to1);
         manager2.createAccount(from2);
@@ -427,3 +407,4 @@ public class PaymentManagerImplTest {
         }
     };
 }
+

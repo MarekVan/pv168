@@ -74,7 +74,7 @@ public class BankingManagerImpl implements BankingManager {
                 connection.commit();
                 connection.setAutoCommit(true);
 
-            } catch (ServiceFailureException ex) {
+            } catch (SQLException ex) {
                 connection.rollback();
                 connection.setAutoCommit(true);
                 
@@ -83,6 +83,7 @@ public class BankingManagerImpl implements BankingManager {
 
                 payment.getFrom().setBalance(payment.getFrom().getBalance().add(payment.getAmount()));
                 payment.getTo().setBalance(payment.getTo().getBalance().subtract(payment.getAmount()));
+                throw new ServiceFailureException("Failed to execute payment " + payment, ex);
             }
 //            try(PreparedStatement updateAccount = connection.prepareStatement("UPDATE account SET balance = ? WHERE id = ?");
 //                PreparedStatement createPayment = connection.prepareStatement("INSERT INTO payment VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);

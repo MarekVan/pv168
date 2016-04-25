@@ -35,14 +35,14 @@ public class AllPayments extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Amount", "Sending account ID", "Recieving account ID", "Date sent"
+                "Amount", "Sending account ID", "Recieving account ID", "Date sent"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.Object.class, java.lang.Long.class, java.lang.Long.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Long.class, java.lang.Long.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

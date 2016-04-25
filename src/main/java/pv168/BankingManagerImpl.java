@@ -54,7 +54,6 @@ public class BankingManagerImpl implements BankingManager {
         }
 
 
-
         try (Connection connection = dataSource.getConnection();
         ) {
             connection.setAutoCommit(false);
@@ -74,16 +73,24 @@ public class BankingManagerImpl implements BankingManager {
                 connection.commit();
                 connection.setAutoCommit(true);
 
-            } catch (SQLException ex) {
-                connection.rollback();
-                connection.setAutoCommit(true);
+            } catch (Exception ex) {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex1) {
+                    ex1.addSuppressed(ex);
+                }
+                try {
+                    connection.setAutoCommit(true);
+                } catch (SQLException ex2) {
+                    ex2.addSuppressed(ex);
+                }
                 
                 payment.setSent(null);
                 payment.setId(null);
 
                 payment.getFrom().setBalance(payment.getFrom().getBalance().add(payment.getAmount()));
                 payment.getTo().setBalance(payment.getTo().getBalance().subtract(payment.getAmount()));
-                throw new ServiceFailureException("Failed to execute payment " + payment, ex);
+                throw ex;
             }
 
 

@@ -7,8 +7,8 @@ import java.math.BigDecimal;
  * Created by xvancik on 3/8/16.
  */
 public class Account {
-
     
+
     private Long id;
     
     private String owner;

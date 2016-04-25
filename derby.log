@@ -1,18 +1,37 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Tue Mar 29 11:59:51 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-c1d0-aac0-0000035529e0 
+Fri Apr 15 20:37:03 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-1b36-48ad-00000354c438 
 on database directory memory:C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168\account-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
 Loaded from file:/C:/Users/Va%c5%a1ek%20%26%20V%c3%adtek/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
-=======
-Tue Mar 29 11:48:46 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-c1c6-8513-000002e0f190 
-on database directory memory:C:\JavaSeminar\pv168\account-test with class loader sun.misc.Launcher$AppClassLoader@15db9742 
-Loaded from file:/C:/Users/Marek%20Van%c4%8d%c3%adk/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
->>>>>>> fe720e433d0624d9e022dfcccd056f6b61ebf55d
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_60-b27
-user.dir=C:\JavaSeminar\pv168
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Apr 15 20:37:06 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 1315819d-0154-1b36-48ad-00000354c438 
+on database directory memory:C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168\bankingbmgr-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
+Loaded from file:/C:/Users/Va%c5%a1ek%20%26%20V%c3%adtek/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Apr 15 20:37:08 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 97fc8455-0154-1b36-48ad-00000354c438 
+on database directory memory:C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168\paymentmgr-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
+Loaded from file:/C:/Users/Va%c5%a1ek%20%26%20V%c3%adtek/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Vašek & Vítek\Desktop\Programování\Vsechno\pv168
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1

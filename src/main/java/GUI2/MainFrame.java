@@ -160,6 +160,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTableAccounts);
+        jTableAccounts.setDefaultRenderer(Object.class, new TableCellRenderer());
 
         jButtonDeleteSelectedAccount.setText("Delete selected");
         jButtonDeleteSelectedAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTablePayments.setModel(new PaymentTableModel(paymentManager, bankingManager));
         jScrollPane2.setViewportView(jTablePayments);
+        jTablePayments.setDefaultRenderer(Object.class, new TableCellRenderer());
 
         jButtonDeleteSelectedPayment.setText("Delete selected");
         jButtonDeleteSelectedPayment.addActionListener(new java.awt.event.ActionListener() {

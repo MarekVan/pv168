@@ -22,10 +22,10 @@ public class PaymentTableModel extends AbstractTableModel {
     PaymentTableModel(PaymentManager p, BankingManager b){
     
     pManager = p;
-    bManager = b;
+    bManager = b; 
 //    
     payments = pManager.findAllPayments();
-//    
+//       
     }
     
     @Override

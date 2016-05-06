@@ -175,6 +175,9 @@
                   <Events>
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTableAccountsPropertyChange"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTableAccounts.setDefaultRenderer(Object.class, new TableCellRenderer());"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -314,6 +317,9 @@
                       <Connection code="new PaymentTableModel(paymentManager, bankingManager)" type="code"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTablePayments.setDefaultRenderer(Object.class, new TableCellRenderer());"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

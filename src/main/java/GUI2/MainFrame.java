@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.sql.DataSource;
 import javax.swing.JOptionPane;
 import org.apache.derby.jdbc.EmbeddedDataSource;
@@ -33,15 +31,25 @@ public class MainFrame extends javax.swing.JFrame {
     private PaymentManager paymentManager;
     private BankingManager bankingManager;
     
+    private static MainFrame INSTANCE;
+    
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    
+    public static MainFrame getInstance(){
+        if(INSTANCE == null){
+        INSTANCE = new MainFrame();           
+        }
+        return INSTANCE;
+    }
+    
+    private MainFrame() {
         
         try {
             setUpDatabase();
         } catch (SQLException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//            Logovani chyb
             System.exit(0);
         }
         
@@ -92,16 +100,23 @@ public class MainFrame extends javax.swing.JFrame {
 //------------------------------------------------------------------------------
 
     
-    private void refreshComboBoxAccountModels(){
+    public void refreshComboBoxAccountModels(){
         
         AccountComboBoxModel boxFromModel = (AccountComboBoxModel)jComboBoxFromAccounts.getModel();
             boxFromModel.refresh();
         AccountComboBoxModel boxToModel = (AccountComboBoxModel)jComboBoxToAccounts.getModel();
-            boxToModel.refresh(); 
-            
-            
+            boxToModel.refresh();             
+    }
+
+    public void refreshAccountTable(){
+        AccountTableModel model = (AccountTableModel)jTableAccounts.getModel();
+        model.refreshTable();
     }
     
+    public void refreshPaymentTable(){
+        PaymentTableModel model = (PaymentTableModel)jTablePayments.getModel();
+        model.refreshTable();
+    }
     
     
     /**
@@ -382,18 +397,16 @@ public class MainFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(MainFrame.this, ex.getMessage());
         
     }
-     
-        refreshComboBoxAccountModels();
         
     }//GEN-LAST:event_jButtonDeleteSelectedAccountActionPerformed
 
     private void jButtonCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateAccountActionPerformed
         
         try{
-        Account a = newAccount(jTextFieldOwner.getText(), new BigDecimal(jTextFieldBalance.getText()));
-        
-        AccountTableModel model = (AccountTableModel)jTableAccounts.getModel();
-        model.addRow(a);
+            Account a = newAccount(jTextFieldOwner.getText(), new BigDecimal(jTextFieldBalance.getText()));
+
+            AccountTableModel model = (AccountTableModel)jTableAccounts.getModel();
+            model.addRow(a);
         
         } catch(NumberFormatException ex){
 
@@ -407,8 +420,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextFieldOwner.setText("OwnerName");
         jTextFieldBalance.setText("InitialBalance");
         }
-        
-        refreshComboBoxAccountModels();
+
     }//GEN-LAST:event_jButtonCreateAccountActionPerformed
 
     private void jButtonDeleteSelectedPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteSelectedPaymentActionPerformed
@@ -431,31 +443,17 @@ public class MainFrame extends javax.swing.JFrame {
         p.setFrom((Account) jComboBoxFromAccounts.getSelectedItem());
         p.setTo((Account) jComboBoxToAccounts.getSelectedItem());
         
+        jTextFieldAmountPayment.setText("Amount");
+        jComboBoxFromAccounts.getModel().setSelectedItem(null);
+        jComboBoxToAccounts.setSelectedItem(null);        
+        refreshComboBoxAccountModels();
+                       
         PaymentTableModel paymentModel = (PaymentTableModel) jTablePayments.getModel();
         paymentModel.addRow(p);  
-        } catch(InsufficientBalanceException ex){
-            
-            JOptionPane.showMessageDialog(MainFrame.this, ex.getMessage());
-        
-        } catch(NumberFormatException ex) {
-            
-            JOptionPane.showMessageDialog(MainFrame.this, "Invalid format in amount input field!");
-            
-        } catch(IllegalArgumentException ex){
-        
-            JOptionPane.showMessageDialog(MainFrame.this, ex.getMessage());
-            
-        } finally {
-            jTextFieldAmountPayment.setText("Amount");
-            jComboBoxFromAccounts.setSelectedItem(null);
-            jComboBoxToAccounts.setSelectedItem(null);
-        } 
-        
-        AccountTableModel accountModel = (AccountTableModel) jTableAccounts.getModel();
-        accountModel.refreshTable();
-        refreshComboBoxAccountModels();
-        
-        
+        } catch(NumberFormatException ex) {            
+            JOptionPane.showMessageDialog(MainFrame.this, "Invalid format in amount input field!");           
+        }
+      
     }//GEN-LAST:event_jButtonExecutePaymentActionPerformed
 
     private void jTableAccountsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableAccountsPropertyChange
@@ -503,7 +501,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new MainFrame().setVisible(true);
+            MainFrame.getInstance().setVisible(true);
         });
     }
 

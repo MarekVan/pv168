@@ -46,12 +46,14 @@ public class BankingManagerImpl implements BankingManager {
         if (payment.getSent() != null) {
             throw new IllegalArgumentException("Timestamp of payment is assigned during this method!");
         }
-        if (payment.getFrom() == payment.getTo()){
+        if (payment.getFrom().equals(payment.getTo())){
             throw new IllegalArgumentException("Sender and receiver are the same accounts!");
         }
+
         if (payment.getFrom().getBalance().compareTo(payment.getAmount()) < 0) {
             throw new InsufficientBalanceException("The sending account does not have enough money for the payment!");
         }
+
 
 
         try (Connection connection = dataSource.getConnection();

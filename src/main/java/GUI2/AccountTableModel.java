@@ -1,7 +1,10 @@
 package GUI2;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import javax.swing.SwingWorker;
 import javax.swing.table.AbstractTableModel;
 import pv168.Account;
 import static pv168.Account.newAccount;
@@ -13,7 +16,131 @@ import pv168.AccountManager;
  */
 public class AccountTableModel extends AbstractTableModel {
     
-    private List<Account> accounts;
+    
+    private class ReadAllSwingWorker extends SwingWorker <List<Account>, Void>{
+
+        private final AccountManager innerManager;
+        
+        public ReadAllSwingWorker(AccountManager manager){
+            innerManager = manager;
+        }
+        
+        
+        @Override
+        protected List<Account> doInBackground() throws Exception {
+            return innerManager.findAllAccounts();
+        }
+
+        @Override
+        protected void done() {
+            try {
+                accounts = get();
+                fireTableDataChanged();
+            } catch (InterruptedException | ExecutionException ex) {
+//      Logovani chyb
+            }
+        }
+   
+    }
+    
+    private class AddSwingWorker extends SwingWorker <Void, Void> {
+
+        private final AccountManager innerManager;
+        private final Account toAdd;
+        
+        public AddSwingWorker(AccountManager manager, Account a){
+            innerManager = manager;
+            toAdd = a;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            innerManager.createAccount(toAdd);
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            accounts.add(toAdd);       
+            int lastRow = accounts.size() - 1;
+            MainFrame.getInstance().refreshComboBoxAccountModels();
+            fireTableRowsInserted(lastRow, lastRow);  
+        }     
+    
+    }
+    
+    private class DeleteSwingWorker extends SwingWorker <Void, Void>{
+
+        private final AccountManager innerManager;
+        private final Account toDelete;
+        private final int rowIndex;
+        
+        public DeleteSwingWorker(AccountManager manager, int row){
+            innerManager = manager;
+            rowIndex = row;
+            toDelete = accounts.get(row);
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            innerManager.deleteAccount(toDelete);
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            accounts.remove(rowIndex);
+            MainFrame.getInstance().refreshComboBoxAccountModels();
+            fireTableRowsDeleted(rowIndex, rowIndex);   
+        }
+        
+        
+    
+    
+    }
+    
+    private class UpdateSwingWorker extends SwingWorker <Void, Void> {
+
+        private final AccountManager innerManager;
+        private final Account toUpdate;
+        private final int rowIndex;
+        private final int columnIndex;
+        
+        public UpdateSwingWorker(AccountManager manager, int row, int column){
+            innerManager = manager;
+            toUpdate = accounts.get(row);
+            rowIndex = row;
+            columnIndex = column;
+        }
+        
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            innerManager.updateAccount(toUpdate);
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            MainFrame.getInstance().refreshComboBoxAccountModels();
+            fireTableCellUpdated(rowIndex, columnIndex);
+        }
+    
+    
+    
+    
+    
+    }
+    
+      
+    
+    
+    private ReadAllSwingWorker readWorker;
+    private AddSwingWorker addWorker;
+    private DeleteSwingWorker deleteWorker;
+    private UpdateSwingWorker updateWorker;
+    
+    private List<Account> accounts = new ArrayList<>();
     private final AccountManager manager;
     
     
@@ -23,9 +150,9 @@ public class AccountTableModel extends AbstractTableModel {
     
     m.createAccount(newAccount("Pepa", new BigDecimal(500)));
     m.createAccount(newAccount("Ondra", new BigDecimal(0)));
-//    
-    accounts = manager.findAllAccounts();
-//    
+    
+    readWorker = new ReadAllSwingWorker(manager);
+    readWorker.execute();
     }
        
     
@@ -104,13 +231,11 @@ public class AccountTableModel extends AbstractTableModel {
                 throw new IndexOutOfBoundsException();
                 
         }
-//        
-        manager.updateAccount(a);
-//        
-        fireTableCellUpdated(rowIndex, columnIndex);   
+      
+        updateWorker = new UpdateSwingWorker(manager, rowIndex, columnIndex);
+        updateWorker.execute(); 
     }
-    
-    
+     
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex){
         switch(columnIndex){
@@ -128,31 +253,20 @@ public class AccountTableModel extends AbstractTableModel {
 //------------------------------------------------------------------------------
     
     public void deleteRow(int rowIndex){
-        Account a = accounts.get(rowIndex); 
-//        
-        manager.deleteAccount(a);
-//        
-        accounts.remove(rowIndex);
-        
-        fireTableRowsDeleted(rowIndex, rowIndex);
+        deleteWorker = new DeleteSwingWorker(manager, rowIndex);
+        deleteWorker.execute();
     }    
     
     public void addRow(Account a){      
-        accounts.add(a);       
-        int lastRow = accounts.size()-1;
-//        
-        manager.createAccount(a);
-//        
-        fireTableRowsInserted(lastRow, lastRow);  
+      
+        addWorker = new AddSwingWorker(manager, a);
+        addWorker.execute();
+       
     }
     
     public void refreshTable(){
-    
-//    
-        accounts = manager.findAllAccounts();
-//        
-        fireTableDataChanged();
-        
+        readWorker = new ReadAllSwingWorker(manager);
+        readWorker.execute();        
     }
     
     

@@ -4,9 +4,9 @@ import java.awt.Component;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Currency;
+import java.text.NumberFormat;
 import java.util.Date;
+import java.util.Locale;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -18,6 +18,9 @@ import pv168.Account;
  * @author Vašek & Vítek
  */
 public class TableCellRenderer extends DefaultTableCellRenderer {
+    
+    private static final NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+    private static final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG, Locale.getDefault());
 
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -25,12 +28,10 @@ public class TableCellRenderer extends DefaultTableCellRenderer {
         if(value instanceof BigDecimal){
             BigDecimal decimal = (BigDecimal)value;
             decimal = decimal.setScale(2, RoundingMode.HALF_UP);  
-            Currency c = Currency.getInstance("CZK");
-            return new JLabel(decimal.toString() + " " + c, SwingConstants.RIGHT);
+            return new JLabel(numberFormat.format(decimal));
         } else if(value instanceof Date){
             Date date = (Date)value;
-            DateFormat format = new SimpleDateFormat("d MM yyyy");
-            return new JLabel(format.format(date));
+            return new JLabel(dateFormat.format(date));
         } else if(value instanceof Account){
             Account account = (Account)value;
             return new JLabel("ID " + account.getId() + ", " + account.getOwner(), SwingConstants.CENTER);

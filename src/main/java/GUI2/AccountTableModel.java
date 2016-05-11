@@ -3,6 +3,8 @@ package GUI2;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import javax.swing.SwingWorker;
 import javax.swing.table.AbstractTableModel;
@@ -15,6 +17,7 @@ import pv168.AccountManager;
  * @author Vašek & Vítek
  */
 public class AccountTableModel extends AbstractTableModel {
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
     
     
     private class ReadAllSwingWorker extends SwingWorker <List<Account>, Void>{
@@ -189,11 +192,11 @@ public class AccountTableModel extends AbstractTableModel {
     public String getColumnName(int columnIndex){
         switch(columnIndex){
             case 0 :
-                return "ID";
+                return bundle.getString("ID.TABLE");
             case 1 :
-                return "Owner";
+                return bundle.getString("OWNER.TABLE");
             case 2 :
-                return "Balance";
+                return bundle.getString("BALANCE");
             default:
                 throw new IndexOutOfBoundsException();
         }

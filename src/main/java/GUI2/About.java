@@ -1,5 +1,7 @@
 package GUI2;
 
+import java.util.Locale;
+
 /**
  *
  * @author Va�ek & V�tek
@@ -25,14 +27,15 @@ public class About extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
-        setTitle("About...");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle", Locale.getDefault()); // NOI18N
+        setTitle(bundle.getString("ABOUT.TITLE")); // NOI18N
         setResizable(false);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Authors: Marek Vančík & Václav Sobotka\n\nThis application serves for demonstration of\nCRUD operations. It models bank accounts and \npayments in order to show proper coding \nmethods. It enables user to create, update, \ndelete and see all existing accounts and \npayments.\n");
+        jTextArea1.setText(bundle.getString("ABOUT.DESCRIPTION.TEXT")); // NOI18N
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

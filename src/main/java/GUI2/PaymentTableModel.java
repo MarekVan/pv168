@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.AbstractTableModel;
@@ -20,6 +20,7 @@ import pv168.PaymentManager;
  * @author Vašek & Vítek
  */
 public class PaymentTableModel extends AbstractTableModel {
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
 
     private class ReadAllSwingWorker extends SwingWorker <List<Payment>, Void>{
 
@@ -205,15 +206,15 @@ public class PaymentTableModel extends AbstractTableModel {
     public String getColumnName(int columnIndex){
         switch(columnIndex){
             case 0 :
-                return "ID";
+                return bundle.getString("ID.TABLE");
             case 1 :
-                return "Time&Date";
+                return bundle.getString("TIME.DATE.TABLE");
             case 2 :
-                return "Amount";
+                return bundle.getString("AMOUNT.TABLE");
             case 3 :
-                return "Sent by";
+                return bundle.getString("SENT BY.TABLE");
             case 4 :
-                return "Sent to";
+                return bundle.getString("SENTTO.TABLE");
             default :
                 throw new IndexOutOfBoundsException();
         }

@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.sql.DataSource;
 import javax.swing.JOptionPane;
 import org.apache.derby.jdbc.EmbeddedDataSource;
@@ -13,7 +15,6 @@ import pv168.AccountManager;
 import pv168.AccountManagerImpl;
 import pv168.BankingManager;
 import pv168.BankingManagerImpl;
-import pv168.InsufficientBalanceException;
 import pv168.Payment;
 import pv168.PaymentManager;
 import pv168.PaymentManagerImpl;
@@ -31,6 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
     private PaymentManager paymentManager;
     private BankingManager bankingManager;
     
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
     private static MainFrame INSTANCE;
     
     /**
@@ -160,13 +162,17 @@ public class MainFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItemExit = new javax.swing.JMenuItem();
 
-        jMenu1.setText("File");
+        jMenu1.setText(bundle.getString("FILE.MENUBAR.ITEM")); // NOI18N
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle", Locale.getDefault()); // NOI18N
+        setTitle(bundle.getString("MAIN.TITLE")); // NOI18N
+
+        jTabbedPane1.setToolTipText("");
 
         jTableAccounts.setModel(new AccountTableModel(accountManager));
         jTableAccounts.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -177,27 +183,27 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableAccounts);
         jTableAccounts.setDefaultRenderer(Object.class, new TableCellRenderer());
 
-        jButtonDeleteSelectedAccount.setText("Delete selected");
+        jButtonDeleteSelectedAccount.setText(bundle.getString("DELETE.SELECTED.BUTTON")); // NOI18N
         jButtonDeleteSelectedAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteSelectedAccountActionPerformed(evt);
             }
         });
 
-        jButtonCreateAccount.setText("Create new account");
+        jButtonCreateAccount.setText(bundle.getString("CREATE.NEW.ACCOUNT.BUTTON")); // NOI18N
         jButtonCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateAccountActionPerformed(evt);
             }
         });
 
-        jTextFieldOwner.setText("OwnerName");
+        jTextFieldOwner.setText(bundle.getString("OWNERNAME.TEXTFIELDFILL")); // NOI18N
 
-        jTextFieldBalance.setText("InitialBalance");
+        jTextFieldBalance.setText(bundle.getString("INITIALBALANCE.TEXTFIELDFILL")); // NOI18N
 
-        jLabel1.setText("Owner:");
+        jLabel1.setText(bundle.getString("OWNER.LABEL")); // NOI18N
 
-        jLabel2.setText("Balance:");
+        jLabel2.setText(bundle.getString("BALANCE.LABEL")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -247,32 +253,32 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
         );
 
-        jTabbedPane1.addTab("Accounts", jPanel1);
+        jTabbedPane1.addTab(bundle.getString("ACCOUNTS.TAB"), jPanel1); // NOI18N
 
         jTablePayments.setModel(new PaymentTableModel(paymentManager, bankingManager));
         jScrollPane2.setViewportView(jTablePayments);
         jTablePayments.setDefaultRenderer(Object.class, new TableCellRenderer());
 
-        jButtonDeleteSelectedPayment.setText("Delete selected");
+        jButtonDeleteSelectedPayment.setText(bundle.getString("DELETE.SELECTED.BUTTON")); // NOI18N
         jButtonDeleteSelectedPayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteSelectedPaymentActionPerformed(evt);
             }
         });
 
-        jTextFieldAmountPayment.setText("Amount");
+        jTextFieldAmountPayment.setText(bundle.getString("AMOUNT.TEXTFIELDFILL")); // NOI18N
 
-        jLabel3.setText("Amount:");
+        jLabel3.setText(bundle.getString("AMOUNT.LABEL")); // NOI18N
 
         jComboBoxFromAccounts.setModel(new AccountComboBoxModel(accountManager));
 
         jComboBoxToAccounts.setModel(new AccountComboBoxModel(accountManager));
 
-        jLabel4.setText("Send from:");
+        jLabel4.setText(bundle.getString("SENDFROM.LABEL")); // NOI18N
 
-        jLabel5.setText("Send to:");
+        jLabel5.setText(bundle.getString("SENDTO.LABEL")); // NOI18N
 
-        jButtonExecutePayment.setText("ExecutePayment");
+        jButtonExecutePayment.setText(bundle.getString("EXECUTEPAYMENT.BUTTON")); // NOI18N
         jButtonExecutePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExecutePaymentActionPerformed(evt);
@@ -340,11 +346,11 @@ public class MainFrame extends javax.swing.JFrame {
         jComboBoxFromAccounts.setRenderer(new ComboBoxCellRenderer());
         jComboBoxToAccounts.setRenderer(new ComboBoxCellRenderer());
 
-        jTabbedPane1.addTab("Payments", jPanel2);
+        jTabbedPane1.addTab(bundle.getString("PAYMENTS.TAB"), jPanel2); // NOI18N
 
-        jMenuFile.setText("File");
+        jMenuFile.setText(bundle.getString("FILE.MENUBAR.ITEM")); // NOI18N
 
-        jMenuItemAbout.setText("About");
+        jMenuItemAbout.setText(bundle.getString("ABOUT.MENU.ITEM")); // NOI18N
         jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAboutActionPerformed(evt);
@@ -353,7 +359,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuFile.add(jMenuItemAbout);
         jMenuFile.add(jSeparator1);
 
-        jMenuItemExit.setText("Exit");
+        jMenuItemExit.setText(bundle.getString("EXIT.MENU.ITEM")); // NOI18N
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemExitActionPerformed(evt);
@@ -373,9 +379,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -410,15 +414,15 @@ public class MainFrame extends javax.swing.JFrame {
         
         } catch(NumberFormatException ex){
 
-                JOptionPane.showMessageDialog(MainFrame.this, "Invalid format in balance input field!");
+                JOptionPane.showMessageDialog(MainFrame.this, bundle.getString("INVALID.INPUT.BALANCE"));
 
         } catch (Exception ex){
             
-                JOptionPane.showMessageDialog(MainFrame.this, "Unknown error occured!");
+                JOptionPane.showMessageDialog(MainFrame.this, bundle.getString("UNKNOWN.ERROR"));
         
         } finally {       
-        jTextFieldOwner.setText("OwnerName");
-        jTextFieldBalance.setText("InitialBalance");
+        jTextFieldOwner.setText(bundle.getString("OWNERNAME.TEXTFIELDFILL"));
+        jTextFieldBalance.setText(bundle.getString("INITIALBALANCE.TEXTFIELDFILL"));
         }
 
     }//GEN-LAST:event_jButtonCreateAccountActionPerformed
@@ -443,7 +447,7 @@ public class MainFrame extends javax.swing.JFrame {
         p.setFrom((Account) jComboBoxFromAccounts.getSelectedItem());
         p.setTo((Account) jComboBoxToAccounts.getSelectedItem());
         
-        jTextFieldAmountPayment.setText("Amount");
+        jTextFieldAmountPayment.setText(bundle.getString("AMOUNT.TEXTFIELDFILL"));
         jComboBoxFromAccounts.getModel().setSelectedItem(null);
         jComboBoxToAccounts.setSelectedItem(null);        
         refreshComboBoxAccountModels();
@@ -451,7 +455,7 @@ public class MainFrame extends javax.swing.JFrame {
         PaymentTableModel paymentModel = (PaymentTableModel) jTablePayments.getModel();
         paymentModel.addRow(p);  
         } catch(NumberFormatException ex) {            
-            JOptionPane.showMessageDialog(MainFrame.this, "Invalid format in amount input field!");           
+            JOptionPane.showMessageDialog(MainFrame.this, bundle.getString("INVALID.INPUT.AMOUNT"));           
         }
       
     }//GEN-LAST:event_jButtonExecutePaymentActionPerformed

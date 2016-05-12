@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<configuration>
+    <contextName>project</contextName>
+ 
+    <appender name="APP" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./logs/${CONTEXT_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/${CONTEXT_NAME}.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <!-- http://logback.qos.ch/manual/layouts.html#conversionWord -->
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+        
+    <logger name="pv168.AccountManagerImpl" level="debug"/>
+    <logger name="pv168.PaymentManagerImpl" level="debug"/>
+    <logger name="pv168.BankingManagerImpl" level="debug"/>
+ 
+    <root level="info">
+        <appender-ref ref="APP"/>
+    </root>
+ 
+</configuration>

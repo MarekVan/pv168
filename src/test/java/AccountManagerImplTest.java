@@ -1,24 +1,24 @@
+import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import pv168.Account;
 import pv168.AccountManagerImpl;
+import pv168.EntityNotFoundException;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.sql.DataSource;
-import org.apache.derby.jdbc.EmbeddedDataSource;
-import org.junit.After;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
-import org.junit.Before;
-import static pv168.Account.newAccount;
-import static org.assertj.core.api.Assertions.*;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-import pv168.EntityNotFoundException;
+import static pv168.Account.*;
 
 
 /**
@@ -235,7 +235,6 @@ public class AccountManagerImplTest {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Owner must be set!");
         manager.updateAccount(account);
-
     }
 
     @Test

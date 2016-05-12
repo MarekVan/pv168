@@ -1,0 +1,86 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:53:p, comp jLabel1:::p::p, space :p:94:p, comp jLabel2:::p:93:p}, seq l {par l {seq t {space :::p, par t {comp updateAccountBut::t:p:130:p, comp showAccountsBut::t:p:130:p}}, seq {space :25:25:p, par l:::p {comp deleteAccountBut:::::x, comp createAccountBut::::130:x}}}, space :57:57:p, par l:::p {comp executePaymentBut::t:::x, comp updatePaymentBut::t:::x, comp deletePaymentBut::t:::x, comp showPaymentsBut::t::130:x}}}, space ::25:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, par b {comp jLabel1::b:p::p, comp jLabel2::b:p::p}, space s:::p, par b {comp createAccountBut::b:p::p, comp executePaymentBut::b:p::p}, space s:::p, par b {comp deleteAccountBut::b:p::p, comp deletePaymentBut::b:p::p}, space s:::p, par b {comp updateAccountBut::b:p::p, comp updatePaymentBut::b:p::p}, space s:::p, par b {comp showAccountsBut::b:p::p, comp showPaymentsBut::b:p::p}, space ::36:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"title": "Banking system application"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "createAccountBut"
+				"text": "Create account"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "createAccountButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"text": "Account actions"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "deleteAccountBut"
+				"text": "Delete account"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteAccountButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "updateAccountBut"
+				"text": "Update account"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "updateAccountButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "showAccountsBut"
+				"text": "Show all accounts"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showAccountsButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel2"
+				"text": "Payment actions"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "executePaymentBut"
+				"text": "Execute payment"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "executePaymentButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "deletePaymentBut"
+				"text": "Delete payment"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deletePaymentButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "updatePaymentBut"
+				"text": "Update payment"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "updatePaymentButActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "showPaymentsBut"
+				"text": "Show all payments"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showPaymentsButActionPerformed", true ) )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "jMenuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "jMenu1"
+					"text": "File"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jMenu1ActionPerformed", true ) )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "aboutMenuItem"
+						"text": "About"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "aboutMenuItemActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "jSeparator1"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "exitMenuItem"
+						"text": "Exit"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitMenuItemActionPerformed", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

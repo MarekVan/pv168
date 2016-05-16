@@ -1,33 +1,7 @@
 ----------------------------------------------------------------
-Thu May 12 20:58:57 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-a656-0b32-000002f2c648 
-on database directory memory:C:\JavaSeminar\pv168\account-test with class loader sun.misc.Launcher$AppClassLoader@75b84c92 
-Loaded from file:/C:/Users/Marek%20Van%c4%8d%c3%adk/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_60-b27
-user.dir=C:\JavaSeminar\pv168
-os.name=Windows 7
-os.arch=amd64
-os.version=6.1
-derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Thu May 12 20:58:59 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 1315819d-0154-a656-0b32-000002f2c648 
-on database directory memory:C:\JavaSeminar\pv168\bankingbmgr-test with class loader sun.misc.Launcher$AppClassLoader@75b84c92 
-Loaded from file:/C:/Users/Marek%20Van%c4%8d%c3%adk/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_60-b27
-user.dir=C:\JavaSeminar\pv168
-os.name=Windows 7
-os.arch=amd64
-os.version=6.1
-derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Thu May 12 20:59:00 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 97fc8455-0154-a656-0b32-000002f2c648 
-on database directory memory:C:\JavaSeminar\pv168\paymentmgr-test with class loader sun.misc.Launcher$AppClassLoader@75b84c92 
+Mon May 16 21:19:40 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-bb02-70b8-000003072940 
+on database directory memory:C:\JavaSeminar\pv168\account-test with class loader sun.misc.Launcher$AppClassLoader@4e0e2f2a 
 Loaded from file:/C:/Users/Marek%20Van%c4%8d%c3%adk/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_60-b27

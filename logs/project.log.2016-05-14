@@ -1,0 +1,51 @@
+2016-05-14 11:09:53,175 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-14 11:09:53,191 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-14 11:09:54,236 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:09:54,673 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-14 11:09:54,689 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:09:54,689 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:09:54,782 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-14 11:09:54,782 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:09:54,782 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:10:09,321 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Majitel
+Balance: 87452
+ was created
+2016-05-14 11:10:09,368 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:10:09,368 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:10:17,730 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0.00
+ was deleted
+2016-05-14 11:10:17,777 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:10:17,777 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:10:25,826 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:10:25,826 [SwingWorker-pool-2-thread-6] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=654654651, from=ID: 3
+Owner: Majitel
+Balance: 87452.00
+, to=ID: 1
+Owner: Pepa
+Balance: 500.00
+, sent=null} !
+2016-05-14 11:10:25,826 [SwingWorker-pool-2-thread-7] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:12:27,918 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-14 11:12:27,918 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-14 11:12:27,949 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:12:27,965 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-14 11:12:27,965 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:12:27,965 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:12:27,996 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:12:27,996 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-14 11:12:27,996 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved

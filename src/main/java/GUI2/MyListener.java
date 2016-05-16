@@ -31,6 +31,15 @@ class MyListener implements DocumentListener {
     
     @Override
     public void changedUpdate(DocumentEvent event) {
+         final Document document = event.getDocument();
+        // get the preferences associated with your application
+        //Preferences prefs = Preferences.userRoot().node(SAVED_PREFERENCES);
+        try {
+            // save textfield value in the preferences object
+            prefs.put(name, document.getText(0, document.getLength()));
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -48,5 +57,14 @@ class MyListener implements DocumentListener {
 
     @Override
     public void removeUpdate(DocumentEvent event) {
+        final Document document = event.getDocument();
+        // get the preferences associated with your application
+        //Preferences prefs = Preferences.userRoot().node(SAVED_PREFERENCES);
+        try {
+            // save textfield value in the preferences object
+            prefs.put(name, document.getText(0, document.getLength()));
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
     }
 }

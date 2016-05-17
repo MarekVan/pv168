@@ -218,18 +218,8 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldOwner">
-              <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="Bundle.properties" key="OWNERNAME.TEXTFIELDFILL" replaceFormat="bundle.getString(&quot;{key}&quot;)"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldBalance">
-              <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="Bundle.properties" key="INITIALBALANCE.TEXTFIELDFILL" replaceFormat="bundle.getString(&quot;{key}&quot;)"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -360,11 +350,6 @@
             <Component class="javax.swing.JSeparator" name="jSeparator3">
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAmountPayment">
-              <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="Bundle.properties" key="AMOUNT.TEXTFIELDFILL" replaceFormat="bundle.getString(&quot;{key}&quot;)"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>

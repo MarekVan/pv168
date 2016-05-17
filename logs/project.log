@@ -1,0 +1,3625 @@
+2016-05-17 15:57:28,376 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 15:57:28,380 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 15:57:28,405 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was updated
+2016-05-17 15:57:28,405 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was updated
+2016-05-17 15:57:28,414 [Thread-0] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,453 [Thread-0] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 15:57:28 CEST 2016} was found
+2016-05-17 15:57:28,454 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was found
+2016-05-17 15:57:28,455 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was found
+2016-05-17 15:57:28,547 [Thread-3] WARN  pv168.PaymentManagerImpl - Operation failed: payment is null!
+2016-05-17 15:57:28,586 [Thread-4] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 15:57:28,588 [Thread-4] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 15:57:28,589 [Thread-4] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 15:57:28,625 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 15:57:28,626 [Thread-5] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 15:57:28,670 [Thread-6] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 15:57:28,671 [Thread-6] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 15:57:28,701 [Thread-7] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 15:57:28,702 [Thread-7] WARN  pv168.PaymentManagerImpl - Operation failed: sender and receiver are the same accounts!
+2016-05-17 15:57:28,733 [Thread-8] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 15:57:28,734 [Thread-8] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 15:57:28,735 [Thread-8] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=12000, from=ID: 1
+Owner: Pepa
+Balance: 1200
+, to=ID: 2
+Owner: Honza
+Balance: 1200
+, sent=null} !
+2016-05-17 15:57:28,764 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 12000
+ was created
+2016-05-17 15:57:28,765 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 15:57:28,767 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 15:57:28,777 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 10900
+ was updated
+2016-05-17 15:57:28,778 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was updated
+2016-05-17 15:57:28,782 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 10900
+, to=ID: 2
+Owner: Honza
+Balance: 19100
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,825 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was found
+2016-05-17 15:57:28,828 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 9700
+ was updated
+2016-05-17 15:57:28,829 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was updated
+2016-05-17 15:57:28,830 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 9700
+, to=ID: 2
+Owner: Honza
+Balance: 20300
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,831 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was found
+2016-05-17 15:57:28,835 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 8400
+ was updated
+2016-05-17 15:57:28,835 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was updated
+2016-05-17 15:57:28,836 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 8400
+, to=ID: 2
+Owner: Honza
+Balance: 21600
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,838 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 15:57:28,841 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 7000
+ was updated
+2016-05-17 15:57:28,842 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21400
+ was updated
+2016-05-17 15:57:28,842 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 1
+Owner: Pepa
+Balance: 7000
+, to=ID: 3
+Owner: Juraj
+Balance: 21400
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,844 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 15:57:28,869 [Thread-10] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 15:57:28,894 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 15:57:28,895 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 15:57:28,896 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 15:57:28,904 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was found
+2016-05-17 15:57:28,909 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was updated
+2016-05-17 15:57:28,909 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21100
+ was updated
+2016-05-17 15:57:28,912 [Thread-11] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 118900
+, to=ID: 3
+Owner: Juraj
+Balance: 21100
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,914 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was found
+2016-05-17 15:57:28,916 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was updated
+2016-05-17 15:57:28,916 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 22300
+ was updated
+2016-05-17 15:57:28,917 [Thread-11] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 117700
+, to=ID: 3
+Owner: Juraj
+Balance: 22300
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,918 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was found
+2016-05-17 15:57:28,920 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was updated
+2016-05-17 15:57:28,920 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 23600
+ was updated
+2016-05-17 15:57:28,921 [Thread-11] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 116400
+, to=ID: 3
+Owner: Juraj
+Balance: 23600
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,922 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 15:57:28,925 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 16600
+ was updated
+2016-05-17 15:57:28,925 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 25000
+ was updated
+2016-05-17 15:57:28,926 [Thread-11] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 2
+Owner: Honza
+Balance: 16600
+, to=ID: 3
+Owner: Juraj
+Balance: 25000
+, sent=Tue May 17 15:57:28 CEST 2016} was created
+2016-05-17 15:57:28,927 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 15:57:28,949 [Thread-12] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 15:57:28,971 [Thread-13] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 15:57:29,003 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 15:57:29,013 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 15:57:29,020 [Thread-14] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 15:57:29,020 [Thread-14] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 15:57:29,040 [Thread-15] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 15:57:29,061 [Thread-16] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 15:57:29,086 [Thread-17] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 15:57:29,108 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 15:57:29,113 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 15:57:29,118 [Thread-18] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 15:57:29,119 [Thread-18] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 15:57:29,140 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 90000
+ was created
+2016-05-17 15:57:29,142 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 23000.5
+ was created
+2016-05-17 15:57:29,150 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 60000
+ was updated
+2016-05-17 15:57:29,150 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 53000.5
+ was updated
+2016-05-17 15:57:29,245 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 15:57:29,263 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 15:57:29,280 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 15:57:29,296 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 15:57:29,313 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 15:57:29,330 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 15:57:29,352 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,353 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 3000
+ was created
+2016-05-17 15:57:29,354 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 4000
+ was created
+2016-05-17 15:57:29,355 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 5000
+ was created
+2016-05-17 15:57:29,359 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,361 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 14:57:29 CET 2015} was created
+2016-05-17 15:57:29,368 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 14:57:29 CET 2016} was found
+2016-05-17 15:57:29,370 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 14:57:29 CET 2015} was found
+2016-05-17 15:57:29,374 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 14:57:29 CET 2016} was deleted
+2016-05-17 15:57:29,375 [main] INFO  pv168.PaymentManagerImpl - payment with id 1 was not found
+2016-05-17 15:57:29,376 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 14:57:29 CET 2015} was found
+2016-05-17 15:57:29,393 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed account is null!
+2016-05-17 15:57:29,409 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 15:57:29,433 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=12, amount=2000, from=ID: not assigned yet
+Owner: jano
+Balance: 2000
+, to=ID: not assigned yet
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} not found
+2016-05-17 15:57:29,455 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,456 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,457 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 15:57:29,458 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 15:57:29,462 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,464 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,469 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was updated
+2016-05-17 15:57:29,476 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was found
+2016-05-17 15:57:29,478 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was updated
+2016-05-17 15:57:29,480 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was found
+2016-05-17 15:57:29,481 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was updated
+2016-05-17 15:57:29,483 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was found
+2016-05-17 15:57:29,484 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 15:57:29 CEST 2015} was updated
+2016-05-17 15:57:29,486 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 15:57:29 CEST 2015} was found
+2016-05-17 15:57:29,487 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was found
+2016-05-17 15:57:29,503 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 15:57:29,523 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,524 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,528 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,533 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=1001, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} not found
+2016-05-17 15:57:29,558 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,559 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,564 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,564 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 15:57:29,581 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,582 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,586 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,586 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 15:57:29,603 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,604 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 45000
+ was created
+2016-05-17 15:57:29,608 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,615 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 14:57:29 CET 2016} was found
+2016-05-17 15:57:29,633 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,634 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,638 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,638 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 15:57:29,655 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,656 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,660 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,660 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 15:57:29,677 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,678 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,682 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,682 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 15:57:29,697 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:57:29,700 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 15:57:29,701 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 15:57:29,701 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 15:57:29,702 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 15:57:29,706 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 14:57:29 CET 2016} was created
+2016-05-17 15:57:29,707 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=30000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 15:57:29 CEST 2015} was created
+2016-05-17 15:57:29,711 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:57:29,782 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 15:57:29,786 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was found
+2016-05-17 15:57:29,794 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 15:57:29,799 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 15:57:29,805 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 15:57:29,810 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 15:57:29,820 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 15:57:29,821 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 15:57:29,822 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 15:57:29,822 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 15:57:29,826 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was deleted
+2016-05-17 15:57:29,827 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was deleted
+2016-05-17 15:57:29,830 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 15:57:29,831 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was found
+2016-05-17 15:57:29,832 [main] INFO  pv168.AccountManagerImpl - account with id 3 was not found
+2016-05-17 15:57:29,832 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was found
+2016-05-17 15:57:29,843 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lennie
+Balance: 0
+ was created
+2016-05-17 15:57:29,844 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed account is null!
+2016-05-17 15:57:29,852 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Trevor
+Balance: 45
+ was created
+2016-05-17 15:57:29,852 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 15:57:29,861 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Percy
+Balance: 999
+ was created
+2016-05-17 15:57:29,865 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was updated
+2016-05-17 15:57:29,868 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was found
+2016-05-17 15:57:29,877 [main] ERROR pv168.AccountManagerImpl - Entity ID: 1
+Owner: Susan
+Balance: 650
+ not found
+2016-05-17 15:57:29,885 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lisa
+Balance: 600
+ was created
+2016-05-17 15:57:29,885 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 15:57:29,894 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Jane
+Balance: 600
+ was created
+2016-05-17 15:57:29,894 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 15:57:29,904 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Mike
+Balance: 700
+ was created
+2016-05-17 15:57:29,904 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 15:57:29,912 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Bruce
+Balance: 125
+ was created
+2016-05-17 15:57:29,913 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 15:57:29,921 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was created
+2016-05-17 15:57:29,924 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was found
+2016-05-17 15:57:29,925 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was created
+2016-05-17 15:57:29,929 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was deleted
+2016-05-17 15:57:29,929 [main] INFO  pv168.AccountManagerImpl - account with id 2 was not found
+2016-05-17 15:57:29,939 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Fred
+Balance: 600
+ was created
+2016-05-17 15:57:29,940 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 15:57:29,950 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 15:57:29,960 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 15:57:29,961 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 15:57:29,962 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 15:57:29,963 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 15:57:29,965 [main] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:57:40,956 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 15:57:40,960 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 15:57:40,979 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:57:41,112 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:57:41,112 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:57:41,113 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:57:41,148 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:57:41,151 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:57:41,151 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:02,776 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 15:58:02,795 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 15:58:02,819 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:02,855 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:58:02,858 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:02,858 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:02,894 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:02,894 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:02,897 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:58:11,592 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 15:58:11,609 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 15:58:11,629 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:11,649 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:58:11,650 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:11,651 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:11,683 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 15:58:11,683 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 15:58:11,685 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:14,651 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:00:14,669 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:00:14,694 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:14,736 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:00:14,740 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:14,740 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:14,783 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:00:14,783 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:14,785 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:52,927 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:00:52,961 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:00:52,961 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:21,300 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:02:21,316 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:02:21,337 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:21,394 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:02:21,397 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:21,398 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:21,440 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:21,442 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:02:21,449 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:57,115 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:02:57,132 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:02:57,157 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:57,209 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:02:57,213 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:57,213 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:57,251 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:57,253 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:02:57,254 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:03:07,978 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:03:07,996 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:03:08,016 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:03:08,048 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:03:08,048 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:03:08,049 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:03:08,085 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:03:08,085 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:03:08,095 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:06:46,544 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:06:46,562 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:06:46,584 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:06:46,647 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:06:46,653 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:06:46,653 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:06:46,692 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:06:46,695 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:06:46,697 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:47,842 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:13:47,860 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:13:47,881 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:47,881 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:13:47,883 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:47,885 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:47,915 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:13:47,915 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:47,920 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:59,235 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:13:59,253 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:13:59,277 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:13:59,277 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:59,277 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:59,277 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:59,305 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:13:59,307 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:13:59,309 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:08,501 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:14:08,519 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:14:08,544 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:14:08,544 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:08,544 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:08,544 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:08,578 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:08,578 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:08,580 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:14:20,242 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:14:20,259 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:14:20,281 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:20,285 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:14:20,288 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:20,288 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:20,325 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:20,325 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:14:20,328 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:15:20,388 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:15:20,406 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:15:20,426 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:20,438 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:15:20,443 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:20,444 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:20,487 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:20,487 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:20,489 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:15:37,443 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:15:37,461 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:15:37,483 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:15:37,483 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:37,486 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:37,486 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:37,522 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:15:37,522 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:15:37,529 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:04,400 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Igor
+Balance: 500
+ was created
+2016-05-17 16:16:04,433 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:04,437 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:50,619 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:16:50,641 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:16:50,666 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:50,666 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:50,667 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:16:50,668 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:50,693 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:50,693 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:50,695 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:16:53,043 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Igor
+Balance: 500
+ was created
+2016-05-17 16:16:53,075 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:53,076 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:53,920 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Igor
+Balance: 500
+ was created
+2016-05-17 16:16:53,953 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:16:53,953 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:35,345 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:17:35,363 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:17:35,386 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:35,387 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:17:35,389 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:35,389 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:35,423 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:17:35,424 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:35,428 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:43,805 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:43,805 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:17:43,828 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 400.00
+ was updated
+2016-05-17 16:17:43,828 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 100.00
+ was updated
+2016-05-17 16:17:43,837 [SwingWorker-pool-2-thread-10] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=100, from=ID: 1
+Owner: Pepa
+Balance: 400.00
+, to=ID: 2
+Owner: Ondra
+Balance: 100.00
+, sent=Tue May 17 16:17:43 CEST 2016} was created
+2016-05-17 16:17:43,872 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:18:19,750 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:18:19,783 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:18:19,783 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:15,992 [SwingWorker-pool-2-thread-7] ERROR pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 100.00
+ coudl not be deleted
+2016-05-17 16:19:16,014 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:16,014 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:38,900 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:19:38,918 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:19:38,941 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:38,945 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:19:38,948 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:38,949 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:38,984 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:19:38,988 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:38,991 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:50,623 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:19:50,655 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:50,656 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:53,236 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500.00
+ was deleted
+2016-05-17 16:19:53,245 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:19:53,245 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:20:06,430 [SwingWorker-pool-2-thread-7] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:20:06,430 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:20:06,447 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 900.00
+ was updated
+2016-05-17 16:20:06,447 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 100.00
+ was updated
+2016-05-17 16:20:06,454 [SwingWorker-pool-2-thread-6] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=100, from=ID: 3
+Owner: Jana
+Balance: 900.00
+, to=ID: 2
+Owner: Ondra
+Balance: 100.00
+, sent=Tue May 17 16:20:06 CEST 2016} was created
+2016-05-17 16:20:06,463 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:20:10,065 [SwingWorker-pool-2-thread-8] ERROR pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 900.00
+ coudl not be deleted
+2016-05-17 16:20:10,082 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:20:10,082 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:17,074 [SwingWorker-pool-2-thread-1] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=100, from=ID: 3
+Owner: Jana
+Balance: 900.00
+, to=ID: 2
+Owner: Ondra
+Balance: 100.00
+, sent=Tue May 17 16:20:06 CEST 2016} was deleted
+2016-05-17 16:21:31,440 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:21:31,444 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:21:31,466 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:31,476 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:21:31,483 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:31,486 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:31,526 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:21:31,526 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:31,529 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:36,222 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:21:36,255 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:36,257 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:38,044 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500.00
+ was deleted
+2016-05-17 16:21:38,054 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:38,056 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:44,714 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 1000
+ was deleted
+2016-05-17 16:21:44,746 [SwingWorker-pool-2-thread-7] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:44,746 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:46,059 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0.00
+ was deleted
+2016-05-17 16:21:46,090 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:46,090 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:50,594 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:21:50,626 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:50,629 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:51,066 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - account ID: 5
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:21:51,099 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:21:51,099 [SwingWorker-pool-2-thread-7] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:22:25,196 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:22:25,196 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:22:25,225 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jana
+Balance: 900.00
+ was updated
+2016-05-17 16:22:25,226 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 5
+Owner: Jana
+Balance: 1100.00
+ was updated
+2016-05-17 16:22:25,238 [SwingWorker-pool-2-thread-8] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=100, from=ID: 4
+Owner: Jana
+Balance: 900.00
+, to=ID: 5
+Owner: Jana
+Balance: 1100.00
+, sent=Tue May 17 16:22:25 CEST 2016} was created
+2016-05-17 16:22:25,273 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:22:28,761 [SwingWorker-pool-2-thread-9] ERROR pv168.AccountManagerImpl - account ID: 5
+Owner: Jana
+Balance: 1100.00
+ coudl not be deleted
+2016-05-17 16:22:28,779 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:22:28,779 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:25:37,238 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:25:37,260 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:25:37,285 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:25:37,314 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:25:37,323 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:25:37,323 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:25:37,370 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:25:37,370 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:25:37,373 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:29:43,110 [Thread-0] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 16:29:43,172 [Thread-3] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 16:29:43,256 [Thread-4] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 16:29:43,281 [Thread-4] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 16:29:43,292 [Thread-4] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 16:29:43,293 [Thread-4] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 16:29:43,329 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 16:29:43,330 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 16:29:43,331 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 16:29:43,341 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was found
+2016-05-17 16:29:43,357 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was updated
+2016-05-17 16:29:43,357 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21100
+ was updated
+2016-05-17 16:29:43,364 [Thread-5] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 118900
+, to=ID: 3
+Owner: Juraj
+Balance: 21100
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,366 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was found
+2016-05-17 16:29:43,370 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was updated
+2016-05-17 16:29:43,370 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 22300
+ was updated
+2016-05-17 16:29:43,371 [Thread-5] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 117700
+, to=ID: 3
+Owner: Juraj
+Balance: 22300
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,372 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was found
+2016-05-17 16:29:43,375 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was updated
+2016-05-17 16:29:43,376 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 23600
+ was updated
+2016-05-17 16:29:43,376 [Thread-5] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 116400
+, to=ID: 3
+Owner: Juraj
+Balance: 23600
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,378 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 16:29:43,381 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 16600
+ was updated
+2016-05-17 16:29:43,382 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 25000
+ was updated
+2016-05-17 16:29:43,383 [Thread-5] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 2
+Owner: Honza
+Balance: 16600
+, to=ID: 3
+Owner: Juraj
+Balance: 25000
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,384 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 16:29:43,415 [Thread-6] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 16:29:43,441 [Thread-7] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 16:29:43,469 [Thread-8] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 16:29:43,496 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 16:29:43,501 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 16:29:43,509 [Thread-9] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 16:29:43,510 [Thread-9] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 16:29:43,575 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 90000
+ was created
+2016-05-17 16:29:43,577 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 23000.5
+ was created
+2016-05-17 16:29:43,586 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 60000
+ was updated
+2016-05-17 16:29:43,586 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 53000.5
+ was updated
+2016-05-17 16:29:43,615 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 16:29:43,616 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 16:29:43,620 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was updated
+2016-05-17 16:29:43,621 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was updated
+2016-05-17 16:29:43,625 [Thread-11] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,637 [Thread-11] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 16:29:43 CEST 2016} was found
+2016-05-17 16:29:43,639 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was found
+2016-05-17 16:29:43,640 [Thread-11] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was found
+2016-05-17 16:29:43,668 [Thread-12] WARN  pv168.PaymentManagerImpl - Operation failed: payment is null!
+2016-05-17 16:29:43,692 [Thread-13] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 16:29:43,693 [Thread-13] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 16:29:43,694 [Thread-13] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 16:29:43,721 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 16:29:43,721 [Thread-14] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 16:29:43,745 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 16:29:43,746 [Thread-15] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 16:29:43,769 [Thread-16] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 16:29:43,770 [Thread-16] WARN  pv168.PaymentManagerImpl - Operation failed: sender and receiver are the same accounts!
+2016-05-17 16:29:43,792 [Thread-17] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 16:29:43,793 [Thread-17] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 16:29:43,794 [Thread-17] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=12000, from=ID: 1
+Owner: Pepa
+Balance: 1200
+, to=ID: 2
+Owner: Honza
+Balance: 1200
+, sent=null} !
+2016-05-17 16:29:43,818 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 12000
+ was created
+2016-05-17 16:29:43,819 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 16:29:43,819 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 16:29:43,824 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 10900
+ was updated
+2016-05-17 16:29:43,824 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was updated
+2016-05-17 16:29:43,828 [Thread-18] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 10900
+, to=ID: 2
+Owner: Honza
+Balance: 19100
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,833 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was found
+2016-05-17 16:29:43,835 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 9700
+ was updated
+2016-05-17 16:29:43,835 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was updated
+2016-05-17 16:29:43,836 [Thread-18] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 9700
+, to=ID: 2
+Owner: Honza
+Balance: 20300
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,837 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was found
+2016-05-17 16:29:43,839 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 8400
+ was updated
+2016-05-17 16:29:43,839 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was updated
+2016-05-17 16:29:43,840 [Thread-18] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 8400
+, to=ID: 2
+Owner: Honza
+Balance: 21600
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,841 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 16:29:43,843 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 7000
+ was updated
+2016-05-17 16:29:43,843 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21400
+ was updated
+2016-05-17 16:29:43,844 [Thread-18] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 1
+Owner: Pepa
+Balance: 7000
+, to=ID: 3
+Owner: Juraj
+Balance: 21400
+, sent=Tue May 17 16:29:43 CEST 2016} was created
+2016-05-17 16:29:43,845 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 16:29:43,864 [Thread-19] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 16:29:43,962 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 16:29:43,985 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:43,987 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 3000
+ was created
+2016-05-17 16:29:43,988 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 4000
+ was created
+2016-05-17 16:29:43,989 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 5000
+ was created
+2016-05-17 16:29:43,993 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 15:29:43 CET 2016} was created
+2016-05-17 16:29:43,995 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 15:29:43 CET 2015} was created
+2016-05-17 16:29:44,002 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 15:29:43 CET 2016} was found
+2016-05-17 16:29:44,004 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 15:29:43 CET 2015} was found
+2016-05-17 16:29:44,013 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 15:29:43 CET 2016} was deleted
+2016-05-17 16:29:44,014 [main] INFO  pv168.PaymentManagerImpl - payment with id 1 was not found
+2016-05-17 16:29:44,016 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 15:29:43 CET 2015} was found
+2016-05-17 16:29:44,034 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed account is null!
+2016-05-17 16:29:44,052 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 16:29:44,074 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,075 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 45000
+ was created
+2016-05-17 16:29:44,079 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,087 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 15:29:44 CET 2016} was found
+2016-05-17 16:29:44,104 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 16:29:44,121 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 16:29:44,138 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 16:29:44,154 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 16:29:44,170 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 16:29:44,191 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=12, amount=2000, from=ID: not assigned yet
+Owner: jano
+Balance: 2000
+, to=ID: not assigned yet
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} not found
+2016-05-17 16:29:44,213 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,214 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,215 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 16:29:44,217 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 16:29:44,221 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,222 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,228 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was updated
+2016-05-17 16:29:44,236 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was found
+2016-05-17 16:29:44,237 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was updated
+2016-05-17 16:29:44,239 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was found
+2016-05-17 16:29:44,240 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was updated
+2016-05-17 16:29:44,242 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was found
+2016-05-17 16:29:44,243 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 16:29:44 CEST 2015} was updated
+2016-05-17 16:29:44,245 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 16:29:44 CEST 2015} was found
+2016-05-17 16:29:44,248 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was found
+2016-05-17 16:29:44,265 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 16:29:44,291 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,293 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,297 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,302 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=1001, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} not found
+2016-05-17 16:29:44,322 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,323 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,326 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,326 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 16:29:44,344 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,345 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,349 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,349 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 16:29:44,367 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,369 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,373 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,373 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 16:29:44,392 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,393 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,397 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,397 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 16:29:44,414 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,415 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,419 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,419 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 16:29:44,436 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:29:44,439 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 16:29:44,440 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 16:29:44,441 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 16:29:44,442 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 16:29:44,446 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 15:29:44 CET 2016} was created
+2016-05-17 16:29:44,447 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=30000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 16:29:44 CEST 2015} was created
+2016-05-17 16:29:44,452 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:29:44,523 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 16:29:44,527 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was found
+2016-05-17 16:29:44,535 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 16:29:44,541 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 16:29:44,546 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 16:29:44,552 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 16:29:44,560 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 16:29:44,561 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 16:29:44,562 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 16:29:44,563 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 16:29:44,566 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was deleted
+2016-05-17 16:29:44,567 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was deleted
+2016-05-17 16:29:44,570 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 16:29:44,571 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was found
+2016-05-17 16:29:44,571 [main] INFO  pv168.AccountManagerImpl - account with id 3 was not found
+2016-05-17 16:29:44,572 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was found
+2016-05-17 16:29:44,580 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lennie
+Balance: 0
+ was created
+2016-05-17 16:29:44,580 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed account is null!
+2016-05-17 16:29:44,588 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Trevor
+Balance: 45
+ was created
+2016-05-17 16:29:44,589 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 16:29:44,597 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Percy
+Balance: 999
+ was created
+2016-05-17 16:29:44,601 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was updated
+2016-05-17 16:29:44,604 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was found
+2016-05-17 16:29:44,613 [main] ERROR pv168.AccountManagerImpl - Entity ID: 1
+Owner: Susan
+Balance: 650
+ not found
+2016-05-17 16:29:44,622 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lisa
+Balance: 600
+ was created
+2016-05-17 16:29:44,622 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 16:29:44,631 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Jane
+Balance: 600
+ was created
+2016-05-17 16:29:44,631 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 16:29:44,639 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Mike
+Balance: 700
+ was created
+2016-05-17 16:29:44,640 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 16:29:44,648 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Bruce
+Balance: 125
+ was created
+2016-05-17 16:29:44,649 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 16:29:44,656 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was created
+2016-05-17 16:29:44,659 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was found
+2016-05-17 16:29:44,660 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was created
+2016-05-17 16:29:44,663 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was deleted
+2016-05-17 16:29:44,664 [main] INFO  pv168.AccountManagerImpl - account with id 2 was not found
+2016-05-17 16:29:44,673 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Fred
+Balance: 600
+ was created
+2016-05-17 16:29:44,673 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 16:29:44,682 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 16:29:44,691 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 16:29:44,692 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 16:29:44,693 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 16:29:44,694 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 16:29:44,696 [main] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:05,231 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:30:05,254 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:30:05,279 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:05,294 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:30:05,303 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:05,305 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:05,352 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:30:05,352 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:05,354 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:10,659 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:30:10,691 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:10,693 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:17,132 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:17,132 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:17,155 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 400.00
+ was updated
+2016-05-17 16:30:17,156 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 100.00
+ was updated
+2016-05-17 16:30:17,165 [SwingWorker-pool-2-thread-4] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=100, from=ID: 1
+Owner: Pepa
+Balance: 400.00
+, to=ID: 2
+Owner: Ondra
+Balance: 100.00
+, sent=Tue May 17 16:30:17 CEST 2016} was created
+2016-05-17 16:30:17,200 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:27,483 [SwingWorker-pool-2-thread-6] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=10000, from=ID: 1
+Owner: Pepa
+Balance: 500.00
+, to=ID: 2
+Owner: Ondra
+Balance: 0.00
+, sent=null} !
+2016-05-17 16:30:27,485 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:30:27,485 [SwingWorker-pool-2-thread-7] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:27,931 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500
+ was created
+2016-05-17 16:32:27,951 [AWT-EventQueue-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was created
+2016-05-17 16:32:27,975 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:27,995 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:28,003 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:28,003 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:28,044 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:28,044 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:28,046 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:33,043 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Jana
+Balance: 1000
+ was created
+2016-05-17 16:32:33,076 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:33,076 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:40,040 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:40,040 [SwingWorker-pool-2-thread-3] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:40,041 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:43,798 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:43,798 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:43,800 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:43,817 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0.00
+ was updated
+2016-05-17 16:32:43,852 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:43,853 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:44,174 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:44,174 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:44,175 [SwingWorker-pool-2-thread-1] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:50,032 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: 0
+ was updated
+2016-05-17 16:32:50,036 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:50,038 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:50,038 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:50,088 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:50,088 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:53,751 [SwingWorker-pool-2-thread-3] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:53,751 [SwingWorker-pool-2-thread-10] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:53,752 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:56,152 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: -500
+ was updated
+2016-05-17 16:32:56,153 [SwingWorker-pool-2-thread-5] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:56,155 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:56,157 [SwingWorker-pool-2-thread-7] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 16:32:56,227 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:32:56,228 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:09,077 [SwingWorker-pool-2-thread-8] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:09,077 [SwingWorker-pool-2-thread-3] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:09,081 [SwingWorker-pool-2-thread-10] WARN  pv168.PaymentManagerImpl - Operation failed: sender and receiver are the same accounts!
+2016-05-17 16:33:14,372 [SwingWorker-pool-2-thread-5] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=10000, from=ID: 2
+Owner: Ondra
+Balance: -500.00
+, to=ID: 3
+Owner: Jana
+Balance: 1000.00
+, sent=null} !
+2016-05-17 16:33:14,374 [SwingWorker-pool-2-thread-9] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:14,374 [SwingWorker-pool-2-thread-1] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:22,806 [SwingWorker-pool-2-thread-7] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:22,807 [SwingWorker-pool-2-thread-6] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 16:33:22,807 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 500.00
+ was updated
+2016-05-17 16:33:22,808 [SwingWorker-pool-2-thread-2] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Ondra
+Balance: -500.00
+ was updated
+2016-05-17 16:33:22,839 [SwingWorker-pool-2-thread-2] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=0, from=ID: 1
+Owner: Pepa
+Balance: 500.00
+, to=ID: 2
+Owner: Ondra
+Balance: -500.00
+, sent=Tue May 17 16:33:22 CEST 2016} was created
+2016-05-17 16:33:22,875 [SwingWorker-pool-2-thread-4] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 17:09:47,153 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:09:47,157 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:09:47,182 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was updated
+2016-05-17 17:09:47,183 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was updated
+2016-05-17 17:09:47,192 [Thread-0] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,228 [Thread-0] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 17:09:47 CEST 2016} was found
+2016-05-17 17:09:47,229 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was found
+2016-05-17 17:09:47,230 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was found
+2016-05-17 17:09:47,325 [Thread-3] WARN  pv168.PaymentManagerImpl - Operation failed: payment is null!
+2016-05-17 17:09:47,366 [Thread-4] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:09:47,367 [Thread-4] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:09:47,369 [Thread-4] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 17:09:47,410 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:09:47,411 [Thread-5] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 17:09:47,446 [Thread-6] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:09:47,447 [Thread-6] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 17:09:47,476 [Thread-7] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:09:47,477 [Thread-7] WARN  pv168.PaymentManagerImpl - Operation failed: sender and receiver are the same accounts!
+2016-05-17 17:09:47,508 [Thread-8] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:09:47,510 [Thread-8] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:09:47,510 [Thread-8] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=12000, from=ID: 1
+Owner: Pepa
+Balance: 1200
+, to=ID: 2
+Owner: Honza
+Balance: 1200
+, sent=null} !
+2016-05-17 17:09:47,540 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 12000
+ was created
+2016-05-17 17:09:47,542 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 17:09:47,543 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 17:09:47,594 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 10900
+ was updated
+2016-05-17 17:09:47,594 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was updated
+2016-05-17 17:09:47,599 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 10900
+, to=ID: 2
+Owner: Honza
+Balance: 19100
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,607 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was found
+2016-05-17 17:09:47,610 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 9700
+ was updated
+2016-05-17 17:09:47,611 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was updated
+2016-05-17 17:09:47,612 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 9700
+, to=ID: 2
+Owner: Honza
+Balance: 20300
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,613 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was found
+2016-05-17 17:09:47,616 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 8400
+ was updated
+2016-05-17 17:09:47,616 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was updated
+2016-05-17 17:09:47,617 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 8400
+, to=ID: 2
+Owner: Honza
+Balance: 21600
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,618 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 17:09:47,621 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 7000
+ was updated
+2016-05-17 17:09:47,621 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21400
+ was updated
+2016-05-17 17:09:47,622 [Thread-9] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 1
+Owner: Pepa
+Balance: 7000
+, to=ID: 3
+Owner: Juraj
+Balance: 21400
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,624 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 17:09:47,646 [Thread-10] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 17:09:47,667 [Thread-11] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:09:47,687 [Thread-12] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:09:47,712 [Thread-13] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 17:09:47,720 [Thread-13] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 17:09:47,728 [Thread-13] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:09:47,728 [Thread-13] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 17:09:47,752 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 17:09:47,754 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 17:09:47,755 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 17:09:47,761 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was found
+2016-05-17 17:09:47,765 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was updated
+2016-05-17 17:09:47,766 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21100
+ was updated
+2016-05-17 17:09:47,769 [Thread-14] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 118900
+, to=ID: 3
+Owner: Juraj
+Balance: 21100
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,770 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was found
+2016-05-17 17:09:47,772 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was updated
+2016-05-17 17:09:47,772 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 22300
+ was updated
+2016-05-17 17:09:47,773 [Thread-14] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 117700
+, to=ID: 3
+Owner: Juraj
+Balance: 22300
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,774 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was found
+2016-05-17 17:09:47,776 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was updated
+2016-05-17 17:09:47,776 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 23600
+ was updated
+2016-05-17 17:09:47,777 [Thread-14] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 116400
+, to=ID: 3
+Owner: Juraj
+Balance: 23600
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,778 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 17:09:47,781 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 16600
+ was updated
+2016-05-17 17:09:47,781 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 25000
+ was updated
+2016-05-17 17:09:47,782 [Thread-14] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 2
+Owner: Honza
+Balance: 16600
+, to=ID: 3
+Owner: Juraj
+Balance: 25000
+, sent=Tue May 17 17:09:47 CEST 2016} was created
+2016-05-17 17:09:47,783 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 17:09:47,803 [Thread-15] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 17:09:47,822 [Thread-16] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:09:47,842 [Thread-17] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:09:47,864 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 17:09:47,868 [Thread-18] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 17:09:47,875 [Thread-18] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:09:47,875 [Thread-18] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 17:09:47,898 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 90000
+ was created
+2016-05-17 17:09:47,899 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 23000.5
+ was created
+2016-05-17 17:09:47,906 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 60000
+ was updated
+2016-05-17 17:09:47,907 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 53000.5
+ was updated
+2016-05-17 17:09:48,005 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:09:48,025 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 17:09:48,042 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 17:09:48,058 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 17:09:48,073 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 17:09:48,095 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,096 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 3000
+ was created
+2016-05-17 17:09:48,097 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 4000
+ was created
+2016-05-17 17:09:48,098 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 5000
+ was created
+2016-05-17 17:09:48,102 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,103 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 16:09:48 CET 2015} was created
+2016-05-17 17:09:48,111 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 16:09:48 CET 2016} was found
+2016-05-17 17:09:48,112 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 16:09:48 CET 2015} was found
+2016-05-17 17:09:48,117 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 16:09:48 CET 2016} was deleted
+2016-05-17 17:09:48,117 [main] INFO  pv168.PaymentManagerImpl - payment with id 1 was not found
+2016-05-17 17:09:48,119 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 16:09:48 CET 2015} was found
+2016-05-17 17:09:48,135 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed account is null!
+2016-05-17 17:09:48,152 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:09:48,173 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=12, amount=2000, from=ID: not assigned yet
+Owner: jano
+Balance: 2000
+, to=ID: not assigned yet
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} not found
+2016-05-17 17:09:48,192 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,193 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,194 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 17:09:48,195 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 17:09:48,199 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,200 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,205 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was updated
+2016-05-17 17:09:48,212 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was found
+2016-05-17 17:09:48,214 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was updated
+2016-05-17 17:09:48,218 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was found
+2016-05-17 17:09:48,220 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was updated
+2016-05-17 17:09:48,222 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was found
+2016-05-17 17:09:48,223 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 17:09:48 CEST 2015} was updated
+2016-05-17 17:09:48,225 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 17:09:48 CEST 2015} was found
+2016-05-17 17:09:48,226 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was found
+2016-05-17 17:09:48,243 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 17:09:48,262 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,263 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,267 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,272 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=1001, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} not found
+2016-05-17 17:09:48,299 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,300 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,304 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,304 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 17:09:48,322 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,323 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,326 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,326 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 17:09:48,342 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,343 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,346 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,346 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 17:09:48,362 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,363 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 45000
+ was created
+2016-05-17 17:09:48,367 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,375 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 16:09:48 CET 2016} was found
+2016-05-17 17:09:48,390 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 17:09:48,408 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,410 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,413 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,414 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 17:09:48,444 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,445 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,448 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,448 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 17:09:48,464 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 17:09:48,467 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:09:48,468 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:09:48,469 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 17:09:48,469 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 17:09:48,472 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:09:48 CET 2016} was created
+2016-05-17 17:09:48,473 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=30000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 17:09:48 CEST 2015} was created
+2016-05-17 17:09:48,477 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 17:09:48,542 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:09:48,546 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was found
+2016-05-17 17:09:48,554 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 17:09:48,560 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 17:09:48,566 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 17:09:48,571 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:09:48,579 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 17:09:48,581 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 17:09:48,582 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 17:09:48,582 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 17:09:48,586 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was deleted
+2016-05-17 17:09:48,587 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was deleted
+2016-05-17 17:09:48,590 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:09:48,591 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was found
+2016-05-17 17:09:48,592 [main] INFO  pv168.AccountManagerImpl - account with id 3 was not found
+2016-05-17 17:09:48,592 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was found
+2016-05-17 17:09:48,600 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lennie
+Balance: 0
+ was created
+2016-05-17 17:09:48,600 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed account is null!
+2016-05-17 17:09:48,608 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Trevor
+Balance: 45
+ was created
+2016-05-17 17:09:48,608 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:09:48,617 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Percy
+Balance: 999
+ was created
+2016-05-17 17:09:48,620 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was updated
+2016-05-17 17:09:48,624 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was found
+2016-05-17 17:09:48,633 [main] ERROR pv168.AccountManagerImpl - Entity ID: 1
+Owner: Susan
+Balance: 650
+ not found
+2016-05-17 17:09:48,642 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lisa
+Balance: 600
+ was created
+2016-05-17 17:09:48,642 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 17:09:48,651 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Jane
+Balance: 600
+ was created
+2016-05-17 17:09:48,651 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 17:09:48,661 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Mike
+Balance: 700
+ was created
+2016-05-17 17:09:48,661 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 17:09:48,670 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Bruce
+Balance: 125
+ was created
+2016-05-17 17:09:48,670 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 17:09:48,679 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was created
+2016-05-17 17:09:48,682 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was found
+2016-05-17 17:09:48,683 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was created
+2016-05-17 17:09:48,686 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was deleted
+2016-05-17 17:09:48,687 [main] INFO  pv168.AccountManagerImpl - account with id 2 was not found
+2016-05-17 17:09:48,696 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Fred
+Balance: 600
+ was created
+2016-05-17 17:09:48,696 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 17:09:48,706 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:09:48,715 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 17:09:48,716 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 17:09:48,717 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 17:09:48,718 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 17:09:48,720 [main] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved
+2016-05-17 17:12:09,697 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 90000
+ was created
+2016-05-17 17:12:09,701 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 23000.5
+ was created
+2016-05-17 17:12:09,731 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Steve
+Balance: 60000
+ was updated
+2016-05-17 17:12:09,732 [Thread-0] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Mary
+Balance: 53000.5
+ was updated
+2016-05-17 17:12:09,787 [Thread-3] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:12:09,789 [Thread-3] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:12:09,795 [Thread-3] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was updated
+2016-05-17 17:12:09,796 [Thread-3] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was updated
+2016-05-17 17:12:09,804 [Thread-3] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 17:12:09 CEST 2016} was created
+2016-05-17 17:12:09,839 [Thread-3] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 0
+, to=ID: 2
+Owner: Honza
+Balance: 2400
+, sent=Tue May 17 17:12:09 CEST 2016} was found
+2016-05-17 17:12:09,840 [Thread-3] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 0
+ was found
+2016-05-17 17:12:09,841 [Thread-3] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 2400
+ was found
+2016-05-17 17:12:09,923 [Thread-4] WARN  pv168.PaymentManagerImpl - Operation failed: payment is null!
+2016-05-17 17:12:09,960 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:12:09,961 [Thread-5] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:12:09,962 [Thread-5] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 17:12:09,995 [Thread-6] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:12:09,996 [Thread-6] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 17:12:10,063 [Thread-7] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:12:10,064 [Thread-7] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 17:12:10,098 [Thread-8] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:12:10,099 [Thread-8] WARN  pv168.PaymentManagerImpl - Operation failed: sender and receiver are the same accounts!
+2016-05-17 17:12:10,128 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:12:10,129 [Thread-9] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 1200
+ was created
+2016-05-17 17:12:10,130 [Thread-9] WARN  pv168.PaymentManagerImpl - Operation failed: sending account does not have enough money for the payment Payment{id=null, amount=12000, from=ID: 1
+Owner: Pepa
+Balance: 1200
+, to=ID: 2
+Owner: Honza
+Balance: 1200
+, sent=null} !
+2016-05-17 17:12:10,160 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 12000
+ was created
+2016-05-17 17:12:10,161 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 17:12:10,163 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 17:12:10,173 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 10900
+ was updated
+2016-05-17 17:12:10,174 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was updated
+2016-05-17 17:12:10,178 [Thread-10] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 10900
+, to=ID: 2
+Owner: Honza
+Balance: 19100
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,186 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 19100
+ was found
+2016-05-17 17:12:10,189 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 9700
+ was updated
+2016-05-17 17:12:10,190 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was updated
+2016-05-17 17:12:10,190 [Thread-10] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 9700
+, to=ID: 2
+Owner: Honza
+Balance: 20300
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,191 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 20300
+ was found
+2016-05-17 17:12:10,194 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 8400
+ was updated
+2016-05-17 17:12:10,195 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was updated
+2016-05-17 17:12:10,195 [Thread-10] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 8400
+, to=ID: 2
+Owner: Honza
+Balance: 21600
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,197 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 17:12:10,199 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 7000
+ was updated
+2016-05-17 17:12:10,200 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21400
+ was updated
+2016-05-17 17:12:10,200 [Thread-10] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 1
+Owner: Pepa
+Balance: 7000
+, to=ID: 3
+Owner: Juraj
+Balance: 21400
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,202 [Thread-10] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 21600
+ was found
+2016-05-17 17:12:10,225 [Thread-11] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 17:12:10,250 [Thread-12] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:12:10,272 [Thread-13] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:12:10,299 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 17:12:10,306 [Thread-14] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 17:12:10,313 [Thread-14] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:12:10,314 [Thread-14] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 17:12:10,339 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 17:12:10,340 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 18000
+ was created
+2016-05-17 17:12:10,341 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 20000
+ was created
+2016-05-17 17:12:10,348 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was found
+2016-05-17 17:12:10,353 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was updated
+2016-05-17 17:12:10,353 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 21100
+ was updated
+2016-05-17 17:12:10,356 [Thread-15] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=1100, from=ID: 1
+Owner: Pepa
+Balance: 118900
+, to=ID: 3
+Owner: Juraj
+Balance: 21100
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,358 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 118900
+ was found
+2016-05-17 17:12:10,360 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was updated
+2016-05-17 17:12:10,360 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 22300
+ was updated
+2016-05-17 17:12:10,361 [Thread-15] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=1200, from=ID: 1
+Owner: Pepa
+Balance: 117700
+, to=ID: 3
+Owner: Juraj
+Balance: 22300
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,362 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 117700
+ was found
+2016-05-17 17:12:10,364 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was updated
+2016-05-17 17:12:10,364 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 23600
+ was updated
+2016-05-17 17:12:10,365 [Thread-15] INFO  pv168.PaymentManagerImpl - payment Payment{id=3, amount=1300, from=ID: 1
+Owner: Pepa
+Balance: 116400
+, to=ID: 3
+Owner: Juraj
+Balance: 23600
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,366 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 17:12:10,369 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Honza
+Balance: 16600
+ was updated
+2016-05-17 17:12:10,369 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: Juraj
+Balance: 25000
+ was updated
+2016-05-17 17:12:10,370 [Thread-15] INFO  pv168.PaymentManagerImpl - payment Payment{id=4, amount=1400, from=ID: 2
+Owner: Honza
+Balance: 16600
+, to=ID: 3
+Owner: Juraj
+Balance: 25000
+, sent=Tue May 17 17:12:10 CEST 2016} was created
+2016-05-17 17:12:10,371 [Thread-15] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 116400
+ was found
+2016-05-17 17:12:10,392 [Thread-16] WARN  pv168.PaymentManagerImpl - Operation failed: account is null!
+2016-05-17 17:12:10,413 [Thread-17] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:12:10,431 [Thread-18] WARN  pv168.PaymentManagerImpl - Operation failed: id is null!
+2016-05-17 17:12:10,453 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was created
+2016-05-17 17:12:10,457 [Thread-19] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 120000
+ was deleted
+2016-05-17 17:12:10,465 [Thread-19] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:12:10,465 [Thread-19] ERROR pv168.PaymentManagerImpl - Entity not found ID: 1
+Owner: Pepa
+Balance: 120000
+
+2016-05-17 17:12:10,560 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,561 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 45000
+ was created
+2016-05-17 17:12:10,566 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,574 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 45000
+, sent=Sat Mar 12 16:12:10 CET 2016} was found
+2016-05-17 17:12:10,592 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 17:12:10,610 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:12:10,628 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 17:12:10,646 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 17:12:10,663 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 17:12:10,679 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 17:12:10,701 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,703 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 3000
+ was created
+2016-05-17 17:12:10,703 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 4000
+ was created
+2016-05-17 17:12:10,705 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 5000
+ was created
+2016-05-17 17:12:10,708 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,710 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 16:12:10 CET 2015} was created
+2016-05-17 17:12:10,717 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 16:12:10 CET 2016} was found
+2016-05-17 17:12:10,718 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 16:12:10 CET 2015} was found
+2016-05-17 17:12:10,723 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=6000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 3000
+, sent=Sat Mar 12 16:12:10 CET 2016} was deleted
+2016-05-17 17:12:10,724 [main] INFO  pv168.PaymentManagerImpl - payment with id 1 was not found
+2016-05-17 17:12:10,725 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=70000, from=ID: 3
+Owner: robo
+Balance: 4000
+, to=ID: 4
+Owner: laco
+Balance: 5000
+, sent=Thu Mar 12 16:12:10 CET 2015} was found
+2016-05-17 17:12:10,741 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed account is null!
+2016-05-17 17:12:10,757 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:12:10,779 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=12, amount=2000, from=ID: not assigned yet
+Owner: jano
+Balance: 2000
+, to=ID: not assigned yet
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} not found
+2016-05-17 17:12:10,798 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,799 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,800 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 17:12:10,801 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 17:12:10,812 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,813 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,819 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was updated
+2016-05-17 17:12:10,825 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was found
+2016-05-17 17:12:10,827 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was updated
+2016-05-17 17:12:10,828 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was found
+2016-05-17 17:12:10,829 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was updated
+2016-05-17 17:12:10,830 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was found
+2016-05-17 17:12:10,831 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 17:12:10 CEST 2015} was updated
+2016-05-17 17:12:10,832 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=3000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 17:12:10 CEST 2015} was found
+2016-05-17 17:12:10,833 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was found
+2016-05-17 17:12:10,849 [main] WARN  pv168.PaymentManagerImpl - Operation failed: passed payment is null!
+2016-05-17 17:12:10,867 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,868 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,871 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,876 [main] ERROR pv168.PaymentManagerImpl - Entity Payment{id=1001, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} not found
+2016-05-17 17:12:10,894 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,896 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,899 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,899 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is null!
+2016-05-17 17:12:10,917 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,918 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,922 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,922 [main] WARN  pv168.PaymentManagerImpl - Operation failed: amount is negative!
+2016-05-17 17:12:10,940 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,941 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,944 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,945 [main] WARN  pv168.PaymentManagerImpl - Operation failed: from account is null!
+2016-05-17 17:12:10,962 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,963 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,967 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,967 [main] WARN  pv168.PaymentManagerImpl - Operation failed: to account is null!
+2016-05-17 17:12:10,983 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:10,984 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:10,988 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:10 CET 2016} was created
+2016-05-17 17:12:10,988 [main] WARN  pv168.PaymentManagerImpl - Operation failed: date is null!
+2016-05-17 17:12:11,002 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 17:12:11,005 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: jano
+Balance: 2000
+ was created
+2016-05-17 17:12:11,006 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: marian
+Balance: 2000
+ was created
+2016-05-17 17:12:11,007 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: robo
+Balance: 2000
+ was created
+2016-05-17 17:12:11,008 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: laco
+Balance: 2000
+ was created
+2016-05-17 17:12:11,011 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=1, amount=2000, from=ID: 1
+Owner: jano
+Balance: 2000
+, to=ID: 2
+Owner: marian
+Balance: 2000
+, sent=Sat Mar 12 16:12:11 CET 2016} was created
+2016-05-17 17:12:11,012 [main] INFO  pv168.PaymentManagerImpl - payment Payment{id=2, amount=30000, from=ID: 3
+Owner: robo
+Balance: 2000
+, to=ID: 4
+Owner: laco
+Balance: 2000
+, sent=Wed Apr 01 17:12:11 CEST 2015} was created
+2016-05-17 17:12:11,016 [main] INFO  pv168.PaymentManagerImpl - all payments was successfully retrieved
+2016-05-17 17:12:11,087 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Trevor
+Balance: 45
+ was created
+2016-05-17 17:12:11,089 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:12:11,100 [main] ERROR pv168.AccountManagerImpl - Entity ID: 1
+Owner: Susan
+Balance: 650
+ not found
+2016-05-17 17:12:11,109 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lisa
+Balance: 600
+ was created
+2016-05-17 17:12:11,109 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 17:12:11,117 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was created
+2016-05-17 17:12:11,120 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Pepa
+Balance: 1200
+ was found
+2016-05-17 17:12:11,126 [main] WARN  pv168.AccountManagerImpl - Operation failed: account is null!
+2016-05-17 17:12:11,131 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 17:12:11,136 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 17:12:11,141 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed id is null!
+2016-05-17 17:12:11,148 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 17:12:11,149 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 17:12:11,150 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 17:12:11,151 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 17:12:11,154 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was deleted
+2016-05-17 17:12:11,155 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was deleted
+2016-05-17 17:12:11,157 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:12:11,158 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was found
+2016-05-17 17:12:11,158 [main] INFO  pv168.AccountManagerImpl - account with id 3 was not found
+2016-05-17 17:12:11,159 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was found
+2016-05-17 17:12:11,167 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Lennie
+Balance: 0
+ was created
+2016-05-17 17:12:11,167 [main] WARN  pv168.AccountManagerImpl - Operation failed: passed account is null!
+2016-05-17 17:12:11,175 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Percy
+Balance: 999
+ was created
+2016-05-17 17:12:11,178 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was updated
+2016-05-17 17:12:11,182 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Carol
+Balance: 50000
+ was found
+2016-05-17 17:12:11,190 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Jane
+Balance: 600
+ was created
+2016-05-17 17:12:11,190 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 17:12:11,199 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Mike
+Balance: 700
+ was created
+2016-05-17 17:12:11,199 [main] WARN  pv168.AccountManagerImpl - Operation failed: owner is null!
+2016-05-17 17:12:11,208 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Bruce
+Balance: 125
+ was created
+2016-05-17 17:12:11,208 [main] WARN  pv168.AccountManagerImpl - Operation failed: balance is null!
+2016-05-17 17:12:11,216 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was created
+2016-05-17 17:12:11,219 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Leo
+Balance: 750
+ was found
+2016-05-17 17:12:11,220 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was created
+2016-05-17 17:12:11,224 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Dick
+Balance: 60
+ was deleted
+2016-05-17 17:12:11,224 [main] INFO  pv168.AccountManagerImpl - account with id 2 was not found
+2016-05-17 17:12:11,234 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: Fred
+Balance: 600
+ was created
+2016-05-17 17:12:11,234 [main] ERROR pv168.AccountManagerImpl - Operation failed: Id is null!
+2016-05-17 17:12:11,252 [main] INFO  pv168.AccountManagerImpl - account with id 1 was not found
+2016-05-17 17:12:11,261 [main] INFO  pv168.AccountManagerImpl - account ID: 1
+Owner: John
+Balance: 50
+ was created
+2016-05-17 17:12:11,262 [main] INFO  pv168.AccountManagerImpl - account ID: 2
+Owner: Paul
+Balance: 800
+ was created
+2016-05-17 17:12:11,263 [main] INFO  pv168.AccountManagerImpl - account ID: 3
+Owner: George
+Balance: 0
+ was created
+2016-05-17 17:12:11,264 [main] INFO  pv168.AccountManagerImpl - account ID: 4
+Owner: Jacob
+Balance: 355
+ was created
+2016-05-17 17:12:11,267 [main] INFO  pv168.AccountManagerImpl - all accounts was successfully retrieved

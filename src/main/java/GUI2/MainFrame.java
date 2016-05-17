@@ -3,12 +3,16 @@ package GUI2;
 import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Locale;
+import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.sql.DataSource;
 import javax.swing.ImageIcon;
@@ -17,6 +21,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import pv168.Account;
 import static pv168.Account.newAccount;
@@ -28,6 +33,7 @@ import pv168.Payment;
 import pv168.PaymentManager;
 import pv168.PaymentManagerImpl;
 import pv168.ServiceFailureException;
+
 
 /**
  *
@@ -42,7 +48,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private static final ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
     private static MainFrame INSTANCE;
-    //private static final String SAVED_PREFERENCES = "preferences";
 
     /**
      * Creates new form MainFrame
@@ -59,290 +64,43 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             setUpDatabase();
         } catch (SQLException ex) {
-//            Logovani chyb
+            System.out.println(ex.getMessage());
+            System.exit(0);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
             System.exit(0);
         }
 
-       // initComponents();
+        initComponents();
         myInitComponets();
     }
 
     private void myInitComponets() {
-
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAccounts = new javax.swing.JTable();
-        jButtonDeleteSelectedAccount = new javax.swing.JButton();
-        jButtonCreateAccount = new javax.swing.JButton();
-        jTextFieldOwner = new javax.swing.JTextField();
-        jTextFieldBalance = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTablePayments = new javax.swing.JTable();
-        jButtonDeleteSelectedPayment = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
-        jTextFieldAmountPayment = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBoxFromAccounts = new javax.swing.JComboBox();
-        jComboBoxToAccounts = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButtonExecutePayment = new javax.swing.JButton();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenuFile = new javax.swing.JMenu();
-        jMenuItemAbout = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemExit = new javax.swing.JMenuItem();
-
-        jMenu1.setText(bundle.getString("FILE.MENUBAR.ITEM")); // NOI18N
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle", Locale.getDefault()); // NOI18N
-        setTitle(bundle.getString("MAIN.TITLE")); // NOI18N
-
-        jTabbedPane1.setToolTipText("");
-
-        jTableAccounts.setModel(new AccountTableModel(accountManager));
-        jTableAccounts.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTableAccountsPropertyChange(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableAccounts);
-        jTableAccounts.setDefaultRenderer(Object.class, new TableCellRenderer());
-
-        jButtonDeleteSelectedAccount.setText(bundle.getString("DELETE.SELECTED.BUTTON")); // NOI18N
-        jButtonDeleteSelectedAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteSelectedAccountActionPerformed(evt);
-            }
-        });
-
-        jButtonCreateAccount.setText(bundle.getString("CREATE.NEW.ACCOUNT.BUTTON")); // NOI18N
-        jButtonCreateAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreateAccountActionPerformed(evt);
-            }
-        });
         
         Preferences prefs = Preferences.userNodeForPackage(this.getClass());
 
-//Preferences.userRoot().node(SAVED_PREFERENCES);
-
-        //jTextFieldOwner.setText(bundle.getString("OWNERNAME.TEXTFIELDFILL")); // NOI18N
         MyListener listenerOwner = new MyListener();
         listenerOwner.setName("jTextFieldOwner");
         listenerOwner.setPreferences(prefs);
         jTextFieldOwner.getDocument().addDocumentListener(listenerOwner);
         jTextFieldOwner.setText(prefs.get("jTextFieldOwner", ""));
         
-        //jTextFieldBalance.setText(bundle.getString("INITIALBALANCE.TEXTFIELDFILL")); // NOI18N
         MyListener listenerBalance = new MyListener();
         listenerBalance.setName("jTextFieldBalance");
-        listenerBalance.setPreferences(prefs);
+        listenerBalance.setPreferences(prefs);      
         jTextFieldBalance.getDocument().addDocumentListener(listenerBalance);
         jTextFieldBalance.setText(prefs.get("jTextFieldBalance", ""));
         
-        jLabel1.setText(bundle.getString("OWNER.LABEL")); // NOI18N
-
-        jLabel2.setText(bundle.getString("BALANCE.LABEL")); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator2)
-                        .addContainerGap())
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButtonCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextFieldOwner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldBalance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(126, 126, 126))
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jButtonDeleteSelectedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonDeleteSelectedAccount)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextFieldOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextFieldBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2))
-                        .addGap(29, 29, 29)
-                        .addComponent(jButtonCreateAccount)
-                        .addGap(40, 40, 40))
-        );
-
-        jTabbedPane1.addTab(bundle.getString("ACCOUNTS.TAB"), jPanel1); // NOI18N
-
-        jTablePayments.setModel(new PaymentTableModel(paymentManager, bankingManager));
-        jScrollPane2.setViewportView(jTablePayments);
-        jTablePayments.setDefaultRenderer(Object.class, new TableCellRenderer());
-
-        jButtonDeleteSelectedPayment.setText(bundle.getString("DELETE.SELECTED.BUTTON")); // NOI18N
-        jButtonDeleteSelectedPayment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteSelectedPaymentActionPerformed(evt);
-            }
-        });
-
-        //jTextFieldAmountPayment.setText(bundle.getString("AMOUNT.TEXTFIELDFILL")); // NOI18N
+      
         MyListener listenerAccount = new MyListener();
         listenerAccount.setName("jTextFieldAmountPayment");
         listenerAccount.setPreferences(prefs);
         jTextFieldAmountPayment.getDocument().addDocumentListener(listenerAccount);
         jTextFieldAmountPayment.setText(prefs.get("jTextFieldAmountPayment", ""));
 
-        jLabel3.setText(bundle.getString("AMOUNT.LABEL")); // NOI18N
-
-        jComboBoxFromAccounts.setModel(new AccountComboBoxModel(accountManager));
-
-        jComboBoxToAccounts.setModel(new AccountComboBoxModel(accountManager));
-
-        jLabel4.setText(bundle.getString("SENDFROM.LABEL")); // NOI18N
-
-        jLabel5.setText(bundle.getString("SENDTO.LABEL")); // NOI18N
-
-        jButtonExecutePayment.setText(bundle.getString("EXECUTEPAYMENT.BUTTON")); // NOI18N
-        jButtonExecutePayment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExecutePaymentActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jSeparator3)
-                        .addContainerGap())
-                .addComponent(jScrollPane2)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 168, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel5))
-                                        .addGap(97, 97, 97)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jComboBoxToAccounts, 0, 156, Short.MAX_VALUE)
-                                                        .addComponent(jComboBoxFromAccounts, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addComponent(jTextFieldAmountPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jButtonExecutePayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(113, 113, 113))
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jButtonDeleteSelectedPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonDeleteSelectedPayment)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextFieldAmountPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBoxFromAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBoxToAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonExecutePayment)
-                        .addGap(0, 51, Short.MAX_VALUE))
-        );
-
-        jComboBoxFromAccounts.setRenderer(new ComboBoxCellRenderer());
-        jComboBoxToAccounts.setRenderer(new ComboBoxCellRenderer());
-
-        jTabbedPane1.addTab(bundle.getString("PAYMENTS.TAB"), jPanel2); // NOI18N
-
-        jMenuFile.setText(bundle.getString("FILE.MENUBAR.ITEM")); // NOI18N
-
-        jMenuItemAbout.setText(bundle.getString("ABOUT.MENU.ITEM")); // NOI18N
-        jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAboutActionPerformed(evt);
-            }
-        });
-        jMenuFile.add(jMenuItemAbout);
-        jMenuFile.add(jSeparator1);
-
-        jMenuItemExit.setText(bundle.getString("EXIT.MENU.ITEM")); // NOI18N
-        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemExitActionPerformed(evt);
-            }
-        });
-        jMenuFile.add(jMenuItemExit);
-
-        jMenuBar2.add(jMenuFile);
-
-        setJMenuBar(jMenuBar2);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        pack();
-
     }
 
-    private void setUpDatabase() throws SQLException {
+    private void setUpDatabase() throws SQLException, IOException {
         src = prepareDataSource();
         try (Connection connection = src.getConnection();
                 PreparedStatement prepStatementAccounts = connection.prepareStatement("CREATE TABLE account ("
@@ -370,12 +128,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     }
 
-    private DataSource prepareDataSource() throws SQLException {
-        EmbeddedDataSource ds = new EmbeddedDataSource();
-        ds.setDatabaseName("memory:account-test");
-        ds.setCreateDatabase("create");
-        return ds;
+    public DataSource prepareDataSource() throws IOException {
+        Properties p =  new Properties();
+        p.load(this.getClass().getResourceAsStream("/databaseConfiguration.properties"));
+ 
+        BasicDataSource bds = new BasicDataSource(); 
+        bds.setDriverClassName(p.getProperty("jdbc.driver"));
+        bds.setUrl(p.getProperty("jdbc.url"));
+        bds.setUsername(p.getProperty("jdbc.user"));
+        bds.setPassword(p.getProperty("jdbc.password"));
+        return bds;
     }
+    
+    
+    
+//    private DataSource prepareDataSource() throws SQLException {
+//        EmbeddedDataSource ds = new EmbeddedDataSource();
+//        ds.setDatabaseName("memory:account-test");
+//        ds.setCreateDatabase("create");
+//        return ds;
+//    }
 
 //------------------------------------------------------------------------------
     public void refreshComboBoxAccountModels() {
@@ -472,10 +244,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldOwner.setText(bundle.getString("OWNERNAME.TEXTFIELDFILL")); // NOI18N
-
-        jTextFieldBalance.setText(bundle.getString("INITIALBALANCE.TEXTFIELDFILL")); // NOI18N
-
         jLabel1.setText(bundle.getString("OWNER.LABEL")); // NOI18N
 
         jLabel2.setText(bundle.getString("BALANCE.LABEL")); // NOI18N
@@ -540,8 +308,6 @@ public class MainFrame extends javax.swing.JFrame {
                 jButtonDeleteSelectedPaymentActionPerformed(evt);
             }
         });
-
-        jTextFieldAmountPayment.setText(bundle.getString("AMOUNT.TEXTFIELDFILL")); // NOI18N
 
         jLabel3.setText(bundle.getString("AMOUNT.LABEL")); // NOI18N
 
@@ -693,9 +459,6 @@ public class MainFrame extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(MainFrame.this, bundle.getString("UNKNOWN.ERROR"));
 
-        } finally {
-            jTextFieldOwner.setText(bundle.getString("OWNERNAME.TEXTFIELDFILL"));
-            jTextFieldBalance.setText(bundle.getString("INITIALBALANCE.TEXTFIELDFILL"));
         }
 
     }//GEN-LAST:event_jButtonCreateAccountActionPerformed
@@ -720,7 +483,6 @@ public class MainFrame extends javax.swing.JFrame {
             p.setFrom((Account) jComboBoxFromAccounts.getSelectedItem());
             p.setTo((Account) jComboBoxToAccounts.getSelectedItem());
 
-            jTextFieldAmountPayment.setText(bundle.getString("AMOUNT.TEXTFIELDFILL"));
             jComboBoxFromAccounts.getModel().setSelectedItem(null);
             jComboBoxToAccounts.setSelectedItem(null);
             refreshComboBoxAccountModels();
